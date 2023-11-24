@@ -30,6 +30,8 @@ public:
      string getNome();
      string getCpf();
      vector<Filme*> getFilmesAlugados();
+     void Cliente::adicionarFilmeAlugado(Filme* filme);
+     void Cliente::devolverFilmeAlugado(Filme* filme);
 };
 
 #endif
