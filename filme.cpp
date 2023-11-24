@@ -1,8 +1,8 @@
 #include "filme.hpp"
 
 // Implementação do construtor
-Filme::Filme(const std::string& _titulo, int _codigo, int _quantidade)
-    : titulo(_titulo), codigo(_codigo), quantidade(_quantidade), unidadesDisponiveis(0) {
+Filme::Filme(const std::string& _titulo, int _codigo, int _quantidade, const std::string& _tipo)
+    : titulo(_titulo), codigo(_codigo), quantidade(_quantidade), unidadesDisponiveis(0), tipo(_tipo) {
     
 }
 
@@ -22,6 +22,11 @@ int Filme::getCodigo() const {
 
 int Filme::getUnidadesDisponiveis() const {
     return unidadesDisponiveis;
+}
+
+const std::string &Filme::getTipo() const
+{
+    return tipo;
 }
 
 // Implementação dos métodos específicos da classe
