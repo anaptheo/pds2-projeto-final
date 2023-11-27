@@ -5,16 +5,23 @@
 #include <string>
 
 class Filme {
+public:
+    enum class Tipo {
+        DVD,
+        BluRay,
+        Fita
+    };
+
 private:
     std::string titulo;
     int codigo;
-    int quantidade; 
+    int quantidade;
     int unidadesDisponiveis;
-    std::string tipo;
+    Tipo tipo;
 
 public:
     // Construtor
-    Filme(const std::string& titulo, int codigo, int quantidade, const std::string& tipo);
+    Filme(const std::string& titulo, int codigo, int quantidade, Tipo tipo);
 
     // Destrutor
     ~Filme();
@@ -23,13 +30,14 @@ public:
     const std::string& getTitulo() const;
     int getCodigo() const;
     int getUnidadesDisponiveis() const;
-    const std::string& getTipo() const;
+    Tipo getTipo() const;
+    int getQuantidade() const;
+
 
     // Metodos da classe
     void incrementarUnidades();
     void decrementarUnidades();
     virtual double calcularValorLocacao(int dias) const = 0;
-
 };
 
 #endif // FILME_HPP
