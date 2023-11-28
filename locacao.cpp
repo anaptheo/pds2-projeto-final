@@ -98,18 +98,22 @@ void Locacao::removerFilme(int codigo) {
 }
 
 void Locacao::listarFilmes() {
+
+    // Ordena os filmes por código
     std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
         return a->getCodigo() < b->getCodigo();
     });
 
+    // Exibe os filmes
     for (Filme* filme : _catalogo_filmes) {
-        std::cout << "Código: " << filme->getCodigo() << " - Título: " << filme->getTitulo()
+        std::cout << "Codigo: " << filme->getCodigo() << " - Titulo: " << filme->getTitulo()
                   << " - Quantidade: " << filme->getUnidadesDisponiveis() << " - Tipo: " << filme->getTipo() << std::endl;
     }
 }
 
 void Locacao::cadastrarCliente(const std::string& nome, const std::string& cpf) {
     _clientes_cadastrados.push_back(new Cliente(nome, cpf));
+    std::cout << "Cliente cadastrado com sucesso!" << std::endl;
 }
 
 void Locacao::removerCliente(const std::string& cpf) {
