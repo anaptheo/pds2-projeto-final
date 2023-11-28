@@ -8,19 +8,37 @@
 
 using namespace std;
 
+void displayHelp() {
+    cout << "Comandos disponíveis:" << endl;
+    cout << "CF - Cadastrar Filme: Adiciona um filme ao catálogo da locadora." << endl;
+    cout << "RF - Remover Filme: Remove um filme do catálogo da locadora." << endl;
+    cout << "LF - Listar Filmes: Lista todos os filmes disponíveis na locadora." << endl;
+    cout << "CC - Cadastrar Cliente: Adiciona um cliente à lista de clientes da locadora." << endl;
+    cout << "RC - Remover Cliente: Remove um cliente da lista de clientes da locadora." << endl;
+    cout << "LC - Listar Clientes: Lista todos os clientes cadastrados na locadora." << endl;
+    cout << "AL - Alugar Filme: Permite alugar filmes para um cliente." << endl;
+    cout << "DV - Devolver Filme: Devolve filmes alugados por um cliente." << endl;
+    cout << "FS - Finalizar Sistema: Encerra o Sistema de Locadora de Vídeos." << endl;
+    cout << "ajuda - Exibir este menu de ajuda." << endl;
+}
+
 int main() {
     string input;
     Locacao locacao;
     Categoria categoria;
+    string cpf;
+    int codigo;
+    int dias;
+    vector<Filme*> filmes;
 
-    cout << "Bem-vindo ao Sistema de Locadora de Vídeos!" << endl;
+    cout << "Bem-vindo ao Sistema de Locadora de Videos!" << endl;
 
     while (true) {
         cout << "Digite um comando (digite 'ajuda' para os comandos): ";
         cin >> input;
 
         if (input == "ajuda") {
-            // colocar
+            displayHelp();
         } else if (input == "CF") {
             char tipo;
             cout << "Digite o tipo do filme (D para DVD, B para Bluray, F para Fita): ";
@@ -55,7 +73,7 @@ int main() {
                         cout << "Categoria inválida." << endl;
                         continue;
                 }
-                
+
                 filme = new DVD(titulo, codigo, quantidade, categoria);
 
             } else if (tipo == 'B') {
@@ -121,24 +139,61 @@ int main() {
             locacao.listarClientes();
 
         } else if (input == "AL") {
-            string cpf;
-            int codigo1, codigo2; // ?
-            cout << "Digite o CPF do cliente: ";
-            cin >> cpf;
-            cout << "Digite os códigos dos filmes a serem alugados (separados por espaço): ";
-            cin >> codigo1 >> codigo2; // ?
-            locacao.alugarFilmes(cpf, codigo1, codigo2);
+            std::cout << "Digite o CPF do cliente: ";
+            std::cin >> cpf;
+
+            Cliente* cliente = locacao.getCliente(cpf);
+
+            if (cliente != nullptr) {
+                // Permitir que o usuário insira múltiplos códigos de filmes até indicar que terminou
+                while (true) {
+                    std::cout << "Digite o código do filme a ser alugado (ou -1 para encerrar): ";
+                    std::cin >> codigo;
+
+                    if (codigo == -1) {
+                        break; // Sair do loop se -1 for inserido
+                    }
+
+                    Filme* filme = locacao.getFilme(codigo);
+
+                    if (filme != nullptr) {
+                        filmes.push_back(filme);
+                    } else {
+                        std::cout << "Filme código " << codigo << " não encontrado." << std::endl;
+                    }
+                }
+
+                std::cout << "Digite a quantidade de dias para aluguel: ";
+                std::cin >> dias;
+
+                // Use locacao.alugarFilmes com o ponteiro Cliente obtido
+                locacao.alugarFilmes(cliente->getCpf(), filmes, dias);
+
+                // Limpar o vetor de filmes após o aluguel ser concluído
+                filmes.clear();
+            } else {
+                std::cout << "Cliente não encontrado." << std::endl;
+            }
 
         } else if (input == "DV") {
-            string cpf;
-            cout << "Digite o CPF do cliente que está devolvendo os filmes: ";
-            cin >> cpf;
-            locacao.devolverFilmes(cpf);
+            std::cout << "Digite o CPF do cliente que está devolvendo os filmes: ";
+            std::cin >> cpf;
+
+            Cliente* cliente = locacao.getCliente(cpf);
+
+            if (cliente != nullptr) {
+                // Use locacao.devolverFilmes instead of locacao.devolverFilme
+                locacao.devolverFilmes(cliente->getCpf(), filmes);
+
+                // Limpar o vetor de filmes após a devolução ser concluída
+                filmes.clear();
+            } else {
+                std::cout << "Cliente não encontrado." << std::endl;
+            }
 
         } else if (input == "FS") {
             cout << "Encerrando o Sistema de Locadora de Vídeos. Até logo!" << endl;
             break;
-
         } else {
             cout << "Comando inválido. Digite 'ajuda' para ver os comandos." << endl;
         }

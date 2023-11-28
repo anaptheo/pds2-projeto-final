@@ -38,13 +38,15 @@ void Cliente::adicionarFilmeAlugado(Filme* filme) {
     _filmes_alugados.push_back(filme);
 }
 
-void Cliente::devolverFilmeAlugado(Filme* filme) {
+bool Cliente::devolverFilmeAlugado(Filme* filme) {
     auto it = find(_filmes_alugados.begin(), _filmes_alugados.end(), filme);
     
     if (it != _filmes_alugados.end()) {
         _filmes_alugados.erase(it);
-          cout << "Filme devolvido com sucesso." << endl;
+        cout << "Filme devolvido com sucesso." << endl;
+        return true;
     } else {
-          cout << "Erro: Filme não encontrado na lista de filmes alugados." << endl;
+        cout << "Erro: Filme não encontrado na lista de filmes alugados." << endl;
+        return false;
     }
 }
