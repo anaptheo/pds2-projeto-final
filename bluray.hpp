@@ -1,6 +1,9 @@
 #ifndef BLURAY_HPP
 #define BLURAY_HPP
 
+#include <iostream>
+#include <string>
+
 #include "filme.hpp"
 
 class Bluray : public Filme {

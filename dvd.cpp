@@ -1,19 +1,20 @@
 #include "dvd.hpp"
 
-DVD::DVD(const std::string& _titulo, int _codigo, int _quantidade, Tipo _tipo)
-    : Filme(_titulo, _codigo, _quantidade), tipo(_tipo) {}
+DVD::DVD(const std::string& titulo, int codigo, int quantidade, Categoria _categoria)
+    : Filme(titulo, codigo, quantidade, Filme::Tipo::DVD), categoria(_categoria) {
+}
 
 double DVD::calcularValorLocacao(int dias) const {
     double valorLocacao = 0.0;
 
-    switch (tipo) {
-        case Tipo::Lancamento:
+    switch (categoria) {
+        case Categoria::Lancamento:
             valorLocacao = 20.0 * dias;
             break;
-        case Tipo::Estoque:
+        case Categoria::Estoque:
             valorLocacao = 10.0 * dias;
             break;
-        case Tipo::Promocao:
+        case Categoria::Promocao:
             valorLocacao = 10.0; 
             break;
     }

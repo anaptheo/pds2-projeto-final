@@ -15,7 +15,6 @@ private:
      string _cpf;
      int _pontos_fidelidade;
      vector <Filme*> _filmes_alugados;
-     //vector<Filme*> _filmes_alugados;
 public:
      Cliente(string nome, string cpf);
      ~Cliente();
@@ -30,8 +29,8 @@ public:
      string getNome();
      string getCpf();
      vector<Filme*> getFilmesAlugados();
-     void Cliente::adicionarFilmeAlugado(Filme* filme);
-     void Cliente::devolverFilmeAlugado(Filme* filme);
+     void adicionarFilmeAlugado(Filme* filme);
+     bool devolverFilmeAlugado(Filme* filme);
 };
 
 #endif

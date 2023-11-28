@@ -3,17 +3,20 @@
 
 #include "filme.hpp"
 
+enum class Categoria {
+    Lancamento,
+    Estoque,
+    Promocao
+};
+
 class DVD : public Filme {
 protected:
-    enum class Tipo { Lancamento, Estoque, Promocao };
-    Tipo tipo;
+    Categoria categoria;
 
 public:
-    DVD(const std::string& titulo, int codigo, int quantidade, Tipo _tipo);
+    DVD(const std::string& titulo, int codigo, int quantidade, Categoria _categoria);
 
     double calcularValorLocacao(int dias) const override;
-
-  
 };
 
 #endif // DVD_HPP

@@ -5,7 +5,7 @@ int Bluray::quantidadeAparelhos = 10; // Defina a quantidade inicial desejada
 
 // Implementação do construtor
 Bluray::Bluray(const std::string& _titulo, int _codigo, int _quantidade)
-    : Filme(_titulo, _codigo, _quantidade), playerAlugado(false) {}
+    : Filme(_titulo, _codigo, _quantidade, Filme::Tipo::BluRay), playerAlugado(false) {}
 
 // Implementação dos métodos específicos para Blu-rays
 int Bluray::getQuantidadeAparelhosDisponiveis() {
