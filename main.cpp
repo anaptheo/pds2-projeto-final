@@ -28,7 +28,7 @@ int main() {
     Locacao locacao;
     Categoria categoria;
     string cpf;
-    int codigo;
+    string codigo;
     int dias;
     vector<Filme*> filmes;
 
@@ -48,7 +48,8 @@ int main() {
 
                 Filme* filme;
                 if (tipo == 'D') {
-                    int codigo, quantidade;
+                    string codigo;
+                    int quantidade;
                     string titulo;
 
                     cout << "Digite o codigo do DVD: ";
@@ -82,7 +83,8 @@ int main() {
                     locacao.cadastrarFilme(filme);
 
                 } else if (tipo == 'B') {
-                    int codigo, quantidade;
+                    string codigo; 
+                    int quantidade;
                     string titulo;
 
                     cout << "Digite o codigo do Bluray: ";
@@ -98,7 +100,8 @@ int main() {
                     locacao.cadastrarFilme(filme);
 
                 } else if (tipo == 'F') {
-                    int codigo, quantidade;
+                    string codigo; 
+                    int quantidade;
                     string titulo;
                     bool rebobinada;
 
@@ -124,7 +127,7 @@ int main() {
                 cout << "Filme cadastrado com sucesso!" << endl;
 
             } else if (input == "RF") {
-                int codigo;
+                string codigo;
                 cout << "Digite o codigo do filme a ser removido: ";
                 cin >> codigo; 
                 locacao.removerFilme(codigo);
@@ -164,7 +167,7 @@ int main() {
                         std::cout << "Digite o codigo do filme a ser alugado (ou -1 para encerrar): ";
                         std::cin >> codigo;
 
-                        if (codigo == -1) {
+                        if (codigo == "-1") {
                             break; // Sair do loop se -1 for inserido
                         }
 
@@ -177,11 +180,10 @@ int main() {
                         }
                     }
 
-                    std::cout << "Digite a quantidade de dias para aluguel: ";
-                    std::cin >> dias;
+                    
 
                     // Use locacao.alugarFilmes com o ponteiro Cliente obtido
-                    locacao.alugarFilmes(cliente->getCpf(), filmes, dias);
+                    locacao.alugarFilmes(cliente->getCpf(), filmes);
 
                     // Limpar o vetor de filmes apos o aluguel ser concluido
                     filmes.clear();
@@ -192,10 +194,11 @@ int main() {
             } else if (input == "DV") {
                 std::cout << "Digite o CPF do cliente que esta devolvendo os filmes: ";
                 std::cin >> cpf;
-
+                std::cout << "Digite a quantidade de dias do aluguel: ";
+                std::cin >> dias;
                 Cliente* cliente = locacao.getCliente(cpf);
                 if (cliente != nullptr) {
-                    locacao.devolverFilmes(cliente->getCpf(), filmes);
+                    locacao.devolverFilmes(cliente->getCpf(), filmes, dias);
 
                     // Limpar o vetor de filmes apos a devolucao ser concluida
                     filmes.clear();

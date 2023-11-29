@@ -15,21 +15,16 @@ protected:
 public:
     void emiteReciboAluguel(Cliente* cliente);
     void emiteReciboDevolucao(Cliente* cliente, int dias);
-    void devolverFilme(Cliente* cliente, std::vector<Filme*>& filmes, int dias);
-    void alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, int dias);
-    void ImprimirFilmes();
-    void adicionarFilmeAlugado(Filme* filme);
-    void devolverFilmes(const std::string& cpf, const std::vector<Filme*>& filmes);
+    void alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes);
+    void devolverFilmes(const std::string& cpf, const std::vector<Filme*>& filmes, int dias);
     void cadastrarFilme(Filme* filme);
-    void removerFilme(int codigo);
+    void removerFilme(std::string codigo);
     void listarFilmes();
     void cadastrarCliente(const std::string& nome, const std::string& cpf);
     void removerCliente(const std::string& cpf);
     void listarClientes();
-    void alugarFilmes(const std::string& cpf, std::vector<int> codigos, int dias);
-    void devolverFilmes(const std::string& cpf, const std::vector<int>& codigos);
     Cliente* getCliente(const std::string& cpf);
-    Filme* getFilme(int codigo_filme);
+    Filme* getFilme(std::string codigo_filme);
 };
 
 #endif // LOCACAO_HPP

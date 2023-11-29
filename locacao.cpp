@@ -2,12 +2,25 @@
 #include <algorithm>
 #include <iostream>
 
+//getters para retornar filme/cliente por codigo/cpf
+
+Filme* Locacao::getFilme(std::string codigo_filme) {
+    for (auto filme : _catalogo_filmes) {
+        if (filme->getCodigo() == codigo_filme) {
+            return filme;
+        }
+    }
+    return nullptr;
+}
+
 Cliente* Locacao::getCliente(const std::string& cpf) {
     auto it = std::find_if(_clientes_cadastrados.begin(), _clientes_cadastrados.end(),
                             [cpf](Cliente* cliente) { return cliente->getCpf() == cpf; });
 
     return (it != _clientes_cadastrados.end()) ? *it : nullptr;
 }
+
+//impressao dos recibos
 
 void Locacao::emiteReciboAluguel(Cliente* cliente) {
     std::cout << "Cliente " << cliente->getCpf() << " " << cliente->getNome() << " alugou os filmes:" << std::endl; 
@@ -29,21 +42,10 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
     std::cout << "Total a pagar: " << valor_total << std::endl;
 }
 
-void Locacao::devolverFilmes(const std::string& cpf, const std::vector<Filme*>& filmes) {
-    Cliente* cliente = getCliente(cpf);
+//métodos para alugar e devolver filmes
 
-    if (cliente != nullptr) {
-        if (!filmes.empty()) {
-            for (Filme* filme : filmes) {
-                cliente->devolverFilmeAlugado(filme);
-            }
-        } else {
-            throw std::out_of_range("Erro: Lista de filmes vazia.");
-        }
-    } 
-}
 
-void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, int dias) {
+void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) {
     Cliente* cliente = getCliente(cpf);
 
     if (cliente != nullptr) {
@@ -56,18 +58,11 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, 
         // Ajuste para o total de pontos de fidelidade do cliente
         int totalPontos = 0;
         for (Filme* filme : filmes) {
-            totalPontos += filme->getQuantidade(); // Adiciona pontos por cada unidade alugada
+            totalPontos++; // Adiciona pontos por cada unidade alugada
         }
         cliente->AdicionarPontos(totalPontos);
 
         std::cout << "Total de pontos de fidelidade acumulados: " << totalPontos << std::endl; //tem q ver se isso nao vai afetar a avaliação
-
-        std::cout << "Total a pagar: ";
-        double totalPagar = 0;
-        for (Filme* filme : filmes) {
-            totalPagar += filme->calcularValorLocacao(dias);
-        }
-        std::cout << totalPagar << std::endl;
 
         // Limpar o vetor após o aluguel
         filmes.clear();
@@ -76,34 +71,65 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, 
     }
 }
 
-void Locacao::cadastrarFilme(Filme* filme) {
-    _catalogo_filmes.push_back(filme);
+void Locacao::devolverFilmes(const std::string& cpf, const std::vector<Filme*>& filmes, int dias) {
+    Cliente* cliente = getCliente(cpf);
+
+    if (cliente != nullptr) {
+        if (!filmes.empty()) {
+            for (Filme* filme : filmes) {
+                cliente->devolverFilmeAlugado(filme);
+            }
+        } else {
+            throw std::out_of_range("Erro: Lista de filmes vazia.");
+        }
+ 
+        std::cout << "Total a pagar: ";
+        double totalPagar = 0;
+        for (Filme* filme : filmes) {
+            totalPagar += filme->calcularValorLocacao(dias);
+        }
+        std::cout << totalPagar << std::endl;
+    } 
 }
 
-void Locacao::removerFilme(int codigo) {
+//métodos para cadastrar ou remover filmes do catálogo
+
+void Locacao::cadastrarFilme(Filme* filme) {
+    // Verifica se já existe um filme com o mesmo código
+    auto it = std::find_if(_catalogo_filmes.begin(), _catalogo_filmes.end(),
+                           [filme](Filme* f) { return f->getCodigo() == filme->getCodigo(); });
+
+    if (it != _catalogo_filmes.end()) {
+        // Filme com o mesmo código encontrado, adicione a quantidade disponível
+        (*it)->adicionarUnidades(filme->getUnidadesDisponiveis());
+        delete filme; // Não precisamos mais do filme, podemos liberar a memória
+    } else {
+        // Nenhum filme com o mesmo código encontrado, adiciona o novo filme ao catálogo
+        _catalogo_filmes.push_back(filme);
+    }
+}
+
+
+void Locacao::removerFilme(std::string codigo) {
     auto it = std::remove_if(_catalogo_filmes.begin(), _catalogo_filmes.end(),
                              [codigo](Filme* filme) { return filme->getCodigo() == codigo; });
 
     if (it != _catalogo_filmes.end()) {
         _catalogo_filmes.erase(it, _catalogo_filmes.end());
+        // Limpa a memória alocada para o filme removido
+        for (auto filme : _catalogo_filmes) {
+            if (filme->getCodigo() == codigo) {
+                delete filme;
+                break; // Não precisamos continuar procurando
+            }
+        }
     } else {
         throw std::invalid_argument("Erro: Filme não encontrado.");
     }
 }
 
-void Locacao::listarFilmes() {
 
-    // Ordena os filmes por código
-    std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
-        return a->getCodigo() < b->getCodigo();
-    });
-
-    // Exibe os filmes
-    for (Filme* filme : _catalogo_filmes) {
-        std::cout << "Codigo: " << filme->getCodigo() << " - Titulo: " << filme->getTitulo()
-                  << " - Quantidade: " << filme->getUnidadesDisponiveis() << " - Tipo: " << filme->getTipo() << std::endl;
-    }
-}
+//métodos para cadastrar ou remover clientes
 
 void Locacao::cadastrarCliente(const std::string& nome, const std::string& cpf) {
     _clientes_cadastrados.push_back(new Cliente(nome, cpf));
@@ -121,17 +147,25 @@ void Locacao::removerCliente(const std::string& cpf) {
     }
 }
 
+//métodos para listar filmes e clientes
+
+void Locacao::listarFilmes() {
+
+    // Ordena os filmes por código
+    std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
+        return a->getCodigo() < b->getCodigo();
+    });
+
+    // Exibe os filmes
+    for (Filme* filme : _catalogo_filmes) {
+        std::cout << "Codigo: " << filme->getCodigo() << " - Titulo: " << filme->getTitulo()
+                  << " - Quantidade: " << filme->getUnidadesDisponiveis() << " - Tipo: " << filme->getTipo() << std::endl;
+    }
+}
+
 void Locacao::listarClientes() {
     for (Cliente* cliente : _clientes_cadastrados) {
         cliente->MostrarInfo();
     }
 }
 
-Filme* Locacao::getFilme(int codigo_filme) {
-    for (auto filme : _catalogo_filmes) {
-        if (filme->getCodigo() == codigo_filme) {
-            return filme;
-        }
-    }
-    return nullptr;
-}
