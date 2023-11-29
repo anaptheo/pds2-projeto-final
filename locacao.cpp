@@ -161,6 +161,28 @@ void Locacao::removerFilme(std::string codigo) {
 
 //métodos para cadastrar ou remover clientes
 
+void Locacao::listarFilmesTitulo() {
+
+    // Ordena os filmes por título
+    std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
+
+        if (a->getTitulo().compare(b->getTitulo()) < 0 ){
+            return true;
+        }else if (a->getTitulo().compare(b->getTitulo()) > 0 ){
+            return false;
+        }else if (a->getTitulo().compare(b->getTitulo()) == 0 ){
+            return true;
+        }
+    });
+
+    // Exibe os filmes
+    for (Filme* filme : _catalogo_filmes) {
+        std::cout << "Codigo: " << filme->getCodigo() << " - Titulo: " << filme->getTitulo()
+                  << " - Quantidade: " << filme->getUnidadesDisponiveis() << " - Tipo: " << filme->getTipo() << std::endl;
+    }
+
+}
+
 void Locacao::cadastrarCliente(const std::string& nome, const std::string& cpf) {
     _clientes_cadastrados.push_back(new Cliente(nome, cpf));
     std::cout << "Cliente cadastrado com sucesso!" << std::endl;

@@ -103,10 +103,21 @@ int main() {
         } else if (command == "RF") {
             iss >> codigo;
             locacao.removerFilme(codigo);
-
-        } else if (command == "LF") {
-            locacao.listarFilmes();
-
+          
+        } else if (input == "LF") {
+            char escolha;
+            cout << "Deseja listar os filmes por codigo ou por titulo? (C para codigo, T para titulo): ";
+            cin >> escolha;
+            if (escolha == 'C')
+            {
+                cout << "Listando filmes:" << endl;
+                locacao.listarFilmes();
+            } else if (escolha == 'T'){
+                cout << "Listando filmes:" << endl;
+                locacao.listarFilmesTitulo();
+            } else{
+                cout << "Opcao invalida." << endl;
+            }
         } else if (command == "CC") {
             string nome, cpf;
             getline(iss, nome);
