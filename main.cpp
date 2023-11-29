@@ -128,9 +128,19 @@ int main() {
             locacao.removerFilme(codigo);
 
         } else if (input == "LF") {
-            cout << "Listando filmes:" << endl;
-            locacao.listarFilmes();
-
+            char escolha;
+            cout << "Deseja listar os filmes por codigo ou por titulo? (C para codigo, T para titulo): ";
+            cin >> escolha;
+            if (escolha == 'C')
+            {
+                cout << "Listando filmes:" << endl;
+                locacao.listarFilmes();
+            } else if (escolha == 'T'){
+                cout << "Listando filmes:" << endl;
+                locacao.listarFilmesTitulo();
+            } else{
+                cout << "Opcao invalida." << endl;
+            }
         } else if (input == "CC") {
             string nome, cpf;
             cout << "Digite o nome do cliente: ";

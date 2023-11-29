@@ -23,9 +23,11 @@ public:
     void cadastrarFilme(Filme* filme);
     void removerFilme(int codigo);
     void listarFilmes();
+    void listarFilmesTitulo();
     void cadastrarCliente(const std::string& nome, const std::string& cpf);
     void removerCliente(const std::string& cpf);
     void listarClientes();
+    void listarClientesOrdenado();
     void alugarFilmes(const std::string& cpf, std::vector<int> codigos, int dias);
     void devolverFilmes(const std::string& cpf, const std::vector<int>& codigos);
     Cliente* getCliente(const std::string& cpf);
