@@ -1,4 +1,5 @@
 #include "bluray.hpp"
+#include <string>
 
 // Inicialização da variável estática
 int Bluray::quantidadeAparelhos = 10; // Defina a quantidade inicial desejada
@@ -21,7 +22,7 @@ void Bluray::alugarAparelho() {
         quantidadeAparelhos--;
         playerAlugado = true;
     } else {
-        std::cout << "ERRO: todos os Blu-ray Players estão alugados no momento." << std::endl;
+        throw std::invalid_argument("ERRO: todos os Blu-ray Players estão alugados no momento."); // chutei q era invalid argument sl
     }
 }
 
