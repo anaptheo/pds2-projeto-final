@@ -13,7 +13,7 @@ private:
 
 public:
     // Construtor
-    Bluray(const std::string& titulo, int codigo, int quantidade);
+    Bluray(const std::string& titulo, std::string codigo, int unidadesDisponiveis);
 
     // Métodos específicos para Blu-rays
     static int getQuantidadeAparelhosDisponiveis();

@@ -14,28 +14,26 @@ public:
 
 private:
     std::string titulo;
-    int codigo;
-    int quantidade;
+    std::string codigo;
     int unidadesDisponiveis;
     Tipo tipo;
 
 public:
     // Construtor
-    Filme(const std::string& titulo, int codigo, int quantidade, Tipo tipo);
+    Filme(const std::string& titulo, std::string codigo, Tipo tipo, int unidadesDisponiveis);
 
     // Destrutor
     ~Filme();
 
     // Getters
     const std::string& getTitulo() const;
-    int getCodigo() const;
+    std::string getCodigo() const;
     int getUnidadesDisponiveis() const;
     Tipo getTipo() const;
-    int getQuantidade() const;
 
     // Metodos da classe
-    void incrementarUnidades();
-    void decrementarUnidades();
+    void adicionarUnidades(int quantidade);
+    void removerUnidades(int quantidade);
     virtual double calcularValorLocacao(int dias) const = 0;
 
     // Overload for outputting Tipo enum to ostream

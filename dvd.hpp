@@ -14,7 +14,7 @@ protected:
     Categoria categoria;
 
 public:
-    DVD(const std::string& titulo, int codigo, int quantidade, Categoria _categoria);
+    DVD(const std::string& titulo, std::string codigo, int unidadesDisponiveis, Categoria _categoria);
 
     double calcularValorLocacao(int dias) const override;
 };

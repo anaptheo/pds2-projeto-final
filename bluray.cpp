@@ -1,11 +1,12 @@
 #include "bluray.hpp"
+#include <string>
 
 // Inicialização da variável estática
 int Bluray::quantidadeAparelhos = 10; // Defina a quantidade inicial desejada
 
 // Implementação do construtor
-Bluray::Bluray(const std::string& _titulo, int _codigo, int _quantidade)
-    : Filme(_titulo, _codigo, _quantidade, Filme::Tipo::BluRay), playerAlugado(false) {}
+Bluray::Bluray(const std::string& _titulo, std::string _codigo, int _unidadesDisponiveis)
+    : Filme(_titulo, _codigo, Filme::Tipo::BluRay, _unidadesDisponiveis), playerAlugado(false) {}
 
 // Implementação dos métodos específicos para Blu-rays
 int Bluray::getQuantidadeAparelhosDisponiveis() {
@@ -21,7 +22,7 @@ void Bluray::alugarAparelho() {
         quantidadeAparelhos--;
         playerAlugado = true;
     } else {
-        std::cout << "ERRO: todos os Blu-ray Players estão alugados no momento." << std::endl;
+        throw std::invalid_argument("ERRO: todos os Blu-ray Players estão alugados no momento."); // chutei q era invalid argument sl
     }
 }
 

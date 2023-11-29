@@ -8,7 +8,7 @@ private:
     bool rebobinada;
 
 public:
-    Fita(const std::string& titulo, int codigo, int quantidade, bool _rebobinada);
+    Fita(const std::string& titulo, std::string codigo, int quantidade, bool _rebobinada);
 
     bool estaRebobinada() const;
     void rebobinar();
