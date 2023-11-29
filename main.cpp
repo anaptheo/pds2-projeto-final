@@ -198,7 +198,7 @@ int main() {
                 std::cin >> dias;
                 Cliente* cliente = locacao.getCliente(cpf);
                 if (cliente != nullptr) {
-                    locacao.devolverFilmes(cliente->getCpf(), filmes, dias);
+                    locacao.devolverFilmes(cliente->getCpf(), dias);
 
                     // Limpar o vetor de filmes apos a devolucao ser concluida
                     filmes.clear();

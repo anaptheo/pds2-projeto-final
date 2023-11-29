@@ -1,4 +1,7 @@
 #include "locacao.hpp"
+#include "DVD.hpp"
+#include "Bluray.hpp"
+#include "Fita.hpp"
 #include <algorithm>
 #include <iostream>
 
@@ -71,12 +74,42 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
     }
 }
 
-void Locacao::devolverFilmes(const std::string& cpf, const std::vector<Filme*>& filmes, int dias) {
+void Locacao::devolverFilmes(const std::string& cpf, int dias) {
     Cliente* cliente = getCliente(cpf);
 
     if (cliente != nullptr) {
-        if (!filmes.empty()) {
-            for (Filme* filme : filmes) {
+        vector<Filme*>& filmes_alugados = cliente->getFilmesAlugados();
+        
+        double totalPagar = 0;
+        for (Filme* filme : filmes_alugados) {
+            double valorLocacao;
+
+            // Verifica o tipo do filme
+            if (filme->getTipo() == Filme::Tipo::DVD) {
+                DVD* dvd = dynamic_cast<DVD*>(filme);
+                if (dvd) {
+                    // Calcula o valor de locação específico para DVD
+                    valorLocacao = dvd->calcularValorLocacao(dias);
+                }
+            } else if (filme->getTipo() == Filme::Tipo::BluRay) {
+                Bluray* bluray = dynamic_cast<Bluray*>(filme);
+                if (bluray) {
+                    // Calcula o valor de locação específico para BluRay
+                    valorLocacao = bluray->calcularValorLocacao(dias);
+                }
+            } else if (filme->getTipo() == Filme::Tipo::Fita) {
+                Fita* fita = dynamic_cast<Fita*>(filme);
+                if (fita) {
+                    // Calcula o valor de locação específico para Fita
+                    valorLocacao = fita->calcularValorLocacao(dias);
+                }
+            }
+
+            totalPagar += valorLocacao;
+        }
+
+        if (!filmes_alugados.empty()) {
+            for (Filme* filme : filmes_alugados) {
                 cliente->devolverFilmeAlugado(filme);
             }
         } else {
@@ -84,10 +117,7 @@ void Locacao::devolverFilmes(const std::string& cpf, const std::vector<Filme*>& 
         }
  
         std::cout << "Total a pagar: ";
-        double totalPagar = 0;
-        for (Filme* filme : filmes) {
-            totalPagar += filme->calcularValorLocacao(dias);
-        }
+       
         std::cout << totalPagar << std::endl;
     } 
 }
