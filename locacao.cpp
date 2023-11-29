@@ -35,18 +35,12 @@ void Locacao::devolverFilmes(const std::string& cpf, const std::vector<Filme*>& 
     if (cliente != nullptr) {
         if (!filmes.empty()) {
             for (Filme* filme : filmes) {
-                if (cliente->devolverFilmeAlugado(filme)) {
-                    std::cout << "Filme código " << filme->getCodigo() << " devolvido com sucesso." << std::endl;
-                } else {
-                    std::cout << "Erro: Filme código " << filme->getCodigo() << " não foi alugado por este cliente." << std::endl;
-                }
+                cliente->devolverFilmeAlugado(filme);
             }
         } else {
-            std::cout << "Erro: Lista de filmes vazia." << std::endl;
+            throw std::out_of_range("Erro: Lista de filmes vazia.");
         }
-    } else {
-        std::cout << "Erro: Cliente não encontrado." << std::endl;
-    }
+    } 
 }
 
 void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, int dias) {
@@ -66,7 +60,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, 
         }
         cliente->AdicionarPontos(totalPontos);
 
-        std::cout << "Total de pontos de fidelidade acumulados: " << totalPontos << std::endl;
+        std::cout << "Total de pontos de fidelidade acumulados: " << totalPontos << std::endl; //tem q ver se isso nao vai afetar a avaliação
 
         std::cout << "Total a pagar: ";
         double totalPagar = 0;
@@ -78,7 +72,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes, 
         // Limpar o vetor após o aluguel
         filmes.clear();
     } else {
-        std::cout << "Erro: CPF inexistente." << std::endl;
+        throw std::invalid_argument("Erro: CPF inexistente.");
     }
 }
 
@@ -93,7 +87,7 @@ void Locacao::removerFilme(int codigo) {
     if (it != _catalogo_filmes.end()) {
         _catalogo_filmes.erase(it, _catalogo_filmes.end());
     } else {
-        std::cout << "Erro: Filme não encontrado." << std::endl;
+        throw std::invalid_argument("Erro: Filme não encontrado.");
     }
 }
 
@@ -123,7 +117,7 @@ void Locacao::removerCliente(const std::string& cpf) {
     if (it != _clientes_cadastrados.end()) {
         _clientes_cadastrados.erase(it, _clientes_cadastrados.end());
     } else {
-        std::cout << "Erro: Cliente não encontrado." << std::endl;
+        throw std::invalid_argument("Erro: Cliente não encontrado.");
     }
 }
 

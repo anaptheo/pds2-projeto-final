@@ -30,7 +30,7 @@ public:
      string getCpf();
      vector<Filme*> getFilmesAlugados();
      void adicionarFilmeAlugado(Filme* filme);
-     bool devolverFilmeAlugado(Filme* filme);
+     void devolverFilmeAlugado(Filme* filme);
 };
 
 #endif
