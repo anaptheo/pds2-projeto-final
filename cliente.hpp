@@ -28,7 +28,7 @@ public:
 
      string getNome();
      string getCpf();
-     vector<Filme*> getFilmesAlugados();
+     vector<Filme*>& getFilmesAlugados();
      void adicionarFilmeAlugado(Filme* filme);
      void devolverFilmeAlugado(Filme* filme);
 };

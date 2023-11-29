@@ -1,7 +1,7 @@
 #include "dvd.hpp"
 
-DVD::DVD(const std::string& titulo, int codigo, int quantidade, Categoria _categoria)
-    : Filme(titulo, codigo, quantidade, Filme::Tipo::DVD), categoria(_categoria) {
+DVD::DVD(const std::string& _titulo, std::string _codigo, int _unidadesDisponiveis, Categoria _categoria)
+    : Filme(_titulo, _codigo, Filme::Tipo::DVD, _unidadesDisponiveis), categoria(_categoria) {
 }
 
 double DVD::calcularValorLocacao(int dias) const {

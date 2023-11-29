@@ -30,7 +30,7 @@ string Cliente::getCpf(){
      return this->_cpf;
 }
 
-vector<Filme*> Cliente::getFilmesAlugados(){
+vector<Filme*>& Cliente::getFilmesAlugados(){
      return this->_filmes_alugados;
 }
 
