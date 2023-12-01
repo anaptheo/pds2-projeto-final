@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iomanip>
+#include <sstream>
 
 #include "locacao.hpp"
 #include "dvd.hpp"
@@ -27,7 +28,81 @@ void displayHelp() {
     cout << "ajuda - Exibir este menu de ajuda." << endl;
 }
 
+void lerComandosDoArquivo(const std::string& nome_arquivo, Locacao& locacao) {
+    std::ifstream arquivo(nome_arquivo);
 
+    if (!arquivo.is_open()) {
+        throw std::invalid_argument("ERRO: Não foi possível abrir o arquivo.");
+    }
+
+    std::string linha;
+
+    while (std::getline(arquivo, linha)) {
+        // Process each line
+        std::istringstream iss(linha);
+        std::string comando;
+        iss >> comando;
+
+        // Process the CF command
+        if (comando == "CF") {
+            std::string tipo;
+            int quantidade;
+            std::string codigo;
+            std::string titulo;
+            std::string categoria;
+
+            // Read attributes
+            iss >> tipo >> quantidade >> codigo >> titulo;
+
+            // If the type is DVD, read the category
+            if (tipo == "D") {
+                iss >> categoria;
+            }
+
+            // Process the command based on the attributes
+            try {
+                if (tipo == "D") {
+                    Categoria categoriaEnum;
+                    categoria = toUpperCase(categoria);
+                    char categoriaChar = categoria[0];
+
+                    switch (categoriaChar) {
+                        case 'L':
+                            categoriaEnum = Categoria::Lancamento;
+                            break;
+                        case 'E':
+                            categoriaEnum = Categoria::Estoque;
+                            break;
+                        case 'P':
+                            categoriaEnum = Categoria::Promocao;
+                            break;
+                        default:
+                            cerr << "ERRO: Categoria inválida." << endl;
+                            continue;
+                    }
+
+                    // Create a DVD and add it to the locacao
+                    locacao.cadastrarFilme(new DVD(titulo, codigo, quantidade, categoriaEnum));
+                } else if (tipo == "B") {
+                    // Create a BluRay and add it to the locacao
+                    locacao.cadastrarFilme(new Bluray(titulo, codigo, quantidade));
+                } else if (tipo == "F") {
+                    bool rebobinada;
+                    iss >> rebobinada;
+
+                    // Create a Fita and add it to the locacao
+                    locacao.cadastrarFilme(new Fita(titulo, codigo, quantidade, rebobinada));
+                } else {
+                    cerr << "ERRO: Tipo de filme inválido." << endl;
+                }
+            } catch (const std::exception& e) {
+                cerr << "ERRO: " << e.what() << endl;
+            }
+        }
+    }
+
+    arquivo.close();
+}
 
 int main() {
     string input;
@@ -294,17 +369,14 @@ int main() {
                 break;
             } else if (input == "LA") {
                 string nome_arquivo;
+                cout << "Digite o nome do arquivo de comandos: ";
                 cin >> nome_arquivo;
 
-                fstream arquivo;
-                arquivo.open(nome_arquivo, ios::in);
-
-                if (!arquivo) {
-                    throw std::invalid_argument("ERRO: arquivo inexistente."); //mudar o tipo
-                }
-                else {
-                    // chamar a nova funcao de cadastrar filme
-                    arquivo.close(); 
+                try {
+                    lerComandosDoArquivo(nome_arquivo, locacao);
+                    cout << "Comandos do arquivo processados com sucesso!" << endl;
+                } catch (const std::exception& e) {
+                    cerr << "ERRO: " << e.what() << endl;
                 }
             } else {
                 //SERA Q precisa disso? acho q ganha pontos extras ne na defensividade
