@@ -38,12 +38,10 @@ void lerComandosDoArquivo(const std::string& nome_arquivo, Locacao& locacao) {
     std::string linha;
 
     while (std::getline(arquivo, linha)) {
-        // Process each line
         std::istringstream iss(linha);
         std::string comando;
         iss >> comando;
 
-        // Process the CF command
         if (comando == "CF") {
             std::string tipo;
             int quantidade;
@@ -51,15 +49,12 @@ void lerComandosDoArquivo(const std::string& nome_arquivo, Locacao& locacao) {
             std::string titulo;
             std::string categoria;
 
-            // Read attributes
             iss >> tipo >> quantidade >> codigo >> titulo;
 
-            // If the type is DVD, read the category
             if (tipo == "D") {
                 iss >> categoria;
             }
 
-            // Process the command based on the attributes
             try {
                 if (tipo == "D") {
                     Categoria categoriaEnum;
@@ -81,16 +76,13 @@ void lerComandosDoArquivo(const std::string& nome_arquivo, Locacao& locacao) {
                             continue;
                     }
 
-                    // Create a DVD and add it to the locacao
                     locacao.cadastrarFilme(new DVD(titulo, codigo, quantidade, categoriaEnum));
                 } else if (tipo == "B") {
-                    // Create a BluRay and add it to the locacao
                     locacao.cadastrarFilme(new Bluray(titulo, codigo, quantidade));
                 } else if (tipo == "F") {
                     bool rebobinada;
                     iss >> rebobinada;
 
-                    // Create a Fita and add it to the locacao
                     locacao.cadastrarFilme(new Fita(titulo, codigo, quantidade, rebobinada));
                 } else {
                     cerr << "ERRO: Tipo de filme inválido." << endl;
@@ -369,7 +361,6 @@ int main() {
                 break;
             } else if (input == "LA") {
                 string nome_arquivo;
-                cout << "Digite o nome do arquivo de comandos: ";
                 cin >> nome_arquivo;
 
                 try {
