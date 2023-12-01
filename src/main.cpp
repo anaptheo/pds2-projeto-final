@@ -207,7 +207,7 @@ int main() {
                         if (filme != nullptr) {
                             filmes.push_back(filme);
                         } else {
-                            std::string msg_erro = std::string("ERRO: Filme ") + codigo + std::string("inexistente.");
+                            std::string msg_erro = std::string("ERRO: Filme ") + codigo + std::string(" inexistente.");
                             throw std::runtime_error(msg_erro);
                         }
                     }

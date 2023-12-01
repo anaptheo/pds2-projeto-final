@@ -14,6 +14,8 @@ void Cliente::mostrarInfo(){
 
 void Cliente::adicionarPontos(int pontos){
      this->_pontos_fidelidade += pontos;
+     std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << pontos << std::endl; 
+     std::cout << "Total de pontos de fidelidade acumulados: " << getPontos() << std::endl; 
 }
 void Cliente::zerarPontos(){
      this->_pontos_fidelidade = 0;
