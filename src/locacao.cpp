@@ -179,7 +179,7 @@ void Locacao::removerCliente(const std::string& cpf) {
 
 //métodos para listar filmes e clientes
 
-void Locacao::listarFilmes() {
+void Locacao::listarFilmesCodigo() {
 
     // Ordena os filmes por código
     std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
@@ -193,7 +193,49 @@ void Locacao::listarFilmes() {
     }
 }
 
-void Locacao::listarClientes() {
+void Locacao::listarFilmesTitulo() {
+
+    // Ordena os filmes por título
+    std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
+
+        if (a->getTitulo().compare(b->getTitulo()) < 0 ){
+            return true;
+        }else if (a->getTitulo().compare(b->getTitulo()) > 0 ){
+            return false;
+        }else if (a->getTitulo().compare(b->getTitulo()) == 0 ){
+            return true;
+        }
+    });
+
+    // Exibe os filmes
+    for (Filme* filme : _catalogo_filmes) {
+        std::cout << "Codigo: " << filme->getCodigo() << " - Titulo: " << filme->getTitulo()
+                  << " - Quantidade: " << filme->getUnidadesDisponiveis() << " - Tipo: " << filme->getTipo() << std::endl;
+    }
+
+}
+
+void Locacao::listarClientesCodigo() {
+    std::sort(_clientes_cadastrados.begin(), _clientes_cadastrados.end(), [](Cliente* a, Cliente* b) {
+        long long int cpf_a = std::stoll(a->getCpf());
+        long long int cpf_b = std::stoll(b->getCpf());
+        return cpf_a < cpf_b;
+    });
+    for (Cliente* cliente : _clientes_cadastrados) {
+        cliente->MostrarInfo();
+    }
+}
+
+void Locacao::listarClientesNome(){
+    std::sort(_clientes_cadastrados.begin(), _clientes_cadastrados.end(), [](Cliente* a, Cliente* b) {
+        if (a->getNome().compare(b->getNome()) < 0 ){
+            return true;
+        }else if (a->getNome().compare(b->getNome()) > 0 ){
+            return false;
+        }else if (a->getNome().compare(b->getNome()) == 0 ){
+            return true;
+        }
+    });
     for (Cliente* cliente : _clientes_cadastrados) {
         cliente->MostrarInfo();
     }

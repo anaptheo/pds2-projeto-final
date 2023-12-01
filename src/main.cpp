@@ -133,8 +133,19 @@ int main() {
                 locacao.removerFilme(codigo);
 
             } else if (input == "LF") {
+                char escolha;
+            cout << "Deseja listar os filmes por codigo ou por titulo? (C para codigo, T para titulo): ";
+            cin >> escolha;
+            if (escolha == 'C')
+            {
                 cout << "Listando filmes:" << endl;
-                locacao.listarFilmes();
+                locacao.listarFilmesCodigo();
+            } else if (escolha == 'T'){
+                cout << "Listando filmes:" << endl;
+                locacao.listarFilmesTitulo();
+            } else{
+                cout << "Opcao invalida." << endl;
+            }
 
             } else if (input == "CC") {
                 string nome, cpf;
@@ -152,8 +163,19 @@ int main() {
                 locacao.removerCliente(cpf);
 
             } else if (input == "LC") {
-                cout << "Listando clientes:" << endl;
-                locacao.listarClientes();
+                char escolha;
+                cout << "Deseja listar os clientes por cpf ou por nome? (C para CPF, N para nome): ";
+                cin >> escolha;
+                if (escolha == 'C')
+                {
+                    cout << "Listando clientes:" << endl;
+                    locacao.listarClientesCodigo();
+                } else if (escolha == 'N'){
+                    cout << "Listando clientes:" << endl;
+                    locacao.listarClientesNome();
+                } else{
+                    cout << "Opcao invalida." << endl;
+                }
 
             } else if (input == "AL") {
                 std::cout << "Digite o CPF do cliente: ";
