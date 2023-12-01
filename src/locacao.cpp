@@ -43,7 +43,7 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
     }
     
     // novo metodo de cliente checaDescontoFidelidade
-    if (cliente->getPontos() == 1) {
+    if (cliente->getPontos() == 5) {
         std::cout << "PARABÉNS! Você já acumulou 5 pontos de fidelidade, então ganhou um desconto de R$ 10,00 no seu aluguel de hoje. Aproveite!" << std::endl;
         
         cliente->zerarPontos();
