@@ -13,16 +13,27 @@ protected:
     std::vector<Cliente*> _clientes_cadastrados;
 
 public:
-    void emiteReciboAluguel(Cliente* cliente);
-    void emiteReciboDevolucao(Cliente* cliente, int dias);
-    void alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes);
-    void devolverFilmes(const std::string& cpf, int dias);
+
     void cadastrarFilme(Filme* filme);
     void removerFilme(std::string codigo);
-    void listarFilmes();
+
+    void alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes);
+    void emiteReciboAluguel(Cliente* cliente);
+
+    void devolverFilmes(const std::string& cpf, int dias);
+    void emiteReciboDevolucao(Cliente* cliente, int dias);
+
+    void listarFilmesCodigo();
+    void listarFilmesTitulo();
+    
+
     void cadastrarCliente(const std::string& nome, const std::string& cpf);
     void removerCliente(const std::string& cpf);
-    void listarClientes();
+
+    void listarClientesCodigo();
+    void listarClientesNome();
+
+
     Cliente* getCliente(const std::string& cpf);
     Filme* getFilme(std::string codigo_filme);
 };
