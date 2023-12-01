@@ -65,7 +65,8 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
         }
         cliente->AdicionarPontos(totalPontos);
 
-        std::cout << "Total de pontos de fidelidade acumulados: " << totalPontos << std::endl; //tem q ver se isso nao vai afetar a avaliação
+        std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
+        std::cout << "Total de pontos de fidelidade acumulados: " << cliente->RetornarPontos() << std::endl; 
 
         // Limpar o vetor após o aluguel
         filmes.clear();
@@ -74,52 +75,9 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
     }
 }
 
-void Locacao::devolverFilmes(const std::string& cpf, int dias) {
-    Cliente* cliente = getCliente(cpf);
-
-    if (cliente != nullptr) {
-        vector<Filme*>& filmes_alugados = cliente->getFilmesAlugados();
-        
-        double totalPagar = 0;
-        for (Filme* filme : filmes_alugados) {
-            double valorLocacao;
-
-            // Verifica o tipo do filme
-            if (filme->getTipo() == Filme::Tipo::DVD) {
-                DVD* dvd = dynamic_cast<DVD*>(filme);
-                if (dvd) {
-                    // Calcula o valor de locação específico para DVD
-                    valorLocacao = dvd->calcularValorLocacao(dias);
-                }
-            } else if (filme->getTipo() == Filme::Tipo::BluRay) {
-                Bluray* bluray = dynamic_cast<Bluray*>(filme);
-                if (bluray) {
-                    // Calcula o valor de locação específico para BluRay
-                    valorLocacao = bluray->calcularValorLocacao(dias);
-                }
-            } else if (filme->getTipo() == Filme::Tipo::Fita) {
-                Fita* fita = dynamic_cast<Fita*>(filme);
-                if (fita) {
-                    // Calcula o valor de locação específico para Fita
-                    valorLocacao = fita->calcularValorLocacao(dias);
-                }
-            }
-
-            totalPagar += valorLocacao;
-        }
-
-        if (!filmes_alugados.empty()) {
-            for (Filme* filme : filmes_alugados) {
-                cliente->devolverFilmeAlugado(filme);
-            }
-        } else {
-            throw std::out_of_range("ERRO: Lista de filmes vazia.");
-        }
- 
-        std::cout << "Total a pagar: ";
-       
-        std::cout << totalPagar << std::endl;
-    } 
+void Locacao::devolverFilmes(Cliente* cliente, int dias) {
+    emiteReciboDevolucao(cliente, dias);
+    cliente->devolverFilmesAlugados();
 }
 
 //métodos para cadastrar ou remover filmes do catálogo

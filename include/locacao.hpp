@@ -20,7 +20,7 @@ public:
     void alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes);
     void emiteReciboAluguel(Cliente* cliente);
 
-    void devolverFilmes(const std::string& cpf, int dias);
+    void devolverFilmes(Cliente* cliente, int dias);
     void emiteReciboDevolucao(Cliente* cliente, int dias);
 
     void listarFilmesCodigo();
