@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -g -std=c++11
-SOURCES = src/main.cpp src/locacao.cpp src/formatacao.cpp src/Cliente/cliente.cpp src/Filme/blueray.cpp src/Filme/dvd.cpp src/Filme/fita.cpp src/Filme/filme.cpp
-HEADERS = include/bluray.hpp include/cliente.hpp include/dvd.hpp include/filme.hpp include/fita.hpp include/locacao.hpp include/formatacao.hpp
+SOURCES = src/main.cpp src/locacao.cpp src/formatacao.cpp src/Cliente/cliente.cpp src/Filme/blueray.cpp src/Filme/dvd.cpp src/Filme/fita.cpp src/Filme/filme.cpp src/sistema.cpp
+HEADERS = include/bluray.hpp include/cliente.hpp include/dvd.hpp include/filme.hpp include/fita.hpp include/locacao.hpp include/formatacao.hpp include/sistema.hpp
 OBJECTS = $(SOURCES:.cpp=.o)
 BUILD_DIR = ./build
 INCLUDE_DIR = ./include

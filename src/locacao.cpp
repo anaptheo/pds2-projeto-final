@@ -55,12 +55,12 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
 //métodos para alugar e devolver filmes
 
 
-void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) {
+void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes_a_alugar) {
     Cliente* cliente = getCliente(cpf);
     int totalPontosFidelidade = 0;
 
     std::vector<Filme*> filmes_alugados;
-    for (Filme* filme : filmes) {
+    for (Filme* filme : filmes_a_alugar) {
         if (filme->getUnidadesDisponiveis() > 0 ) {
             cliente->adicionarFilmeAlugado(filme);
             filme->removerUnidadeDisponivel();
@@ -77,7 +77,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
         emiteReciboAluguel(cliente, filmes_alugados);
         cliente->adicionarPontos(totalPontosFidelidade);
         // Limpar o vetor após o aluguel
-        filmes.clear();
+        filmes_a_alugar.clear();
     }
 }
 
@@ -137,6 +137,7 @@ void Locacao::removerCliente(const std::string& cpf) {
 
     if (it != _clientes_cadastrados.end()) {
         _clientes_cadastrados.erase(it, _clientes_cadastrados.end());
+        cout << "Cliente removido com sucesso!";
     } else {
         throw std::invalid_argument("ERRO: Cliente não encontrado.");
     }
