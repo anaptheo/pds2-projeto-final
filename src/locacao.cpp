@@ -63,7 +63,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
         for (Filme* filme : filmes) {
             totalPontos++; // Adiciona pontos por cada unidade alugada
         }
-        cliente->AdicionarPontos(totalPontos);
+        cliente->adicionarPontos(totalPontos);
 
         std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
         std::cout << "Total de pontos de fidelidade acumulados: " << cliente->RetornarPontos() << std::endl; 
@@ -180,7 +180,7 @@ void Locacao::listarClientesCodigo() {
         return cpf_a < cpf_b;
     });
     for (Cliente* cliente : _clientes_cadastrados) {
-        cliente->MostrarInfo();
+        cliente->mostrarInfo();
     }
 }
 
@@ -195,7 +195,7 @@ void Locacao::listarClientesNome(){
         }
     });
     for (Cliente* cliente : _clientes_cadastrados) {
-        cliente->MostrarInfo();
+        cliente->mostrarInfo();
     }
 }
 

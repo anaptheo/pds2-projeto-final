@@ -5,20 +5,20 @@ Cliente::Cliente(string nome, string cpf) : _nome(nome), _cpf(cpf), _pontos_fide
 
 Cliente::~Cliente(){}
 
-void Cliente::MostrarInfo(){
+void Cliente::mostrarInfo(){
      cout << "Nome: " << this->_nome << endl;
      cout << "CPF: " << this->_cpf << endl;
      cout << "Pontos: " << this->_pontos_fidelidade << endl;
      //Filmes alugados
 }
 
-void Cliente::AdicionarPontos(int pontos){
+void Cliente::adicionarPontos(int pontos){
      this->_pontos_fidelidade += pontos;
 }
-void Cliente::ZerarPontos(){
+void Cliente::zerarPontos(){
      this->_pontos_fidelidade = 0;
 }
-int Cliente::RetornarPontos(){
+int Cliente::getPontos(){
      return(this->_pontos_fidelidade);
 }
 

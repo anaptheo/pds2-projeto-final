@@ -26,13 +26,11 @@ public:
     void listarFilmesCodigo();
     void listarFilmesTitulo();
     
-
     void cadastrarCliente(const std::string& nome, const std::string& cpf);
     void removerCliente(const std::string& cpf);
 
     void listarClientesCodigo();
     void listarClientesNome();
-
 
     Cliente* getCliente(const std::string& cpf);
     Filme* getFilme(std::string codigo_filme);
