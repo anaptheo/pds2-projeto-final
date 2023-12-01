@@ -41,7 +41,13 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
         std::cout << filme->getCodigo() << " " << valor_pagamento << std::endl;
         valor_total += valor_pagamento;
     }
-
+    
+    if (cliente->getPontos() == 1) {
+        std::cout << "PARABÉNS! Você já acumulou 5 pontos de fidelidade, então ganhou um desconto de R$ 10,00 no seu aluguel de hoje. Aproveite!" << std::endl;
+        
+        cliente->zerarPontos();
+        valor_total -= 10;
+    }
     std::cout << "Total a pagar: " << valor_total << std::endl;
 }
 
@@ -51,29 +57,32 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
 void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) {
     Cliente* cliente = getCliente(cpf);
 
-    if (cliente != nullptr) {
-        for (Filme* filme : filmes) {
+    for (Filme* filme : filmes) {
+        if (filme->getUnidadesDisponiveis() > 0 ) {
             cliente->adicionarFilmeAlugado(filme);
+            filme->removerUnidadeDisponivel();
+        } else {
+            throw std::out_of_range("Todos os filmes desse tipo estão alugados.");
         }
-
-        emiteReciboAluguel(cliente);
-
-        // Ajuste para o total de pontos de fidelidade do cliente
-        int totalPontos = 0;
-        for (Filme* filme : filmes) {
-            totalPontos++; // Adiciona pontos por cada unidade alugada
-        }
-        cliente->adicionarPontos(totalPontos);
-
-        std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
-        std::cout << "Total de pontos de fidelidade acumulados: " << cliente->getPontos() << std::endl; 
-
-        // Limpar o vetor após o aluguel
-        filmes.clear();
-    } else {
-        throw std::invalid_argument("ERRO: CPF inexistente.");
     }
+
+    emiteReciboAluguel(cliente);
+
+    // Ajuste para o total de pontos de fidelidade do cliente
+    int totalPontos = 0;
+    for (Filme* filme : filmes) {
+        totalPontos++; // Adiciona pontos por cada unidade alugada
+    }
+
+    cliente->adicionarPontos(totalPontos);
+
+    std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
+    std::cout << "Total de pontos de fidelidade acumulados: " << cliente->getPontos() << std::endl; 
+
+    // Limpar o vetor após o aluguel
+    filmes.clear();
 }
+
 
 void Locacao::devolverFilmes(Cliente* cliente, int dias) {
     emiteReciboDevolucao(cliente, dias);
@@ -89,7 +98,7 @@ void Locacao::cadastrarFilme(Filme* filme) {
 
     if (it != _catalogo_filmes.end()) {
         // Filme com o mesmo código encontrado, adicione a quantidade disponível
-        (*it)->adicionarUnidades(filme->getUnidadesDisponiveis());
+        (*it)->adicionarUnidadesDisponiveis(filme->getUnidadesDisponiveis());
         delete filme; // Não precisamos mais do filme, podemos liberar a memória
     } else {
         // Nenhum filme com o mesmo código encontrado, adiciona o novo filme ao catálogo

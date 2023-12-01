@@ -32,8 +32,8 @@ public:
     Tipo getTipo() const;
 
     // Metodos da classe
-    void adicionarUnidades(int quantidade);
-    void removerUnidades(int quantidade);
+    void adicionarUnidadesDisponiveis(int quantidade);
+    void removerUnidadeDisponivel();
     virtual double calcularValorLocacao(int dias) const = 0;
 
     // Overload for outputting Tipo enum to ostream
