@@ -25,9 +25,9 @@ Cliente* Locacao::getCliente(const std::string& cpf) {
 
 //impressao dos recibos
 
-void Locacao::emiteReciboAluguel(Cliente* cliente) {
+void Locacao::emiteReciboAluguel(Cliente* cliente, std::vector<Filme*>& filmes) {
     std::cout << "Cliente " << cliente->getCpf() << " " << cliente->getNome() << " alugou os filmes:" << std::endl; 
-    for (auto filme : cliente->getFilmesAlugados()) {
+    for (auto filme : filmes) {
         std::cout << filme->getCodigo() << " " << filme->getTitulo() << " " << filme->getTipo() << std::endl;
     }
 }
@@ -41,7 +41,14 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
         std::cout << filme->getCodigo() << " " << valor_pagamento << std::endl;
         valor_total += valor_pagamento;
     }
-
+    
+    // novo metodo de cliente checaDescontoFidelidade
+    if (cliente->getPontos() == 5) {
+        std::cout << "PARABÉNS! Você já acumulou 5 pontos de fidelidade, então ganhou um desconto de R$ 10,00 no seu aluguel de hoje. Aproveite!" << std::endl;
+        
+        cliente->zerarPontos();
+        valor_total -= 10;
+    }
     std::cout << "Total a pagar: " << valor_total << std::endl;
 }
 
@@ -50,30 +57,30 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
 
 void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) {
     Cliente* cliente = getCliente(cpf);
+    int totalPontosFidelidade = 0;
 
-    if (cliente != nullptr) {
-        for (Filme* filme : filmes) {
+    std::vector<Filme*> filmes_alugados;
+    for (Filme* filme : filmes) {
+        if (filme->getUnidadesDisponiveis() > 0 ) {
             cliente->adicionarFilmeAlugado(filme);
+            filme->removerUnidadeDisponivel();
+
+            filmes_alugados.push_back(filme);
+            totalPontosFidelidade++;
+        } else {
+            cout << "Não foi possível alugar o filme " << filme->getTitulo()
+            << " pois todos os filmes desse tipo estão alugados."<< endl;
         }
+    }
 
-        emiteReciboAluguel(cliente);
-
-        // Ajuste para o total de pontos de fidelidade do cliente
-        int totalPontos = 0;
-        for (Filme* filme : filmes) {
-            totalPontos++; // Adiciona pontos por cada unidade alugada
-        }
-        cliente->adicionarPontos(totalPontos);
-
-        std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
-        std::cout << "Total de pontos de fidelidade acumulados: " << cliente->getPontos() << std::endl; 
-
+    if (filmes_alugados.size() > 0) {
+        emiteReciboAluguel(cliente, filmes_alugados);
+        cliente->adicionarPontos(totalPontosFidelidade);
         // Limpar o vetor após o aluguel
         filmes.clear();
-    } else {
-        throw std::invalid_argument("ERRO: CPF inexistente.");
     }
 }
+
 
 void Locacao::devolverFilmes(Cliente* cliente, int dias) {
     emiteReciboDevolucao(cliente, dias);
@@ -89,7 +96,7 @@ void Locacao::cadastrarFilme(Filme* filme) {
 
     if (it != _catalogo_filmes.end()) {
         // Filme com o mesmo código encontrado, adicione a quantidade disponível
-        (*it)->adicionarUnidades(filme->getUnidadesDisponiveis());
+        (*it)->adicionarUnidadesDisponiveis(filme->getUnidadesDisponiveis());
         delete filme; // Não precisamos mais do filme, podemos liberar a memória
     } else {
         // Nenhum filme com o mesmo código encontrado, adiciona o novo filme ao catálogo
@@ -155,12 +162,11 @@ void Locacao::listarFilmesTitulo() {
 
     // Ordena os filmes por título
     std::sort(_catalogo_filmes.begin(), _catalogo_filmes.end(), [](Filme* a, Filme* b) {
-
         if (a->getTitulo().compare(b->getTitulo()) < 0 ){
             return true;
-        }else if (a->getTitulo().compare(b->getTitulo()) > 0 ){
+        } else if (a->getTitulo().compare(b->getTitulo()) > 0 ){
             return false;
-        }else if (a->getTitulo().compare(b->getTitulo()) == 0 ){
+        } else if (a->getTitulo().compare(b->getTitulo()) == 0 ){
             return true;
         }
     });
@@ -179,6 +185,7 @@ void Locacao::listarClientesCodigo() {
         long long int cpf_b = std::stoll(b->getCpf());
         return cpf_a < cpf_b;
     });
+
     for (Cliente* cliente : _clientes_cadastrados) {
         cliente->mostrarInfo();
     }
@@ -188,9 +195,9 @@ void Locacao::listarClientesNome(){
     std::sort(_clientes_cadastrados.begin(), _clientes_cadastrados.end(), [](Cliente* a, Cliente* b) {
         if (a->getNome().compare(b->getNome()) < 0 ){
             return true;
-        }else if (a->getNome().compare(b->getNome()) > 0 ){
+        } else if (a->getNome().compare(b->getNome()) > 0 ){
             return false;
-        }else if (a->getNome().compare(b->getNome()) == 0 ){
+        } else if (a->getNome().compare(b->getNome()) == 0 ){
             return true;
         }
     });
@@ -198,4 +205,3 @@ void Locacao::listarClientesNome(){
         cliente->mostrarInfo();
     }
 }
-

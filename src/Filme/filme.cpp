@@ -25,10 +25,10 @@ Filme::Tipo Filme::getTipo() const {
     return tipo;
 }
 
-void Filme::adicionarUnidades(int quantidade) {
+void Filme::adicionarUnidadesDisponiveis(int quantidade) {
     unidadesDisponiveis += quantidade;
 }
 
-void Filme::removerUnidades(int quantidade) {
-    unidadesDisponiveis -= quantidade;
+void Filme::removerUnidadeDisponivel() {
+    unidadesDisponiveis -= 1;
 }
