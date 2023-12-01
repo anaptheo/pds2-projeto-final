@@ -1,7 +1,7 @@
 #include "locacao.hpp"
-#include "DVD.hpp"
-#include "Bluray.hpp"
-#include "Fita.hpp"
+#include "dvd.hpp"
+#include "bluray.hpp"
+#include "fita.hpp"
 #include <algorithm>
 #include <iostream>
 
