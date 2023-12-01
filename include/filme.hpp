@@ -26,8 +26,8 @@ public:
     ~Filme();
 
     // Getters
-    const std::string& getTitulo() const;
     std::string getCodigo() const;
+    const std::string& getTitulo() const;
     int getUnidadesDisponiveis() const;
     Tipo getTipo() const;
 

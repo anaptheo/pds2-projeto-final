@@ -19,18 +19,17 @@ public:
      Cliente(string nome, string cpf);
      ~Cliente();
 
-     void MostrarInfo();
+     void mostrarInfo();
+     void adicionarPontos(int pontos);
+     void zerarPontos();
 
-
-     void AdicionarPontos(int pontos);
-     void ZerarPontos();
-     int RetornarPontos();
-
+     // Getters
      string getNome();
      string getCpf();
      vector<Filme*>& getFilmesAlugados();
+     int getPontos();
      void adicionarFilmeAlugado(Filme* filme);
-     void devolverFilmeAlugado(Filme* filme);
+     void devolverFilmesAlugados();
 };
 
 #endif

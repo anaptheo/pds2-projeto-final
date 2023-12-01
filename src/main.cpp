@@ -224,15 +224,16 @@ int main() {
             } else if (input == "DV") {
                 std::cout << "Digite o CPF do cliente que esta devolvendo os filmes: ";
                 std::cin >> cpf;
-
-                std::cout << "Digite a quantidade de dias do aluguel: ";
-                std::cin >> dias;
-
                 Cliente* cliente = locacao.getCliente(cpf);
+
+                if (cliente->getFilmesAlugados().empty()) {
+                    throw std::out_of_range("ERRO: Nenhum filme alugado para esse/essa cliente.");
+                }
+
                 if (cliente != nullptr) {
-                    locacao.devolverFilmes(cliente->getCpf(), dias);
-                    // Limpar o vetor de filmes apos a devolucao ser concluida
-                    filmes.clear();
+                    std::cout << "Digite a quantidade de dias do aluguel: ";
+                    std::cin >> dias;
+                    locacao.devolverFilmes(cliente, dias);
                 } else {
                     throw std::invalid_argument("ERRO: Cliente nao encontrado.");
                 }

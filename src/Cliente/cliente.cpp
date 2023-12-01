@@ -5,20 +5,20 @@ Cliente::Cliente(string nome, string cpf) : _nome(nome), _cpf(cpf), _pontos_fide
 
 Cliente::~Cliente(){}
 
-void Cliente::MostrarInfo(){
+void Cliente::mostrarInfo(){
      cout << "Nome: " << this->_nome << endl;
      cout << "CPF: " << this->_cpf << endl;
      cout << "Pontos: " << this->_pontos_fidelidade << endl;
      //Filmes alugados
 }
 
-void Cliente::AdicionarPontos(int pontos){
+void Cliente::adicionarPontos(int pontos){
      this->_pontos_fidelidade += pontos;
 }
-void Cliente::ZerarPontos(){
+void Cliente::zerarPontos(){
      this->_pontos_fidelidade = 0;
 }
-int Cliente::RetornarPontos(){
+int Cliente::getPontos(){
      return(this->_pontos_fidelidade);
 }
 
@@ -38,12 +38,6 @@ void Cliente::adicionarFilmeAlugado(Filme* filme) {
     _filmes_alugados.push_back(filme);
 }
 
-void Cliente::devolverFilmeAlugado(Filme* filme) {
-    auto it = find(_filmes_alugados.begin(), _filmes_alugados.end(), filme);
-    
-    if (it != _filmes_alugados.end()) {
-        _filmes_alugados.erase(it);
-    } else {
-        throw std::invalid_argument("ERRO: Filme não encontrado na lista de filmes alugados.");
-    }
+void Cliente::devolverFilmesAlugados() {
+     _filmes_alugados.clear();
 }
