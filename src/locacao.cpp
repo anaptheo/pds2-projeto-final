@@ -70,7 +70,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
         // Limpar o vetor após o aluguel
         filmes.clear();
     } else {
-        throw std::invalid_argument("Erro: CPF inexistente.");
+        throw std::invalid_argument("ERRO: CPF inexistente.");
     }
 }
 
@@ -113,7 +113,7 @@ void Locacao::devolverFilmes(const std::string& cpf, int dias) {
                 cliente->devolverFilmeAlugado(filme);
             }
         } else {
-            throw std::out_of_range("Erro: Lista de filmes vazia.");
+            throw std::out_of_range("ERRO: Lista de filmes vazia.");
         }
  
         std::cout << "Total a pagar: ";
@@ -154,7 +154,7 @@ void Locacao::removerFilme(std::string codigo) {
             }
         }
     } else {
-        throw std::invalid_argument("Erro: Filme não encontrado.");
+        throw std::invalid_argument("ERRO: Filme não encontrado.");
     }
 }
 
@@ -173,7 +173,7 @@ void Locacao::removerCliente(const std::string& cpf) {
     if (it != _clientes_cadastrados.end()) {
         _clientes_cadastrados.erase(it, _clientes_cadastrados.end());
     } else {
-        throw std::invalid_argument("Erro: Cliente não encontrado.");
+        throw std::invalid_argument("ERRO: Cliente não encontrado.");
     }
 }
 

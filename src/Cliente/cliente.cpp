@@ -44,6 +44,6 @@ void Cliente::devolverFilmeAlugado(Filme* filme) {
     if (it != _filmes_alugados.end()) {
         _filmes_alugados.erase(it);
     } else {
-        throw std::invalid_argument("Erro: Filme não encontrado na lista de filmes alugados.");
+        throw std::invalid_argument("ERRO: Filme não encontrado na lista de filmes alugados.");
     }
 }
