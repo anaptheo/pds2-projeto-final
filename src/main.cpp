@@ -54,11 +54,14 @@ int main() {
 
                     cout << "Digite o codigo do DVD: ";
                     cin >> codigo;
+
                     cout << "Digite o titulo do DVD: ";
                     cin.ignore();
                     getline(cin, titulo);
+
                     cout << "Digite a quantidade de DVDs: ";
                     cin >> quantidade;
+
                     cout << "Digite a categoria do DVD (L para Lancamento, E para Estoque, P para Promocao): ";
                     char categoriaChar;
                     cin >> categoriaChar;
@@ -74,8 +77,7 @@ int main() {
                             categoria = Categoria::Promocao;
                             break;
                         default:
-                            cout << "Categoria invalida." << endl;
-                            continue;
+                            throw std::invalid_argument("ERRO: Categoria inválida");
                     }
 
                     filme = new DVD(titulo, codigo, quantidade, categoria);
@@ -89,9 +91,11 @@ int main() {
 
                     cout << "Digite o codigo do Bluray: ";
                     cin >> codigo;
+
                     cout << "Digite o titulo do Bluray: ";
                     cin.ignore();
                     getline(cin, titulo);
+
                     cout << "Digite a quantidade de Blurays: ";
                     cin >> quantidade;
 
@@ -107,12 +111,15 @@ int main() {
 
                     cout << "Digite o codigo da Fita: ";
                     cin >> codigo;
+
                     cout << "Digite o titulo da Fita: ";
                     cin.ignore();
                     getline(cin, titulo);
+
                     cout << "Digite a quantidade de Fitas: ";
                     cin >> quantidade;
-                    cout << "A Fita esta rebobinada? (1 para Sim, 0 para Nao): ";
+
+                    cout << "A Fita esta rebobinada? (1 para Sim, 0 para Nao): "; // deveria ser aleatorio
                     cin >> rebobinada;
 
                     filme = new Fita(titulo, codigo, quantidade, rebobinada);
@@ -120,8 +127,7 @@ int main() {
                     locacao.cadastrarFilme(filme);
                     
                 } else {
-                    cout << "Tipo de filme invalido." << endl;
-                    continue;
+                    throw std::invalid_argument("ERRO: Tipo de filme inválido");
                 }
 
                 cout << "Filme cadastrado com sucesso!" << endl;
@@ -144,37 +150,40 @@ int main() {
                 cout << "Listando filmes:" << endl;
                 locacao.listarFilmesTitulo();
             } else{
-                cout << "Opcao invalida." << endl;
+                throw std::invalid_argument("ERRO: Opção inválida.");
             }
 
             } else if (input == "CC") {
                 string nome, cpf;
                 cout << "Digite o nome do cliente: ";
                 cin.ignore();
+
                 getline(cin, nome);
                 cout << "Digite o CPF do cliente: ";
                 cin >> cpf;
+
                 locacao.cadastrarCliente(nome, cpf);
 
             } else if (input == "RC") {
-                string cpf;
                 cout << "Digite o CPF do cliente a ser removido: ";
+                string cpf;
                 cin >> cpf;
+
                 locacao.removerCliente(cpf);
 
             } else if (input == "LC") {
-                char escolha;
                 cout << "Deseja listar os clientes por cpf ou por nome? (C para CPF, N para nome): ";
+                
+                char escolha;
                 cin >> escolha;
-                if (escolha == 'C')
-                {
+                if (escolha == 'C') {
                     cout << "Listando clientes:" << endl;
                     locacao.listarClientesCodigo();
-                } else if (escolha == 'N'){
+                } else if (escolha == 'N') {
                     cout << "Listando clientes:" << endl;
                     locacao.listarClientesNome();
-                } else{
-                    cout << "Opcao invalida." << endl;
+                } else {
+                    throw std::invalid_argument("ERRO: Opção inválida.");
                 }
 
             } else if (input == "AL") {
@@ -198,11 +207,10 @@ int main() {
                         if (filme != nullptr) {
                             filmes.push_back(filme);
                         } else {
-                            std::cout << "Filme codigo " << codigo << " nao encontrado." << std::endl;
+                            std::string msg_erro = std::string("ERRO: Filme ") + codigo + std::string("inexistente.");
+                            throw std::runtime_error(msg_erro);
                         }
                     }
-
-                    
 
                     // Use locacao.alugarFilmes com o ponteiro Cliente obtido
                     locacao.alugarFilmes(cliente->getCpf(), filmes);
@@ -210,22 +218,23 @@ int main() {
                     // Limpar o vetor de filmes apos o aluguel ser concluido
                     filmes.clear();
                 } else {
-                    std::cout << "Cliente nao encontrado." << std::endl;
+                    throw std::invalid_argument("ERRO: Cliente não encontrado.");
                 }
 
             } else if (input == "DV") {
                 std::cout << "Digite o CPF do cliente que esta devolvendo os filmes: ";
                 std::cin >> cpf;
+
                 std::cout << "Digite a quantidade de dias do aluguel: ";
                 std::cin >> dias;
+
                 Cliente* cliente = locacao.getCliente(cpf);
                 if (cliente != nullptr) {
                     locacao.devolverFilmes(cliente->getCpf(), dias);
-
                     // Limpar o vetor de filmes apos a devolucao ser concluida
                     filmes.clear();
                 } else {
-                    throw std::invalid_argument("Cliente nao encontrado.");
+                    throw std::invalid_argument("ERRO: Cliente nao encontrado.");
                 }
 
             } else if (input == "FS") {
@@ -234,8 +243,10 @@ int main() {
             } else if (input == "LA") {
                 string nome_arquivo;
                 cin >> nome_arquivo;
+
                 fstream arquivo;
                 arquivo.open(nome_arquivo, ios::in);
+
                 if (!arquivo) {
                     throw std::invalid_argument("ERRO: arquivo inexistente."); //mudar o tipo
                 }
@@ -245,7 +256,7 @@ int main() {
                 }
             } else {
                 //SERA Q precisa disso? acho q ganha pontos extras ne na defensividade
-                throw std::invalid_argument("Comando invalido. Digite 'ajuda' para ver os comandos.");
+                throw std::invalid_argument("ERRO: Comando invalido. Digite 'ajuda' para ver os comandos.");
             }
         } 
         catch (std::exception& e) {
