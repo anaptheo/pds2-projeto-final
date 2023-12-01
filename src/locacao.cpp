@@ -4,6 +4,8 @@
 #include "fita.hpp"
 #include <algorithm>
 #include <iostream>
+#include <sstream>
+
 
 //getters para retornar filme/cliente por codigo/cpf
 
