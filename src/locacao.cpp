@@ -66,7 +66,7 @@ void Locacao::alugarFilmes(const std::string& cpf, std::vector<Filme*>& filmes) 
         cliente->adicionarPontos(totalPontos);
 
         std::cout << "Total de pontos de fidelidade adquiridos nessa operação: " << totalPontos << std::endl; 
-        std::cout << "Total de pontos de fidelidade acumulados: " << cliente->RetornarPontos() << std::endl; 
+        std::cout << "Total de pontos de fidelidade acumulados: " << cliente->getPontos() << std::endl; 
 
         // Limpar o vetor após o aluguel
         filmes.clear();
