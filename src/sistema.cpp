@@ -17,10 +17,6 @@
 #include "sistema.hpp"
 
 
-Sistema::Sistema(){
-    _locacao;
-}
-
 void Sistema::displayHelp() {
     cout << "Comandos disponiveis:" << endl;
     cout << "CF - Cadastrar Filme: Adiciona um filme ao catalogo da locadora." << endl;

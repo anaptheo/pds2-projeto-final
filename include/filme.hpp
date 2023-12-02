@@ -15,8 +15,8 @@ public:
 private:
     std::string titulo;
     std::string codigo;
-    int unidadesDisponiveis;
     Tipo tipo;
+    int unidadesDisponiveis;
 
 public:
     // Construtor

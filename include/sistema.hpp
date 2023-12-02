@@ -9,7 +9,6 @@ class Sistema {
         Locacao _locacao;
         vector<Filme*> filmes;
     public:
-        Sistema();
         void displayHelp();
         void cadastrarFilme(std::deque<std::string> input_list);
         void cadastrarCliente(std::deque<std::string> input_list);
