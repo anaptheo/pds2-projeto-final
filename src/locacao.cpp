@@ -24,6 +24,14 @@ Cliente* Locacao::getCliente(const std::string& cpf) {
 }
 //impressao dos recibos
 
+vector<Filme*> Locacao::getvectorFilmes(){
+    return this->_catalogo_filmes;
+}
+
+vector<Cliente*> Locacao::getvectorClientes(){
+    return this->_clientes_cadastrados;
+}
+
 void Locacao::emiteReciboAluguel(Cliente* cliente, std::vector<Filme*>& filmes) {
     std::cout << "Cliente " << cliente->getCpf() << " " << cliente->getNome() << " alugou os filmes:" << std::endl; 
     for (auto filme : filmes) {
