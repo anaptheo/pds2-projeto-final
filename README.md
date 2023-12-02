@@ -39,6 +39,21 @@ O projeto é organizado em classes, cada uma responsável por aspectos específi
 3. **Listagem do Catálogo e Clientes:**
    - Apresenta informações detalhadas sobre os filmes disponíveis e a base de clientes.
 
+## Funcionalidades Extras
+As seguintes funcionalidades extras foram implementadas:
+- Leitura de arquivo pode ser utilizada para qualquer operação, não apenas cadastrar filme.
+- Implementação de pontuação de fidelidade, onde cada aluguel de filme vale 1 ponto e a cada 5
+pontos adquiridos o cliente ganha um desconto de R$10,00 na hora da devolução.
+- Implementação do aluguel de blurays.
+- Implementação do aluguel de aparelho leitor de bluray.
+
+## Diferenças de input
+Para conseguirmos trabalhar com nomes compostos para filmes, mudamos a ordem dos parâmetros
+nos inputs de Cadastrar Filme. A ordem é:
+- CF <tipo D|B|F> (dvd, bluray ou fita) <quantidade> <codigo> <categoria> (para dvd e bluray) <nome_do_filme>
+E quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR_APARELHO entre os parâmetros 
+de categoria e nome do filme para solicitar o aluguel de um aparelho (que custa R$20,00). O comando fica assim:
+- CF B <quantidade> <codigo> <categoria> <ALUGAR_APARELHO> <nome_do_filme>
 
 ## Aprendizados
 Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem:
@@ -48,6 +63,9 @@ Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em p
 - Práticas de programação defensiva e tratamento de exceções.
 - Criação e manutenção de Makefile.
 - Geração de documentação utilizando Doxygen.
+
+## Documentação
+A documentação detalhada do projeto, feita com a ferramenta Doxygen, pode ser encontrada na forma de página web no arquivo "index.html" e no formato PDF no arquivo "refman.pdf".
 
 ## Github da Equipe
 
