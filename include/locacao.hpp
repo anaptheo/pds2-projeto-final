@@ -34,6 +34,8 @@ public:
 
     Cliente* getCliente(const std::string& cpf);
     Filme* getFilme(std::string codigo_filme);
+    vector<Filme*> getvectorFilmes();
+    vector<Cliente*> getvectorClientes(); 
 };
 
 #endif // LOCACAO_HPP
