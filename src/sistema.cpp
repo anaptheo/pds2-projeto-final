@@ -234,27 +234,34 @@ bool Sistema::controlaComando(string comando, std::deque<std::string> lista_inpu
             displayHelp();
         } else if (comando == "CF") {
             cadastrarFilme(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "RF") {
             removerFilme(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "LF") {
             listarFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "CC") {
             cadastrarCliente(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "RC") {
             removerCliente(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "LC") {
             listarClientes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "AL") {
             alugarFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "DV") {
             devolverFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "FS") {
             cout << "\n===================================" << endl;
             cout << "   Obrigado por utilizar a Locadora PDS!" << endl;
             cout << "    Esperamos te ver novamente em breve." << endl;
             cout << "        Tenha um otimo dia!" << endl;
             cout << "===================================\n" << endl;
-
             return true;
         } else if (comando == "LA") {
             lerArquivo(lista_input[0]);
@@ -263,6 +270,7 @@ bool Sistema::controlaComando(string comando, std::deque<std::string> lista_inpu
         }
     } catch (std::exception& e) {
         cerr << e.what() << endl;
+        cout << "===================================" << endl;
     }
     return 0;
 } 
