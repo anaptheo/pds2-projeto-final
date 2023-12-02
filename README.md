@@ -1,18 +1,63 @@
-# pds2-projeto-final
+# Sistema da Locadora PDS
 
-*CRC CARDS*
+## Descrição do Projeto
+O Sistema da Locadora PDS é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. Este projeto implementa um sistema abrangente de aluguel de filmes, proporcionando funcionalidades como cadastro de filmes e clientes, processos de locação, devolução de filmes e gerenciamento do catálogo.
 
-![WhatsApp Image 2023-12-02 at 03 28 20](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/872d8c76-471c-4a3a-b5a7-f0d05f0d7759)
+## Equipe
+- Victoria Flores
+- Raquel Xavier
+- Flávio Soriano
+- Isadora Horta
+- Ana Paula Theobald
 
-![WhatsApp Image 2023-12-02 at 02 37 20](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/830721a6-199f-48a2-9439-6691ce49f6c1)
+## Contexto do Projeto
+O Sistema da Locadora PDS visa otimizar as operações de uma locadora de filmes, oferecendo soluções para desafios comuns encontrados no gerenciamento de catálogos, controle de estoque, administração de clientes e operações de locação.
 
-![WhatsApp Image 2023-12-02 at 03 25 37](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/9ae4433b-2e92-4bf5-93e3-d80039254f93)
+## Tecnologias Utilizadas
+- **Linguagem de Programação:** C++
+- **Compilação:** Makefile
+- **Documentação:** Doxygen
+- **Testes:** Biblioteca doctest
+- **Controle de Versão:** Git e GitHub
 
-![WhatsApp Image 2023-12-02 at 02 36 50](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/a5854b78-4485-4b3e-9574-92674446bad2)
+## Estrutura do Projeto
+O projeto é organizado em classes, cada uma responsável por aspectos específicos do sistema:
+- `formatacao`: Implementa métodos para formatação de strings.
+- `locacao`: Contém métodos e atributos relacionados às operações de locação.
+- `filme`: Classe base que engloba atributos e métodos comuns a todos os tipos de filmes.
+- `dvd`, `bluray`, `fita`: Classes que herdam de `filme` e implementam características específicas.
+- `cliente`: Classe que gerencia informações e operações relacionadas aos clientes.
+- `sistema`: Classe que administra operações do sistema, evitando sobrecarregar o arquivo principal.
 
-![WhatsApp Image 2023-12-02 at 02 36 35](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/db83201b-d169-4e4f-b28d-78a0a285b161)
+## Funcionalidades Principais
+1. **Cadastro de Filmes e Clientes:**
+   - Permite o registro de novos filmes e clientes no sistema.
 
-![WhatsApp Image 2023-12-02 at 02 37 43](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/1a48f871-6819-4a3a-acf3-2c3c0ea9990e)
+2. **Locação e Devolução de Filmes:**
+   - Facilita o processo de aluguel e devolução de filmes, mantendo o controle do estoque.
 
-![WhatsApp Image 2023-12-02 at 02 39 55](https://github.com/anaptheo/pds2-projeto-final/assets/126296051/e879ce52-c6ba-4d91-b3f2-07848d9cabe7)
+3. **Listagem do Catálogo e Clientes:**
+   - Apresenta informações detalhadas sobre os filmes disponíveis e a base de clientes.
+
+
+## Aprendizados
+Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem:
+- Programação orientada a objetos em C++.
+- Colaboração efetiva em um projeto conjunto.
+- Uso avançado de Git e GitHub para controle de versão.
+- Práticas de programação defensiva e tratamento de exceções.
+- Criação e manutenção de Makefile.
+- Geração de documentação utilizando Doxygen.
+
+## Github da Equipe
+
+- **[Victoria Flores](https://github.com/victoriafloresdev)**
+
+- **[Raquel Xavier](https://github.com/Raquelxt)**
+
+- **[Flávio Soriano](https://github.com/flaviosoriano)**
+
+- **[Isadora Horta](https://github.com/isadorahorta)**
+
+- **[Ana Paula Theobald](https://github.com/anaptheo)**
 

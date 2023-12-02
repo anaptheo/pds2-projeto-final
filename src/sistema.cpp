@@ -260,7 +260,7 @@ void Sistema::lerArquivo(string nome_arquivo) {
             std::deque<std::string> lista_input;
             string comando;
             tie(comando, lista_input) = processaInput(linha);
-            controlaComando(comando, lista_input);
+            gerenciaOpcoes(comando, lista_input);
         }
         arquivo.close();
     } else {
@@ -291,7 +291,7 @@ std::tuple<std::string, std::deque<std::string>> Sistema::processaInput(std::str
  * @throws std::invalid_argument se o comando não existir.
  * @param lista_input lista de inputs a serem utilizados pela função
  */
-bool Sistema::controlaComando(string comando, std::deque<std::string> lista_input) {
+bool Sistema::gerenciaOpcoes(string comando, std::deque<std::string> lista_input) {
     try {
         if (comando == "AJUDA") {
             displayHelp();

@@ -48,7 +48,7 @@ int main() {
         string comando;
         tie(comando, lista_input) = sistema->processaInput(input);
         comando = toUpperCase(comando);
-        encerra_sistema = sistema->controlaComando(comando, lista_input);
+        encerra_sistema = sistema->gerenciaOpcoes(comando, lista_input);
     }
 
     return 0;

@@ -1,0 +1,206 @@
+\doxysection{Cliente Class Reference}
+\hypertarget{class_cliente}{}\label{class_cliente}\index{Cliente@{Cliente}}
+
+
+{\ttfamily \#include $<$cliente.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_cliente_ab6b807b6238084fb86345d3557fa05e5}{Cliente}} (string nome, string cpf)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_cliente}{Cliente}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cliente_a29d1d53394350c66363109e33c990b58}{\texorpdfstring{$\sim$}{\string~}\+Cliente}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_cliente}{Cliente}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cliente_a73b7f6e58f4968934542b22a155ea1ec}{mostrar\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Exibe informações do cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cliente_a2444f28ea5644b0c0984a1856afae2ef}{adicionar\+Pontos}} (int pontos)
+\begin{DoxyCompactList}\small\item\em Adiciona pontos de fidelidade ao cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cliente_a4160233b70e195a1a0f6fc711ae66214}{zerar\+Pontos}} ()
+\begin{DoxyCompactList}\small\item\em Zera os pontos de fidelidade do cliente. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_cliente_ac9662059b96002d423e33cb6827b37f1}{get\+Nome}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o nome do cliente. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_cliente_a9fb7fb27ca366eead18f3005af0e5382}{get\+Cpf}} ()
+\begin{DoxyCompactList}\small\item\em Obtém o CPF do cliente. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \& \mbox{\hyperlink{class_cliente_a30144e43377dfcbe6775ee8e540154f8}{get\+Filmes\+Alugados}} ()
+\begin{DoxyCompactList}\small\item\em Obtém a lista de filmes alugados pelo cliente. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_cliente_abc214a737c89550224d611d1574862cc}{get\+Pontos}} ()
+\begin{DoxyCompactList}\small\item\em Obtém os pontos de fidelidade do cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cliente_a55261c26dceeab1712cb4e1844d437c6}{adicionar\+Filme\+Alugado}} (\mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*}filme)
+\begin{DoxyCompactList}\small\item\em Adiciona um filme à lista de filmes alugados pelo cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_cliente_af33ceb39629328cf24d91b853db37978}{devolver\+Filmes\+Alugados}} ()
+\begin{DoxyCompactList}\small\item\em Devolve todos os filmes alugados pelo cliente. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \doxylink{class_cliente}{Cliente} possui atributos como nome, CPF, pontos de fidelidade e uma lista de filmes alugados. Além disso, contém métodos para exibir informações do cliente, adicionar pontos de fidelidade, zerar pontos, obter nome, CPF, lista de filmes alugados e pontos de fidelidade, adicionar filme à lista de filmes alugados e devolver todos os filmes alugados. 
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+nome} & Nome do cliente. \\
+\hline
+{\em \+\_\+cpf} & CPF do cliente. \\
+\hline
+{\em \+\_\+pontos\+\_\+fidelidade} & Pontos de fidelidade acumulados pelo cliente. \\
+\hline
+{\em \+\_\+filmes\+\_\+alugados} & Lista de filmes alugados pelo cliente. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_cliente_ab6b807b6238084fb86345d3557fa05e5}\label{class_cliente_ab6b807b6238084fb86345d3557fa05e5} 
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\index{Cliente@{Cliente}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{Cliente()}{Cliente()}}
+{\footnotesize\ttfamily Cliente\+::\+Cliente (\begin{DoxyParamCaption}\item[{string}]{nome,  }\item[{string}]{cpf }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_cliente}{Cliente}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & Nome do cliente. \\
+\hline
+{\em cpf} & CPF do cliente. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cliente_a29d1d53394350c66363109e33c990b58}\label{class_cliente_a29d1d53394350c66363109e33c990b58} 
+\index{Cliente@{Cliente}!````~Cliente@{\texorpdfstring{$\sim$}{\string~}Cliente}}
+\index{````~Cliente@{\texorpdfstring{$\sim$}{\string~}Cliente}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Cliente()}{\string~Cliente()}}
+{\footnotesize\ttfamily Cliente\+::\texorpdfstring{$\sim$}{\string~}\+Cliente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destrutor da classe \doxylink{class_cliente}{Cliente}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_cliente_a55261c26dceeab1712cb4e1844d437c6}\label{class_cliente_a55261c26dceeab1712cb4e1844d437c6} 
+\index{Cliente@{Cliente}!adicionarFilmeAlugado@{adicionarFilmeAlugado}}
+\index{adicionarFilmeAlugado@{adicionarFilmeAlugado}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{adicionarFilmeAlugado()}{adicionarFilmeAlugado()}}
+{\footnotesize\ttfamily void Cliente\+::adicionar\+Filme\+Alugado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*}}]{filme }\end{DoxyParamCaption})}
+
+
+
+Adiciona um filme à lista de filmes alugados pelo cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filme} & \doxylink{class_filme}{Filme} a ser adicionado.\\
+\hline
+{\em filme} & Ponteiro para o filme a ser adicionado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cliente_a2444f28ea5644b0c0984a1856afae2ef}\label{class_cliente_a2444f28ea5644b0c0984a1856afae2ef} 
+\index{Cliente@{Cliente}!adicionarPontos@{adicionarPontos}}
+\index{adicionarPontos@{adicionarPontos}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{adicionarPontos()}{adicionarPontos()}}
+{\footnotesize\ttfamily void Cliente\+::adicionar\+Pontos (\begin{DoxyParamCaption}\item[{int}]{pontos }\end{DoxyParamCaption})}
+
+
+
+Adiciona pontos de fidelidade ao cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pontos} & Pontos a serem adicionados.\\
+\hline
+{\em pontos} & Quantidade de pontos a serem adicionados. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_cliente_af33ceb39629328cf24d91b853db37978}\label{class_cliente_af33ceb39629328cf24d91b853db37978} 
+\index{Cliente@{Cliente}!devolverFilmesAlugados@{devolverFilmesAlugados}}
+\index{devolverFilmesAlugados@{devolverFilmesAlugados}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{devolverFilmesAlugados()}{devolverFilmesAlugados()}}
+{\footnotesize\ttfamily void Cliente\+::devolver\+Filmes\+Alugados (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Devolve todos os filmes alugados pelo cliente. 
+
+\Hypertarget{class_cliente_a9fb7fb27ca366eead18f3005af0e5382}\label{class_cliente_a9fb7fb27ca366eead18f3005af0e5382} 
+\index{Cliente@{Cliente}!getCpf@{getCpf}}
+\index{getCpf@{getCpf}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getCpf()}{getCpf()}}
+{\footnotesize\ttfamily string Cliente\+::get\+Cpf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o CPF do cliente. 
+
+\begin{DoxyReturn}{Returns}
+CPF do cliente. 
+\end{DoxyReturn}
+\Hypertarget{class_cliente_a30144e43377dfcbe6775ee8e540154f8}\label{class_cliente_a30144e43377dfcbe6775ee8e540154f8} 
+\index{Cliente@{Cliente}!getFilmesAlugados@{getFilmesAlugados}}
+\index{getFilmesAlugados@{getFilmesAlugados}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getFilmesAlugados()}{getFilmesAlugados()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \& Cliente\+::get\+Filmes\+Alugados (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém a lista de filmes alugados pelo cliente. 
+
+\begin{DoxyReturn}{Returns}
+Lista de filmes alugados.
+
+Vetor contendo os filmes alugados. 
+\end{DoxyReturn}
+\Hypertarget{class_cliente_ac9662059b96002d423e33cb6827b37f1}\label{class_cliente_ac9662059b96002d423e33cb6827b37f1} 
+\index{Cliente@{Cliente}!getNome@{getNome}}
+\index{getNome@{getNome}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily string Cliente\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém o nome do cliente. 
+
+\begin{DoxyReturn}{Returns}
+Nome do cliente. 
+\end{DoxyReturn}
+\Hypertarget{class_cliente_abc214a737c89550224d611d1574862cc}\label{class_cliente_abc214a737c89550224d611d1574862cc} 
+\index{Cliente@{Cliente}!getPontos@{getPontos}}
+\index{getPontos@{getPontos}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{getPontos()}{getPontos()}}
+{\footnotesize\ttfamily int Cliente\+::get\+Pontos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Obtém os pontos de fidelidade do cliente. 
+
+Obtém a quantidade de pontos de fidelidade do cliente.
+
+\begin{DoxyReturn}{Returns}
+Pontos de fidelidade.
+
+Quantidade de pontos de fidelidade. 
+\end{DoxyReturn}
+\Hypertarget{class_cliente_a73b7f6e58f4968934542b22a155ea1ec}\label{class_cliente_a73b7f6e58f4968934542b22a155ea1ec} 
+\index{Cliente@{Cliente}!mostrarInfo@{mostrarInfo}}
+\index{mostrarInfo@{mostrarInfo}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{mostrarInfo()}{mostrarInfo()}}
+{\footnotesize\ttfamily void Cliente\+::mostrar\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe informações do cliente. 
+
+Exibe as informações do cliente, incluindo nome, CPF e pontos de fidelidade. \Hypertarget{class_cliente_a4160233b70e195a1a0f6fc711ae66214}\label{class_cliente_a4160233b70e195a1a0f6fc711ae66214} 
+\index{Cliente@{Cliente}!zerarPontos@{zerarPontos}}
+\index{zerarPontos@{zerarPontos}!Cliente@{Cliente}}
+\doxysubsubsection{\texorpdfstring{zerarPontos()}{zerarPontos()}}
+{\footnotesize\ttfamily void Cliente\+::zerar\+Pontos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Zera os pontos de fidelidade do cliente. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{cliente_8hpp}{cliente.\+hpp}}\item 
+src/\+Cliente/\mbox{\hyperlink{cliente_8cpp}{cliente.\+cpp}}\end{DoxyCompactItemize}
