@@ -54,7 +54,6 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
     input_list.pop_front();
     
     bool quer_aparelho_bluray = false;
-    bool alugando_bluray = false;
     if (toUpperCase(input_list[0]) == "ALUGAR_APARELHO"){
         quer_aparelho_bluray = true;
         input_list.pop_front();
@@ -78,7 +77,6 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
                     Bluray* bluray_alugado = dynamic_cast<Bluray*>(filme_alugado);
                     bluray_alugado->alugarAparelho();
                     cliente->alugarAparelhoBluray();
-                    alugando_bluray = true;
                 }
             } else {
                 throw invalid_argument("ERRO: Filme com código inexistente");
@@ -270,4 +268,5 @@ bool Sistema::controlaComando(string comando, std::deque<std::string> lista_inpu
     } catch (std::exception& e) {
         cerr << e.what() << endl;
     }
+    return 0;
 } 
