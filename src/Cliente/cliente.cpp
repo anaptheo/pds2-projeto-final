@@ -1,7 +1,7 @@
 #include "cliente.hpp"
 #include <algorithm>
 
-Cliente::Cliente(string nome, string cpf) : _nome(nome), _cpf(cpf), _pontos_fidelidade(0){}
+Cliente::Cliente(string nome, string cpf) : _nome(nome), _cpf(cpf), _pontos_fidelidade(0), _alugou_aparelho(false){}
 
 Cliente::~Cliente(){}
 

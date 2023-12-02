@@ -14,7 +14,7 @@ private:
      string _nome;
      string _cpf;
      int _pontos_fidelidade;
-     bool _alugou_aparelho = false;
+     bool _alugou_aparelho;
      vector <Filme*> _filmes_alugados;
 public:
      Cliente(string nome, string cpf);

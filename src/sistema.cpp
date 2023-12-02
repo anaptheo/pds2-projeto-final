@@ -73,7 +73,8 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
                 filmes_a_alugar.push_back(filme_alugado);
 
                 // // Se tiver algum filme do tipo BluRay ele pergunta do player
-                if (filme_alugado->getTipo() == Filme::Tipo::BluRay && quer_aparelho_bluray) {
+                bool tem_aparelho_alugado = cliente->getAparelhoAlugado();
+                if (filme_alugado->getTipo() == Filme::Tipo::BluRay && quer_aparelho_bluray && !tem_aparelho_alugado) {
                     Bluray* bluray_alugado = dynamic_cast<Bluray*>(filme_alugado);
                     bluray_alugado->alugarAparelho();
                     cliente->alugarAparelhoBluray();
@@ -82,9 +83,6 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
             } else {
                 throw invalid_argument("ERRO: Filme com código inexistente");
             }
-        }
-        if (quer_aparelho_bluray && !alugando_bluray) {
-            cout << "Infelizmente apenas alugamos aparelhos bluray para quem está alugando um filme em bluray." << endl;
         }
         
         // Use _locacao.alugarFilmes com o ponteiro Cliente obtido
