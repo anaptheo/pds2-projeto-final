@@ -9,13 +9,10 @@
 
 /**
  * @file locacao.hpp
- * @brief Declaração da classe Locacao, seus métodos e atributos.
- */
 
-/**
  * @brief Classe responsável por gerenciar as operações de locação de filmes.
  * 
- * A classe Locacao realiza o cadastro, remoção, aluguel e devolução de filmes, além de manter registros
+ * @details classe Locacao realiza o cadastro, remoção, aluguel e devolução de filmes, além de manter registros
  * dos filmes disponíveis no catálogo e dos clientes cadastrados.
  */
 
