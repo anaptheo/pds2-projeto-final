@@ -17,10 +17,6 @@
 #include "sistema.hpp"
 
 
-Sistema::Sistema(){
-    _locacao;
-}
-
 void Sistema::displayHelp() {
     cout << "Comandos disponiveis:" << endl;
     cout << "CF - Cadastrar Filme: Adiciona um filme ao catalogo da locadora." << endl;
@@ -54,7 +50,6 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
     input_list.pop_front();
     
     bool quer_aparelho_bluray = false;
-    bool alugando_bluray = false;
     if (toUpperCase(input_list[0]) == "ALUGAR_APARELHO"){
         quer_aparelho_bluray = true;
         input_list.pop_front();
@@ -78,7 +73,6 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
                     Bluray* bluray_alugado = dynamic_cast<Bluray*>(filme_alugado);
                     bluray_alugado->alugarAparelho();
                     cliente->alugarAparelhoBluray();
-                    alugando_bluray = true;
                 }
             } else {
                 throw invalid_argument("ERRO: Filme com código inexistente");
@@ -240,27 +234,34 @@ bool Sistema::controlaComando(string comando, std::deque<std::string> lista_inpu
             displayHelp();
         } else if (comando == "CF") {
             cadastrarFilme(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "RF") {
             removerFilme(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "LF") {
             listarFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "CC") {
             cadastrarCliente(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "RC") {
             removerCliente(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "LC") {
             listarClientes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "AL") {
             alugarFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "DV") {
             devolverFilmes(lista_input);
+            cout << "===================================" << endl;
         } else if (comando == "FS") {
             cout << "\n===================================" << endl;
             cout << "   Obrigado por utilizar a Locadora PDS!" << endl;
             cout << "    Esperamos te ver novamente em breve." << endl;
             cout << "        Tenha um otimo dia!" << endl;
             cout << "===================================\n" << endl;
-
             return true;
         } else if (comando == "LA") {
             lerArquivo(lista_input[0]);
@@ -269,5 +270,7 @@ bool Sistema::controlaComando(string comando, std::deque<std::string> lista_inpu
         }
     } catch (std::exception& e) {
         cerr << e.what() << endl;
+        cout << "===================================" << endl;
     }
+    return 0;
 } 
