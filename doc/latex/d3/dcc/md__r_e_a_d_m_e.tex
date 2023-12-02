@@ -44,7 +44,19 @@ O projeto é organizado em classes, cada uma responsável por aspectos específi
 \begin{DoxyItemize}
 \item Apresenta informações detalhadas sobre os filmes disponíveis e a base de clientes.
 \end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Aprendizados}{Aprendizados}}\label{md__r_e_a_d_m_e_autotoc_md8}
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{\texorpdfstring{Funcionalidades Extras}{Funcionalidades Extras}}\label{md__r_e_a_d_m_e_autotoc_md8}
+As seguintes funcionalidades extras foram implementadas\+:
+\begin{DoxyItemize}
+\item Leitura de arquivo pode ser utilizada para qualquer operação, não apenas cadastrar filme.
+\item Implementação de pontuação de fidelidade, onde cada aluguel de filme vale 1 ponto e a cada 5 pontos adquiridos o cliente ganha um desconto de R\$10,00 na hora da devolução.
+\item Implementação do aluguel de blurays.
+\item Implementação do aluguel de aparelho leitor de bluray.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Diferenças de input}{Diferenças de input}}\label{md__r_e_a_d_m_e_autotoc_md9}
+Para conseguirmos trabalhar com nomes compostos para filmes, mudamos a ordem dos parâmetros nos inputs de Cadastrar \doxylink{class_filme}{Filme}. A ordem é\+:
+\begin{DoxyItemize}
+\item CF \texorpdfstring{$<$}{<}tipo D\texorpdfstring{$\vert$}{|}\+B\texorpdfstring{$\vert$}{|}F\texorpdfstring{$>$}{>} (dvd, bluray ou fita) $<$quantidade$>$ $<$codigo$>$ $<$categoria$>$ (para dvd e bluray) $<$nome\+\_\+do\+\_\+filme$>$ E quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR\+\_\+\+APARELHO entre os parâmetros de categoria e nome do filme para solicitar o aluguel de um aparelho (que custa R\$20,00). O comando fica assim\+:
+\item CF B $<$quantidade$>$ $<$codigo$>$ $<$categoria$>$ $<$\+ALUGAR\+\_\+\+APARELHO$>$ $<$nome\+\_\+do\+\_\+filme$>$
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Aprendizados}{Aprendizados}}\label{md__r_e_a_d_m_e_autotoc_md10}
 Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem\+:
 \begin{DoxyItemize}
 \item Programação orientada a objetos em C++.
@@ -53,7 +65,8 @@ Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em p
 \item Práticas de programação defensiva e tratamento de exceções.
 \item Criação e manutenção de Makefile.
 \item Geração de documentação utilizando Doxygen.
-\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{\texorpdfstring{Github da Equipe}{Github da Equipe}}\label{md__r_e_a_d_m_e_autotoc_md9}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{Documentação}{Documentação}}\label{md__r_e_a_d_m_e_autotoc_md11}
+A documentação detalhada do projeto, feita com a ferramenta Doxygen, pode ser encontrada na forma de página web no arquivo "{}index.\+html"{} e no formato PDF no arquivo "{}refman.\+pdf"{}.\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Github da Equipe}{Github da Equipe}}\label{md__r_e_a_d_m_e_autotoc_md12}
 
 \begin{DoxyItemize}
 \item {\bfseries{\href{https://github.com/victoriafloresdev}{\texttt{ Victoria Flores}}}}
