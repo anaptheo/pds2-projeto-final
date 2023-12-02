@@ -1,10 +1,14 @@
 #include <iostream>
+#include <tuple>
 #include <string>
 #include <fstream>
+#include <deque>
 #include <algorithm>
 #include <cctype>
 #include <iomanip>
-
+#include <sstream>
+#include <vector>
+#include <string>
 #include "locacao.hpp"
 #include "dvd.hpp"
 #include "bluray.hpp"
@@ -31,45 +35,35 @@ void Sistema::displayHelp() {
     cout << "ajuda - Exibir este menu de ajuda." << endl;
 }
 
-void Sistema::cadastrarCliente() {
+void Sistema::cadastrarCliente(std::deque<std::string> input_list) {
     string nome, cpf;
-    cout << "Digite o nome do cliente: ";
-    cin.ignore();
-
-    getline(cin, nome);
-    cout << "Digite o CPF do cliente: ";
-    cin >> cpf;
+    cpf = input_list[0];
+    input_list.pop_front();
 
     if (!all_of(cpf.begin(), cpf.end(), ::isdigit) || cpf.length() != 11) {
-    throw invalid_argument("ERRO: CPF invalido. O CPF deve conter exatamente 11 digitos numericos.");
+        throw invalid_argument("ERRO: CPF invalido. O CPF deve conter exatamente 11 digitos numericos.");
     }
 
-    nome = firstUpper(nome);
-
+    nome = retornaStringFormatada(input_list);
     _locacao.cadastrarCliente(nome, cpf);
 }
 
-void Sistema::alugarFilmes() {
-    string nome, cpf, codigo;
-    cout << "Digite o CPF do cliente: ";
-    cin >> cpf;
+void Sistema::alugarFilmes(std::deque<std::string> input_list) {
+    string cpf;
+    cpf = input_list[0];
+    input_list.pop_front();
+    
+    bool quer_aparelho_bluray = false;
+    bool alugando_bluray = false;
+    if (toUpperCase(input_list[0]) == "ALUGAR_APARELHO"){
+        quer_aparelho_bluray = true;
+        input_list.pop_front();
+    }
 
     Cliente* cliente = _locacao.getCliente(cpf);
 
     if (cliente != nullptr) {
-    // Permitir que o usuário insira múltiplos códigos de filmes até indicar que terminou
-        vector<string> codigos_filmes;
-        while (true) {
-            std::cout << "Digite o codigo do filme a ser alugado (ou -1 para encerrar): ";
-            std::cin >> codigo;
-
-            if (codigo == "-1") {
-                break; // Sair do loop se -1 for inserido
-            }
-
-            codigos_filmes.push_back(codigo);
-        }
-
+        deque<string> codigos_filmes = input_list;
         vector<Filme*> filmes_a_alugar;
         // Varre o vetor de códigos de filmes
         for (const auto& codigo : codigos_filmes) {
@@ -78,17 +72,13 @@ void Sistema::alugarFilmes() {
             if (filme_alugado != nullptr) {
                 filmes_a_alugar.push_back(filme_alugado);
 
-                // Se tiver algum filme do tipo BluRay ele pergunta do player
-                if (filme_alugado->getTipo() == Filme::Tipo::BluRay) {
+                // // Se tiver algum filme do tipo BluRay ele pergunta do player
+                bool tem_aparelho_alugado = cliente->getAparelhoAlugado();
+                if (filme_alugado->getTipo() == Filme::Tipo::BluRay && quer_aparelho_bluray && !tem_aparelho_alugado) {
                     Bluray* bluray_alugado = dynamic_cast<Bluray*>(filme_alugado);
-                    string querAparelho;
-                    cout << "Voce quer alugar o player BluRay com seu filme? (S = Sim / N = nao)" << endl;
-                    cin >> querAparelho;
-                    querAparelho = toUpperCase(querAparelho);
-
-                    if (querAparelho == "S") {
-                        bluray_alugado->alugarAparelho();
-                    }
+                    bluray_alugado->alugarAparelho();
+                    cliente->alugarAparelhoBluray();
+                    alugando_bluray = true;
                 }
             } else {
                 throw invalid_argument("ERRO: Filme com código inexistente");
@@ -106,34 +96,27 @@ void Sistema::alugarFilmes() {
     }
 }
 
-void Sistema::cadastrarFilme(){
-    string cpf, codigo, titulo, tipo;
-    int dias, quantidade;
+void Sistema::cadastrarFilme(std::deque<std::string> input_list){
+    string codigo, titulo, tipo;
+    int quantidade;
     Categoria categoria;
 
-    cout << "Digite o tipo do filme (D para DVD, B para Bluray, F para Fita): ";
-    cin >> tipo;
-    tipo = toUpperCase(tipo);
+    tipo = toUpperCase(input_list[0]);
+    input_list.pop_front();
+
+    quantidade = stoi(input_list[0]);
+    input_list.pop_front();
+
+    codigo = toLowerCase(input_list[0]);
+    input_list.pop_front();
 
     Filme* filme;
     if (tipo == "D") {
-        cout << "Digite o codigo do DVD: ";
-        cin >> codigo;
-        
-        cout << "Digite o titulo do DVD: ";
-        cin.ignore();
-        getline(cin, titulo);
-        
-        cout << "Digite a quantidade de DVDs: ";
-        cin >> quantidade;
-        
-        cout << "Digite a categoria do DVD (L para Lancamento, E para Estoque, P para Promocao): ";
         string categoriaDVD;
-        cin >> categoriaDVD;
-        categoriaDVD = toUpperCase(categoriaDVD);
-        char categoriaChar = categoriaDVD[0];
+        categoriaDVD = toUpperCase(input_list[0]);
+        input_list.pop_front();
 
-        switch (categoriaChar) {
+        switch (char(categoriaDVD[0])) {
             case 'L':
                 categoria = Categoria::Lancamento;
                 break;
@@ -144,83 +127,38 @@ void Sistema::cadastrarFilme(){
                 categoria = Categoria::Promocao;
                 break;
             default:
-                cout << "Categoria invalida." << endl;
+                std::cout << "Categoria invalida." << endl;
         }
-
-        codigo = toLowerCase(codigo);
-        titulo = firstUpper(titulo);
-
+        titulo = retornaStringFormatada(input_list);
         filme = new DVD(titulo, codigo, quantidade, categoria);
-
-        _locacao.cadastrarFilme(filme);
     } else if (tipo == "B") {
-        cout << "Digite o codigo do Bluray: ";
-        cin >> codigo;
-
-        cout << "Digite o titulo do Bluray: ";
-        cin.ignore();
-        getline(cin, titulo);
-
-        cout << "Digite a quantidade de Blurays: ";
-        cin >> quantidade;
-
-        codigo = toLowerCase(codigo);
-        titulo = firstUpper(titulo);
-
+        titulo = retornaStringFormatada(input_list);
         filme = new Bluray(titulo, codigo, quantidade);
-
-        _locacao.cadastrarFilme(filme);
     } else if (tipo == "F") {
-        bool rebobinada;
+        bool rebobinada = true;
 
-        cout << "Digite o codigo da Fita: ";
-        cin >> codigo;
-
-        cout << "Digite o titulo da Fita: ";
-        cin.ignore();
-        getline(cin, titulo);
-
-        cout << "Digite a quantidade de Fitas: ";
-        cin >> quantidade;
-
-        cout << "A Fita esta rebobinada? (1 para Sim, 0 para Nao): ";
-        cin >> rebobinada;
-
-        codigo = toLowerCase(codigo);
-        titulo = firstUpper(titulo);
-
+        titulo = retornaStringFormatada(input_list);
         filme = new Fita(titulo, codigo, quantidade, rebobinada);
-
-        _locacao.cadastrarFilme(filme);
-        
     } else {
         throw std::invalid_argument("ERRO: Tipo de filme inválido");
     }
 
+    _locacao.cadastrarFilme(filme);
     cout << "Filme cadastrado com sucesso!" << endl;
 }
 
-void Sistema::removerCliente() {
-    cout << "Digite o CPF do cliente a ser removido: ";
-    string cpf;
-    cin >> cpf;
-
+void Sistema::removerCliente(std::deque<std::string> input_list) {
+    string cpf = input_list[0];
     _locacao.removerCliente(cpf);
 }
 
-void Sistema::removerFilme() {
-    string codigo;
-    cout << "Digite o codigo do filme a ser removido: ";
-    cin >> codigo; 
+void Sistema::removerFilme(std::deque<std::string> input_list) {
+    string codigo = input_list[0];
     _locacao.removerFilme(codigo);
 }
 
-void Sistema::devolverFilmes() {
-    string cpf;
-    int dias;
-
-    std::cout << "Digite o CPF do cliente que esta devolvendo os filmes: ";
-    std::cin >> cpf;
+void Sistema::devolverFilmes(std::deque<std::string> input_list) {
+    string cpf = input_list[0]; // adicionar verificacao de cpf aqui
     Cliente* cliente = _locacao.getCliente(cpf);
 
     if (cliente->getFilmesAlugados().empty()) {
@@ -228,8 +166,7 @@ void Sistema::devolverFilmes() {
     }
 
     if (cliente != nullptr) {
-        std::cout << "Digite a quantidade de dias do aluguel: ";
-        std::cin >> dias;
+        int dias = stoi(input_list[1]); 
         _locacao.devolverFilmes(cliente, dias);
     } else {
         throw std::invalid_argument("ERRO: Cliente nao encontrado.");
@@ -237,10 +174,8 @@ void Sistema::devolverFilmes() {
 
 }
 
-void Sistema::listarFilmes() {
-    string escolha;
-    cout << "Deseja listar os filmes por codigo ou por titulo? (C para codigo, T para titulo): ";
-    cin >> escolha;
+void Sistema::listarFilmes(std::deque<std::string> input_list) {
+    string escolha = input_list[0];
     escolha = toUpperCase(escolha);
 
     if (escolha == "C"){
@@ -254,11 +189,8 @@ void Sistema::listarFilmes() {
     }
 }
 
-void Sistema::listarClientes() {
-     cout << "Deseja listar os clientes por cpf ou por nome? (C para CPF, N para nome): ";
-                
-    string escolha;
-    cin >> escolha;
+void Sistema::listarClientes(std::deque<std::string> input_list) {
+    string escolha = input_list[0];
     escolha = toUpperCase(escolha);
 
     if (escolha == "C") {
@@ -272,19 +204,70 @@ void Sistema::listarClientes() {
     }
 }
 
-void Sistema::lerArquivo() {
-     string nome_arquivo;
-    cin >> nome_arquivo;
-
-    fstream arquivo;
-    arquivo.open(nome_arquivo, ios::in);
-
-    if (!arquivo) {
-        throw std::invalid_argument("ERRO: arquivo inexistente."); //mudar o tipo
-    }
-    else {
-        // chamar a nova funcao de cadastrar filme
-        arquivo.close(); 
+void Sistema::lerArquivo(string nome_arquivo) {
+    std::ifstream arquivo(nome_arquivo);
+    if (arquivo.is_open()) {
+        std::string linha;
+        while (std::getline(arquivo, linha)) {
+            std::deque<std::string> lista_input;
+            string comando;
+            tie(comando, lista_input) = processaInput(linha);
+            controlaComando(comando, lista_input);
+        }
+        arquivo.close();
+    } else {
+        throw std::invalid_argument("ERRO: arquivo inexistente.");
     }
 }
 
+std::tuple<std::string, std::deque<std::string>> Sistema::processaInput(std::string input) {
+    std::string str(input);
+    std::istringstream split(str);
+
+    std::deque<std::string> lista_input;
+    char split_char = ' ';
+    for (std::string each; std::getline(split, each, split_char); lista_input.push_back(each));
+    
+    string comando = lista_input[0];
+    lista_input.pop_front();
+    
+    return std::make_tuple(comando, lista_input);
+}
+
+bool Sistema::controlaComando(string comando, std::deque<std::string> lista_input) {
+    try {
+        if (comando == "AJUDA") {
+            displayHelp();
+        } else if (comando == "CF") {
+            cadastrarFilme(lista_input);
+        } else if (comando == "RF") {
+            removerFilme(lista_input);
+        } else if (comando == "LF") {
+            listarFilmes(lista_input);
+        } else if (comando == "CC") {
+            cadastrarCliente(lista_input);
+        } else if (comando == "RC") {
+            removerCliente(lista_input);
+        } else if (comando == "LC") {
+            listarClientes(lista_input);
+        } else if (comando == "AL") {
+            alugarFilmes(lista_input);
+        } else if (comando == "DV") {
+            devolverFilmes(lista_input);
+        } else if (comando == "FS") {
+            cout << "\n===================================" << endl;
+            cout << "   Obrigado por utilizar a Locadora PDS!" << endl;
+            cout << "    Esperamos te ver novamente em breve." << endl;
+            cout << "        Tenha um otimo dia!" << endl;
+            cout << "===================================\n" << endl;
+
+            return true;
+        } else if (comando == "LA") {
+            lerArquivo(lista_input[0]);
+        } else {
+            throw std::invalid_argument("ERRO: Comando invalido. Digite 'ajuda' para ver os comandos.");
+        }
+    } catch (std::exception& e) {
+        cerr << e.what() << endl;
+    }
+} 

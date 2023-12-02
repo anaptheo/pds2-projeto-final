@@ -42,11 +42,17 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
         valor_total += valor_pagamento;
     }
     
+    // Valor fixo para locação de Blu-ray
+    if (cliente->getAparelhoAlugado() == true) {
+        valor_total += 20;
+        cliente->devolverAparelhoBluray();
+        std::cout << "e um aparelho de bluray." << std::endl;
+    }
     // novo metodo de cliente checaDescontoFidelidade
-    if (cliente->getPontos() == 5) {
+    if (cliente->getPontos() >= 5) {
         std::cout << "PARABÉNS! Você já acumulou 5 pontos de fidelidade, então ganhou um desconto de R$ 10,00 no seu aluguel de hoje. Aproveite!" << std::endl;
         
-        cliente->zerarPontos();
+        cliente->usarPontos();
         valor_total -= 10;
     }
     std::cout << "Total a pagar: " << valor_total << std::endl;
@@ -97,7 +103,7 @@ void Locacao::cadastrarFilme(Filme* filme) {
     if (it != _catalogo_filmes.end()) {
         // Filme com o mesmo código encontrado, adicione a quantidade disponível
         (*it)->adicionarUnidadesDisponiveis(filme->getUnidadesDisponiveis());
-        delete filme; // Não precisamos mais do filme, podemos liberar a memória
+        // delete filme; // Não precisamos mais do filme, podemos liberar a memória
     } else {
         // Nenhum filme com o mesmo código encontrado, adiciona o novo filme ao catálogo
         _catalogo_filmes.push_back(filme);
@@ -137,7 +143,7 @@ void Locacao::removerCliente(const std::string& cpf) {
 
     if (it != _clientes_cadastrados.end()) {
         _clientes_cadastrados.erase(it, _clientes_cadastrados.end());
-        cout << "Cliente removido com sucesso!";
+        cout << "Cliente removido com sucesso!" << endl;
     } else {
         throw std::invalid_argument("ERRO: Cliente não encontrado.");
     }
