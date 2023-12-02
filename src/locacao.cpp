@@ -276,3 +276,17 @@ void Locacao::listarClientesNome(){
         cliente->mostrarInfo();
     }
 }
+
+/**
+ * @brief Retorna o vetor de filmes de locacao.
+ */
+vector<Filme*> Locacao::getvectorFilmes(){
+    return this->_catalogo_filmes;
+}
+
+/**
+ * @brief Retorna o vetor de clientes de locacao.
+ */
+vector<Cliente*> Locacao::getvectorClientes(){
+    return this->_clientes_cadastrados;
+}
