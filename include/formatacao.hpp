@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cctype>
 #include <iomanip>
+#include <deque>
 
 
 std::string toLowerCase(const std::string& input);
@@ -13,6 +14,8 @@ std::string toLowerCase(const std::string& input);
 std::string toUpperCase(const std::string& input);
 
 std::string firstUpper(const std::string& input);
+
+std::string retornaStringFormatada(std::deque<std::string> palavra);
 
 
 #endif
