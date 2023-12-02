@@ -4,22 +4,30 @@
 #include "locacao.hpp"
 #include "filme.hpp"
 
+/**
+ * @file sistema.hpp
+ * @brief Arquivo de cabeçalho que contém os métodos e atributos da classe Sistema
+ * que utiliza as classes filme, dvd, fita e bluray.
+ * @details Define a classe com os métodos e atributos que serão utilizados no desenvolvimento do programa.
+*/
+
 class Sistema {
     private:
         Locacao _locacao;
         vector<Filme*> filmes;
     public:
-        Sistema();
         void displayHelp();
-        void cadastrarFilme();
-        void cadastrarCliente();
-        void removerCliente();
-        void removerFilme();
-        void listarFilmes();
-        void listarClientes();
-        void devolverFilmes();
-        void alugarFilmes();
-        void lerArquivo();
+        void cadastrarFilme(std::deque<std::string> lista_input);
+        void cadastrarCliente(std::deque<std::string> lista_input);
+        void removerCliente(std::deque<std::string> lista_input);
+        void removerFilme(std::deque<std::string> lista_input);
+        void listarFilmes(std::deque<std::string> lista_input);
+        void listarClientes(std::deque<std::string> lista_input);
+        void devolverFilmes(std::deque<std::string> lista_input);
+        void alugarFilmes(std::deque<std::string> lista_input);
+        bool controlaComando(string comando, std::deque<std::string> lista_input);
+        void lerArquivo(string nome_arquivo);
+        std::tuple<std::string, std::deque<std::string>> processaInput(std::string input);
 };
 
 #endif
