@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \doxysection{locacao.\+hpp}
 \hypertarget{locacao_8hpp_source}{}\label{locacao_8hpp_source}\index{include/locacao.hpp@{include/locacao.hpp}}
 \mbox{\hyperlink{locacao_8hpp}{Go to the documentation of this file.}}
@@ -44,60 +43,12 @@
 \DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_cliente}{Cliente}}*\ \mbox{\hyperlink{class_locacao_a58a7fe045400110666db54bee8e898e3}{getCliente}}(\textcolor{keyword}{const}\ std::string\&\ cpf);}
 \DoxyCodeLine{00116\ }
 \DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_filme}{Filme}}*\ \mbox{\hyperlink{class_locacao_a60540e026aef50943d9d678406aee0e8}{getFilme}}(std::string\ codigo\_filme);}
-\DoxyCodeLine{00124\ \};}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOCACAO\_HPP}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ vector<Filme*>\ \mbox{\hyperlink{class_locacao_a0390ce18264f4c0af410eb503ddf94bf}{getvectorFilmes}}();}
+\DoxyCodeLine{00130\ \ \ \ \ }
+\DoxyCodeLine{00135\ \ \ \ \ vector<Cliente*>\ \mbox{\hyperlink{class_locacao_a6297f95bf4be3af052401655dfcd86fa}{getvectorClientes}}();\ }
+\DoxyCodeLine{00136\ \};}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOCACAO\_HPP}}
 
 \end{DoxyCode}
-=======
-\doxysection{locacao.\+hpp}
-\hypertarget{locacao_8hpp_source}{}\label{locacao_8hpp_source}\index{include/locacao.hpp@{include/locacao.hpp}}
-\mbox{\hyperlink{locacao_8hpp}{Go to the documentation of this file.}}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LOCACAO\_HPP}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LOCACAO\_HPP}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{filme_8hpp}{filme.hpp}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cliente_8hpp}{cliente.hpp}}"{}}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_locacao}{Locacao}}\ \{}
-\DoxyCodeLine{00023\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00024\ \ \ \ \ std::vector<Filme*>\ \mbox{\hyperlink{class_locacao_aba26a081842b671c46aa76f87fed7b43}{\_catalogo\_filmes}};\ }
-\DoxyCodeLine{00025\ \ \ \ \ std::vector<Cliente*>\ \mbox{\hyperlink{class_locacao_a85afca21d4616f16aa133f996a188f11}{\_clientes\_cadastrados}};\ }
-\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a3e705dd486f90d4d50b1e30b75135e3d}{cadastrarFilme}}(\mbox{\hyperlink{class_filme}{Filme}}*\ filme);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a7d69396a0a2e526a2106652c4a31760e}{removerFilme}}(std::string\ codigo);}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a45abbebeeaefc07dcba7f257974b79a7}{alugarFilmes}}(\textcolor{keyword}{const}\ std::string\&\ cpf,\ std::vector<Filme*>\&\ filmes);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_aee682a7d8081d8768394b9457a4a5da3}{emiteReciboAluguel}}(\mbox{\hyperlink{class_cliente}{Cliente}}*\ cliente,\ std::vector<Filme*>\&\ filmes);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a10bfb6509c276a5931ba248cb7717ea4}{devolverFilmes}}(\mbox{\hyperlink{class_cliente}{Cliente}}*\ cliente,\ \textcolor{keywordtype}{int}\ dias);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a863ea30f06387c0ba874a354b131124b}{emiteReciboDevolucao}}(\mbox{\hyperlink{class_cliente}{Cliente}}*\ cliente,\ \textcolor{keywordtype}{int}\ dias);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a2e5a42dee31e1ad7f9b73995bab9131b}{listarFilmesCodigo}}();}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a6d0a57a6e8b0528a28a5896594459077}{listarFilmesTitulo}}();}
-\DoxyCodeLine{00083\ \ \ \ \ }
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_ac408e2db523b24a3fb059f6ae2dd3d93}{cadastrarCliente}}(\textcolor{keyword}{const}\ std::string\&\ nome,\ \textcolor{keyword}{const}\ std::string\&\ cpf);}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a32e2b6c98c49856fd7cc60dd7e8eef22}{removerCliente}}(\textcolor{keyword}{const}\ std::string\&\ cpf);}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a38425f582cbac1aee685c2362b418271}{listarClientesCodigo}}();}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_locacao_a6625b13c4e3539a67d09b51a9acb8803}{listarClientesNome}}();}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00115\ \ \ \ \ \mbox{\hyperlink{class_cliente}{Cliente}}*\ \mbox{\hyperlink{class_locacao_a58a7fe045400110666db54bee8e898e3}{getCliente}}(\textcolor{keyword}{const}\ std::string\&\ cpf);}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{class_filme}{Filme}}*\ \mbox{\hyperlink{class_locacao_a60540e026aef50943d9d678406aee0e8}{getFilme}}(std::string\ codigo\_filme);}
-\DoxyCodeLine{00124\ \};}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LOCACAO\_HPP}}
-
-\end{DoxyCode}
->>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436

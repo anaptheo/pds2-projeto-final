@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \chapter{Sistema da Locadora PDS}
 \hypertarget{index}{}\label{index}\index{Sistema da Locadora PDS@{Sistema da Locadora PDS}}
 \label{index_md__r_e_a_d_m_e}%
@@ -45,7 +44,19 @@ O projeto é organizado em classes, cada uma responsável por aspectos específi
 \begin{DoxyItemize}
 \item Apresenta informações detalhadas sobre os filmes disponíveis e a base de clientes.
 \end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Aprendizados}{Aprendizados}}\label{index_autotoc_md8}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Funcionalidades Extras}{Funcionalidades Extras}}\label{index_autotoc_md8}
+As seguintes funcionalidades extras foram implementadas\+:
+\begin{DoxyItemize}
+\item Leitura de arquivo pode ser utilizada para qualquer operação, não apenas cadastrar filme.
+\item Implementação de pontuação de fidelidade, onde cada aluguel de filme vale 1 ponto e a cada 5 pontos adquiridos o cliente ganha um desconto de R\$10,00 na hora da devolução.
+\item Implementação do aluguel de blurays.
+\item Implementação do aluguel de aparelho leitor de bluray.
+\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Diferenças de input}{Diferenças de input}}\label{index_autotoc_md9}
+Para conseguirmos trabalhar com nomes compostos para filmes, mudamos a ordem dos parâmetros nos inputs de Cadastrar \doxylink{class_filme}{Filme}. A ordem é\+:
+\begin{DoxyItemize}
+\item CF \texorpdfstring{$<$}{<}tipo D\texorpdfstring{$\vert$}{|}\+B\texorpdfstring{$\vert$}{|}F\texorpdfstring{$>$}{>} (dvd, bluray ou fita) $<$quantidade$>$ $<$codigo$>$ $<$categoria$>$ (para dvd e bluray) $<$nome\+\_\+do\+\_\+filme$>$ E quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR\+\_\+\+APARELHO entre os parâmetros de categoria e nome do filme para solicitar o aluguel de um aparelho (que custa R\$20,00). O comando fica assim\+:
+\item CF B $<$quantidade$>$ $<$codigo$>$ $<$categoria$>$ $<$\+ALUGAR\+\_\+\+APARELHO$>$ $<$nome\+\_\+do\+\_\+filme$>$
+\end{DoxyItemize}\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Aprendizados}{Aprendizados}}\label{index_autotoc_md10}
 Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem\+:
 \begin{DoxyItemize}
 \item Programação orientada a objetos em C++.
@@ -54,7 +65,8 @@ Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em p
 \item Práticas de programação defensiva e tratamento de exceções.
 \item Criação e manutenção de Makefile.
 \item Geração de documentação utilizando Doxygen.
-\end{DoxyItemize}\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Github da Equipe}{Github da Equipe}}\label{index_autotoc_md9}
+\end{DoxyItemize}\hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{Documentação}{Documentação}}\label{index_autotoc_md11}
+A documentação detalhada do projeto, feita com a ferramenta Doxygen, pode ser encontrada na forma de página web no arquivo "{}index.\+html"{} e no formato PDF no arquivo "{}refman.\+pdf"{}.\hypertarget{index_autotoc_md12}{}\doxysection{\texorpdfstring{Github da Equipe}{Github da Equipe}}\label{index_autotoc_md12}
 
 \begin{DoxyItemize}
 \item {\bfseries{\href{https://github.com/victoriafloresdev}{\texttt{ Victoria Flores}}}}
@@ -62,69 +74,4 @@ Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em p
 \item {\bfseries{\href{https://github.com/flaviosoriano}{\texttt{ Flávio Soriano}}}}
 \item {\bfseries{\href{https://github.com/isadorahorta}{\texttt{ Isadora Horta}}}}
 \item {\bfseries{\href{https://github.com/anaptheo}{\texttt{ Ana Paula Theobald}}}} 
-=======
-\chapter{Sistema da Locadora PDS}
-\hypertarget{index}{}\label{index}\index{Sistema da Locadora PDS@{Sistema da Locadora PDS}}
-\label{index_md__r_e_a_d_m_e}%
-\Hypertarget{index_md__r_e_a_d_m_e}%
- \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Descrição do Projeto}{Descrição do Projeto}}\label{index_autotoc_md1}
-O \doxylink{class_sistema}{Sistema} da Locadora PDS é uma aplicação desenvolvida como trabalho final da disciplina de Programação e Desenvolvimento de Software II (PDS II) do curso de Sistemas de Informação na UFMG. Este projeto implementa um sistema abrangente de aluguel de filmes, proporcionando funcionalidades como cadastro de filmes e clientes, processos de locação, devolução de filmes e gerenciamento do catálogo.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Equipe}{Equipe}}\label{index_autotoc_md2}
-
-\begin{DoxyItemize}
-\item Victoria Flores
-\item Raquel Xavier
-\item Flávio Soriano
-\item Isadora Horta
-\item Ana Paula Theobald
-\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Contexto do Projeto}{Contexto do Projeto}}\label{index_autotoc_md3}
-O \doxylink{class_sistema}{Sistema} da Locadora PDS visa otimizar as operações de uma locadora de filmes, oferecendo soluções para desafios comuns encontrados no gerenciamento de catálogos, controle de estoque, administração de clientes e operações de locação.\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Tecnologias Utilizadas}{Tecnologias Utilizadas}}\label{index_autotoc_md4}
-
-\begin{DoxyItemize}
-\item {\bfseries{Linguagem de Programação\+:}} C++
-\item {\bfseries{Compilação\+:}} Makefile
-\item {\bfseries{Documentação\+:}} Doxygen
-\item {\bfseries{Testes\+:}} Biblioteca doctest
-\item {\bfseries{Controle de Versão\+:}} Git e Git\+Hub
-\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Estrutura do Projeto}{Estrutura do Projeto}}\label{index_autotoc_md5}
-O projeto é organizado em classes, cada uma responsável por aspectos específicos do sistema\+:
-\begin{DoxyItemize}
-\item {\ttfamily formatacao}\+: Implementa métodos para formatação de strings.
-\item {\ttfamily locacao}\+: Contém métodos e atributos relacionados às operações de locação.
-\item {\ttfamily filme}\+: Classe base que engloba atributos e métodos comuns a todos os tipos de filmes.
-\item {\ttfamily dvd}, {\ttfamily bluray}, {\ttfamily fita}\+: Classes que herdam de {\ttfamily filme} e implementam características específicas.
-\item {\ttfamily cliente}\+: Classe que gerencia informações e operações relacionadas aos clientes.
-\item {\ttfamily sistema}\+: Classe que administra operações do sistema, evitando sobrecarregar o arquivo principal.
-\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{Funcionalidades Principais}{Funcionalidades Principais}}\label{index_autotoc_md6}
-
-\begin{DoxyEnumerate}
-\item {\bfseries{Cadastro de Filmes e Clientes\+:}}
-\begin{DoxyItemize}
-\item Permite o registro de novos filmes e clientes no sistema.
-\end{DoxyItemize}
-\item {\bfseries{Locação e Devolução de Filmes\+:}}
-\begin{DoxyItemize}
-\item Facilita o processo de aluguel e devolução de filmes, mantendo o controle do estoque.
-\end{DoxyItemize}
-\item {\bfseries{Listagem do Catálogo e Clientes\+:}}
-\begin{DoxyItemize}
-\item Apresenta informações detalhadas sobre os filmes disponíveis e a base de clientes.
-\end{DoxyItemize}
-\end{DoxyEnumerate}\hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Aprendizados}{Aprendizados}}\label{index_autotoc_md7}
-Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem\+:
-\begin{DoxyItemize}
-\item Programação orientada a objetos em C++.
-\item Colaboração efetiva em um projeto conjunto.
-\item Uso avançado de Git e Git\+Hub para controle de versão.
-\item Práticas de programação defensiva e tratamento de exceções.
-\item Criação e manutenção de Makefile.
-\item Geração de documentação utilizando Doxygen.
-\end{DoxyItemize}\hypertarget{index_autotoc_md8}{}\doxysection{\texorpdfstring{Github da Equipe}{Github da Equipe}}\label{index_autotoc_md8}
-
-\begin{DoxyItemize}
-\item {\bfseries{\href{https://github.com/victoriafloresdev}{\texttt{ Victoria Flores}}}}
-\item {\bfseries{\href{https://github.com/Raquelxt}{\texttt{ Raquel Xavier}}}}
-\item {\bfseries{\href{https://github.com/flaviosoriano}{\texttt{ Flávio Soriano}}}}
-\item {\bfseries{\href{https://github.com/isadorahorta}{\texttt{ Isadora Horta}}}}
-\item {\bfseries{\href{https://github.com/anaptheo}{\texttt{ Ana Paula Theobald}}}} 
->>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
 \end{DoxyItemize}

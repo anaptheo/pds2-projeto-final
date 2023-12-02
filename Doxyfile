@@ -19,7 +19,7 @@ RECURSIVE              = YES
 
 EXTRACT_ALL            = YES
 
-USE_MDFILE_AS_MAINPAGE = D:\USUARIO\Desktop\FACULDADE\PDS2\trabalho final\README.md
+USE_MDFILE_AS_MAINPAGE = ./README.md
 
 # Arquivos ou diretórios específicos para excluir
 # EXCLUDE_PATTERNS      = 

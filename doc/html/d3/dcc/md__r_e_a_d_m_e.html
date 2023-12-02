@@ -124,6 +124,20 @@ Funcionalidades Principais</h1>
 </li>
 </ol>
 <h1><a class="anchor" id="autotoc_md8"></a>
+Funcionalidades Extras</h1>
+<p>As seguintes funcionalidades extras foram implementadas:</p><ul>
+<li>Leitura de arquivo pode ser utilizada para qualquer operação, não apenas cadastrar filme.</li>
+<li>Implementação de pontuação de fidelidade, onde cada aluguel de filme vale 1 ponto e a cada 5 pontos adquiridos o cliente ganha um desconto de R$10,00 na hora da devolução.</li>
+<li>Implementação do aluguel de blurays.</li>
+<li>Implementação do aluguel de aparelho leitor de bluray.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Diferenças de input</h1>
+<p>Para conseguirmos trabalhar com nomes compostos para filmes, mudamos a ordem dos parâmetros nos inputs de Cadastrar <a class="el" href="../../dc/dc5/class_filme.html">Filme</a>. A ordem é:</p><ul>
+<li>CF &lt;tipo D|B|F&gt; (dvd, bluray ou fita) &lt;quantidade&gt; &lt;codigo&gt; &lt;categoria&gt; (para dvd e bluray) &lt;nome_do_filme&gt; E quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR_APARELHO entre os parâmetros de categoria e nome do filme para solicitar o aluguel de um aparelho (que custa R$20,00). O comando fica assim:</li>
+<li>CF B &lt;quantidade&gt; &lt;codigo&gt; &lt;categoria&gt; &lt;ALUGAR_APARELHO&gt; &lt;nome_do_filme&gt;</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Aprendizados</h1>
 <p>Este projeto foi uma oportunidade valiosa para aprimorar nossas habilidades em programação, colaboração e gerenciamento de projetos. Os principais aprendizados incluem:</p><ul>
 <li>Programação orientada a objetos em C++.</li>
@@ -133,7 +147,10 @@ Aprendizados</h1>
 <li>Criação e manutenção de Makefile.</li>
 <li>Geração de documentação utilizando Doxygen.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
+Documentação</h1>
+<p>A documentação detalhada do projeto, feita com a ferramenta Doxygen, pode ser encontrada na forma de página web no arquivo "index.html" e no formato PDF no arquivo "refman.pdf".</p>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Github da Equipe</h1>
 <ul>
 <li><b><a href="https://github.com/victoriafloresdev">Victoria Flores</a></b></li>

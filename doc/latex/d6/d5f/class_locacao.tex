@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \doxysection{Locacao Class Reference}
 \hypertarget{class_locacao}{}\label{class_locacao}\index{Locacao@{Locacao}}
 
@@ -40,7 +39,11 @@ void \mbox{\hyperlink{class_locacao_a6625b13c4e3539a67d09b51a9acb8803}{listar\+C
 \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_locacao_a58a7fe045400110666db54bee8e898e3}{get\+Cliente}} (const std\+::string \&cpf)
 \begin{DoxyCompactList}\small\item\em Obtém um cliente pelo CPF. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_locacao_a60540e026aef50943d9d678406aee0e8}{get\+Filme}} (std\+::string codigo\+\_\+filme)
-\begin{DoxyCompactList}\small\item\em Obtém um filme pelo código. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtém um filme pelo código. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_locacao_a0390ce18264f4c0af410eb503ddf94bf}{getvector\+Filmes}} ()
+\begin{DoxyCompactList}\small\item\em Getter para o atributo \+\_\+catalogo\+\_\+filmes. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_locacao_a6297f95bf4be3af052401655dfcd86fa}{getvector\+Clientes}} ()
+\begin{DoxyCompactList}\small\item\em Getter para o atributo \+\_\+clientes\+\_\+cadastrados. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -240,356 +243,35 @@ Ponteiro para o filme encontrado, ou nullptr se não encontrado.
 \begin{DoxyReturn}{Returns}
 Ponteiro para o \doxylink{class_filme}{Filme} encontrado ou nullptr se não for encontrado. 
 \end{DoxyReturn}
-\Hypertarget{class_locacao_a38425f582cbac1aee685c2362b418271}\label{class_locacao_a38425f582cbac1aee685c2362b418271} 
-\index{Locacao@{Locacao}!listarClientesCodigo@{listarClientesCodigo}}
-\index{listarClientesCodigo@{listarClientesCodigo}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{listarClientesCodigo()}{listarClientesCodigo()}}
-{\footnotesize\ttfamily void Locacao\+::listar\+Clientes\+Codigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\Hypertarget{class_locacao_a6297f95bf4be3af052401655dfcd86fa}\label{class_locacao_a6297f95bf4be3af052401655dfcd86fa} 
+\index{Locacao@{Locacao}!getvectorClientes@{getvectorClientes}}
+\index{getvectorClientes@{getvectorClientes}!Locacao@{Locacao}}
+\doxysubsubsection{\texorpdfstring{getvectorClientes()}{getvectorClientes()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} $>$ Locacao\+::getvector\+Clientes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Lista os clientes cadastrados no sistema ordenados por código. 
+Getter para o atributo \+\_\+clientes\+\_\+cadastrados. 
 
-Lista os clientes ordenados por código. \Hypertarget{class_locacao_a6625b13c4e3539a67d09b51a9acb8803}\label{class_locacao_a6625b13c4e3539a67d09b51a9acb8803} 
-\index{Locacao@{Locacao}!listarClientesNome@{listarClientesNome}}
-\index{listarClientesNome@{listarClientesNome}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{listarClientesNome()}{listarClientesNome()}}
-{\footnotesize\ttfamily void Locacao\+::listar\+Clientes\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+Retorna o vetor de clientes de locacao.
 
-
-
-Lista os clientes cadastrados no sistema ordenados por nome. 
-
-Lista os clientes ordenados por nome. \Hypertarget{class_locacao_a2e5a42dee31e1ad7f9b73995bab9131b}\label{class_locacao_a2e5a42dee31e1ad7f9b73995bab9131b} 
-\index{Locacao@{Locacao}!listarFilmesCodigo@{listarFilmesCodigo}}
-\index{listarFilmesCodigo@{listarFilmesCodigo}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{listarFilmesCodigo()}{listarFilmesCodigo()}}
-{\footnotesize\ttfamily void Locacao\+::listar\+Filmes\+Codigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Lista os filmes cadastrados no sistema ordenados por código. 
-
-Lista os filmes ordenados por código. \Hypertarget{class_locacao_a6d0a57a6e8b0528a28a5896594459077}\label{class_locacao_a6d0a57a6e8b0528a28a5896594459077} 
-\index{Locacao@{Locacao}!listarFilmesTitulo@{listarFilmesTitulo}}
-\index{listarFilmesTitulo@{listarFilmesTitulo}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{listarFilmesTitulo()}{listarFilmesTitulo()}}
-{\footnotesize\ttfamily void Locacao\+::listar\+Filmes\+Titulo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Lista os filmes cadastrados no sistema ordenados por título. 
-
-Lista os filmes ordenados por título. \Hypertarget{class_locacao_a32e2b6c98c49856fd7cc60dd7e8eef22}\label{class_locacao_a32e2b6c98c49856fd7cc60dd7e8eef22} 
-\index{Locacao@{Locacao}!removerCliente@{removerCliente}}
-\index{removerCliente@{removerCliente}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{removerCliente()}{removerCliente()}}
-{\footnotesize\ttfamily void Locacao\+::remover\+Cliente (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cpf }\end{DoxyParamCaption})}
-
-
-
-Remove um cliente do sistema pelo CPF. 
-
-Remove um cliente do sistema com base no CPF fornecido.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cpf} & CPF do cliente a ser removido.\\
-\hline
-{\em cpf} & CPF do cliente a ser removido. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & se o cliente não for encontrado. \\
-\hline
-\end{DoxyExceptions}
-\Hypertarget{class_locacao_a7d69396a0a2e526a2106652c4a31760e}\label{class_locacao_a7d69396a0a2e526a2106652c4a31760e} 
-\index{Locacao@{Locacao}!removerFilme@{removerFilme}}
-\index{removerFilme@{removerFilme}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{removerFilme()}{removerFilme()}}
-{\footnotesize\ttfamily void Locacao\+::remover\+Filme (\begin{DoxyParamCaption}\item[{std\+::string}]{codigo }\end{DoxyParamCaption})}
-
-
-
-Remove um filme do catálogo pelo código. 
-
-Remove um filme do catálogo com base no código fornecido.
-
-
-\begin{DoxyParams}{Parameters}
-{\em codigo} & Código do filme a ser removido.\\
-\hline
-{\em codigo} & Código do filme a ser removido. \\
-\hline
-\end{DoxyParams}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & se o filme não for encontrado. \\
-\hline
-\end{DoxyExceptions}
-
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{class_locacao_aba26a081842b671c46aa76f87fed7b43}\label{class_locacao_aba26a081842b671c46aa76f87fed7b43} 
-\index{Locacao@{Locacao}!\_catalogo\_filmes@{\_catalogo\_filmes}}
-\index{\_catalogo\_filmes@{\_catalogo\_filmes}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{\_catalogo\_filmes}{\_catalogo\_filmes}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_filme}{Filme}}\texorpdfstring{$\ast$}{*}$>$ Locacao\+::\+\_\+catalogo\+\_\+filmes\hspace{0.3cm}{\ttfamily [protected]}}
-
-Vetor que armazena os filmes disponíveis para locação. \Hypertarget{class_locacao_a85afca21d4616f16aa133f996a188f11}\label{class_locacao_a85afca21d4616f16aa133f996a188f11} 
-\index{Locacao@{Locacao}!\_clientes\_cadastrados@{\_clientes\_cadastrados}}
-\index{\_clientes\_cadastrados@{\_clientes\_cadastrados}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{\_clientes\_cadastrados}{\_clientes\_cadastrados}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_cliente}{Cliente}}\texorpdfstring{$\ast$}{*}$>$ Locacao\+::\+\_\+clientes\+\_\+cadastrados\hspace{0.3cm}{\ttfamily [protected]}}
-
-Vetor que armazena os clientes cadastrados no sistema. 
-
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
-\item 
-include/\mbox{\hyperlink{locacao_8hpp}{locacao.\+hpp}}\item 
-src/\mbox{\hyperlink{locacao_8cpp}{locacao.\+cpp}}\end{DoxyCompactItemize}
-=======
-\doxysection{Locacao Class Reference}
-\hypertarget{class_locacao}{}\label{class_locacao}\index{Locacao@{Locacao}}
-
-
-Classe responsável por gerenciar as operações de locação de filmes.  
-
-
-
-
-{\ttfamily \#include $<$locacao.\+hpp$>$}
-
-\doxysubsubsection*{Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{class_locacao_a3e705dd486f90d4d50b1e30b75135e3d}{cadastrar\+Filme}} (\mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*}filme)
-\begin{DoxyCompactList}\small\item\em Cadastra um novo filme no catálogo. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a7d69396a0a2e526a2106652c4a31760e}{remover\+Filme}} (std\+::string codigo)
-\begin{DoxyCompactList}\small\item\em Remove um filme do catálogo pelo código. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a45abbebeeaefc07dcba7f257974b79a7}{alugar\+Filmes}} (const std\+::string \&cpf, std\+::vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \&filmes)
-\begin{DoxyCompactList}\small\item\em Realiza o aluguel de filmes para um cliente. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_aee682a7d8081d8768394b9457a4a5da3}{emite\+Recibo\+Aluguel}} (\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}cliente, std\+::vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \&filmes)
-\begin{DoxyCompactList}\small\item\em Emite o recibo de aluguel para um cliente. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a10bfb6509c276a5931ba248cb7717ea4}{devolver\+Filmes}} (\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}cliente, int dias)
-\begin{DoxyCompactList}\small\item\em Realiza a devolução de filmes por parte do cliente. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a863ea30f06387c0ba874a354b131124b}{emite\+Recibo\+Devolucao}} (\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}cliente, int dias)
-\begin{DoxyCompactList}\small\item\em Emite o recibo de devolução para um cliente. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a2e5a42dee31e1ad7f9b73995bab9131b}{listar\+Filmes\+Codigo}} ()
-\begin{DoxyCompactList}\small\item\em Lista os filmes cadastrados no sistema ordenados por código. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a6d0a57a6e8b0528a28a5896594459077}{listar\+Filmes\+Titulo}} ()
-\begin{DoxyCompactList}\small\item\em Lista os filmes cadastrados no sistema ordenados por título. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_ac408e2db523b24a3fb059f6ae2dd3d93}{cadastrar\+Cliente}} (const std\+::string \&nome, const std\+::string \&cpf)
-\begin{DoxyCompactList}\small\item\em Cadastra um novo cliente no sistema. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a32e2b6c98c49856fd7cc60dd7e8eef22}{remover\+Cliente}} (const std\+::string \&cpf)
-\begin{DoxyCompactList}\small\item\em Remove um cliente do sistema pelo CPF. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a38425f582cbac1aee685c2362b418271}{listar\+Clientes\+Codigo}} ()
-\begin{DoxyCompactList}\small\item\em Lista os clientes cadastrados no sistema ordenados por código. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_locacao_a6625b13c4e3539a67d09b51a9acb8803}{listar\+Clientes\+Nome}} ()
-\begin{DoxyCompactList}\small\item\em Lista os clientes cadastrados no sistema ordenados por nome. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_locacao_a58a7fe045400110666db54bee8e898e3}{get\+Cliente}} (const std\+::string \&cpf)
-\begin{DoxyCompactList}\small\item\em Obtém um cliente pelo CPF. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_locacao_a60540e026aef50943d9d678406aee0e8}{get\+Filme}} (std\+::string codigo\+\_\+filme)
-\begin{DoxyCompactList}\small\item\em Obtém um filme pelo código. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Protected Attributes}
-\begin{DoxyCompactItemize}
-\item 
-std\+::vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_locacao_aba26a081842b671c46aa76f87fed7b43}{\+\_\+catalogo\+\_\+filmes}}
-\item 
-std\+::vector$<$ \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_locacao_a85afca21d4616f16aa133f996a188f11}{\+\_\+clientes\+\_\+cadastrados}}
-\end{DoxyCompactItemize}
-
-
-\doxysubsection{Detailed Description}
-Classe responsável por gerenciar as operações de locação de filmes. 
-
-A classe \doxylink{class_locacao}{Locacao} realiza o cadastro, remoção, aluguel e devolução de filmes, além de manter registros dos filmes disponíveis no catálogo e dos clientes cadastrados. 
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{class_locacao_a45abbebeeaefc07dcba7f257974b79a7}\label{class_locacao_a45abbebeeaefc07dcba7f257974b79a7} 
-\index{Locacao@{Locacao}!alugarFilmes@{alugarFilmes}}
-\index{alugarFilmes@{alugarFilmes}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{alugarFilmes()}{alugarFilmes()}}
-{\footnotesize\ttfamily void Locacao\+::alugar\+Filmes (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cpf,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \&}]{filmes\+\_\+a\+\_\+alugar }\end{DoxyParamCaption})}
-
-
-
-Realiza o aluguel de filmes para um cliente. 
-
-Realiza a locação de filmes para um cliente.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cpf} & CPF do cliente. \\
-\hline
-{\em filmes} & Vetor de ponteiros para os filmes a serem alugados.\\
-\hline
-{\em cpf} & CPF do cliente que deseja alugar os filmes. \\
-\hline
-{\em filmes\+\_\+a\+\_\+alugar} & Vetor de ponteiros para os filmes que o cliente deseja alugar. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_ac408e2db523b24a3fb059f6ae2dd3d93}\label{class_locacao_ac408e2db523b24a3fb059f6ae2dd3d93} 
-\index{Locacao@{Locacao}!cadastrarCliente@{cadastrarCliente}}
-\index{cadastrarCliente@{cadastrarCliente}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{cadastrarCliente()}{cadastrarCliente()}}
-{\footnotesize\ttfamily void Locacao\+::cadastrar\+Cliente (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome,  }\item[{const std\+::string \&}]{cpf }\end{DoxyParamCaption})}
-
-
-
-Cadastra um novo cliente no sistema. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em nome} & Nome do cliente. \\
-\hline
-{\em cpf} & CPF do cliente.\\
-\hline
-{\em nome} & Nome do cliente a ser cadastrado. \\
-\hline
-{\em cpf} & CPF do cliente a ser cadastrado. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_a3e705dd486f90d4d50b1e30b75135e3d}\label{class_locacao_a3e705dd486f90d4d50b1e30b75135e3d} 
-\index{Locacao@{Locacao}!cadastrarFilme@{cadastrarFilme}}
-\index{cadastrarFilme@{cadastrarFilme}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{cadastrarFilme()}{cadastrarFilme()}}
-{\footnotesize\ttfamily void Locacao\+::cadastrar\+Filme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*}}]{filme }\end{DoxyParamCaption})}
-
-
-
-Cadastra um novo filme no catálogo. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em filme} & Ponteiro para o filme a ser cadastrado. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_a10bfb6509c276a5931ba248cb7717ea4}\label{class_locacao_a10bfb6509c276a5931ba248cb7717ea4} 
-\index{Locacao@{Locacao}!devolverFilmes@{devolverFilmes}}
-\index{devolverFilmes@{devolverFilmes}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{devolverFilmes()}{devolverFilmes()}}
-{\footnotesize\ttfamily void Locacao\+::devolver\+Filmes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}}]{cliente,  }\item[{int}]{dias }\end{DoxyParamCaption})}
-
-
-
-Realiza a devolução de filmes por parte do cliente. 
-
-Realiza a devolução de filmes por um cliente.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cliente} & Ponteiro para o cliente. \\
-\hline
-{\em dias} & Número de dias pelos quais os filmes foram alugados.\\
-\hline
-{\em cliente} & Ponteiro para o cliente que está devolvendo os filmes. \\
-\hline
-{\em dias} & Número de dias pelos quais os filmes foram alugados. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_aee682a7d8081d8768394b9457a4a5da3}\label{class_locacao_aee682a7d8081d8768394b9457a4a5da3} 
-\index{Locacao@{Locacao}!emiteReciboAluguel@{emiteReciboAluguel}}
-\index{emiteReciboAluguel@{emiteReciboAluguel}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{emiteReciboAluguel()}{emiteReciboAluguel()}}
-{\footnotesize\ttfamily void Locacao\+::emite\+Recibo\+Aluguel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}}]{cliente,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ \&}]{filmes }\end{DoxyParamCaption})}
-
-
-
-Emite o recibo de aluguel para um cliente. 
-
-Emite um recibo de aluguel para o cliente.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cliente} & Ponteiro para o cliente. \\
-\hline
-{\em filmes} & Vetor de ponteiros para os filmes alugados.\\
-\hline
-{\em cliente} & Ponteiro para o cliente que alugou os filmes. \\
-\hline
-{\em filmes} & Vetor de ponteiros para os filmes alugados. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_a863ea30f06387c0ba874a354b131124b}\label{class_locacao_a863ea30f06387c0ba874a354b131124b} 
-\index{Locacao@{Locacao}!emiteReciboDevolucao@{emiteReciboDevolucao}}
-\index{emiteReciboDevolucao@{emiteReciboDevolucao}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{emiteReciboDevolucao()}{emiteReciboDevolucao()}}
-{\footnotesize\ttfamily void Locacao\+::emite\+Recibo\+Devolucao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*}}]{cliente,  }\item[{int}]{dias }\end{DoxyParamCaption})}
-
-
-
-Emite o recibo de devolução para um cliente. 
-
-Emite um recibo de devolução para o cliente.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cliente} & Ponteiro para o cliente. \\
-\hline
-{\em dias} & Número de dias pelos quais os filmes foram alugados.\\
-\hline
-{\em cliente} & Ponteiro para o cliente que devolveu os filmes. \\
-\hline
-{\em dias} & Número de dias pelos quais os filmes foram alugados. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{class_locacao_a58a7fe045400110666db54bee8e898e3}\label{class_locacao_a58a7fe045400110666db54bee8e898e3} 
-\index{Locacao@{Locacao}!getCliente@{getCliente}}
-\index{getCliente@{getCliente}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{getCliente()}{getCliente()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_cliente}{Cliente}} \texorpdfstring{$\ast$}{*} Locacao\+::get\+Cliente (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{cpf }\end{DoxyParamCaption})}
-
-
-
-Obtém um cliente pelo CPF. 
-
-Retorna um ponteiro para um \doxylink{class_cliente}{Cliente} com base no CPF fornecido.
-
-
-\begin{DoxyParams}{Parameters}
-{\em cpf} & CPF do cliente. \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Ponteiro para o cliente encontrado, ou nullptr se não encontrado.
+Vetor de clientes. 
 \end{DoxyReturn}
+\Hypertarget{class_locacao_a0390ce18264f4c0af410eb503ddf94bf}\label{class_locacao_a0390ce18264f4c0af410eb503ddf94bf} 
+\index{Locacao@{Locacao}!getvectorFilmes@{getvectorFilmes}}
+\index{getvectorFilmes@{getvectorFilmes}!Locacao@{Locacao}}
+\doxysubsubsection{\texorpdfstring{getvectorFilmes()}{getvectorFilmes()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} $>$ Locacao\+::getvector\+Filmes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\begin{DoxyParams}{Parameters}
-{\em cpf} & CPF do cliente a ser encontrado. \\
-\hline
-\end{DoxyParams}
+
+
+Getter para o atributo \+\_\+catalogo\+\_\+filmes. 
+
+Retorna o vetor de filmes de locacao.
+
 \begin{DoxyReturn}{Returns}
-Ponteiro para o \doxylink{class_cliente}{Cliente} encontrado ou nullptr se não for encontrado. 
-\end{DoxyReturn}
-\Hypertarget{class_locacao_a60540e026aef50943d9d678406aee0e8}\label{class_locacao_a60540e026aef50943d9d678406aee0e8} 
-\index{Locacao@{Locacao}!getFilme@{getFilme}}
-\index{getFilme@{getFilme}!Locacao@{Locacao}}
-\doxysubsubsection{\texorpdfstring{getFilme()}{getFilme()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_filme}{Filme}} \texorpdfstring{$\ast$}{*} Locacao\+::get\+Filme (\begin{DoxyParamCaption}\item[{std\+::string}]{codigo\+\_\+filme }\end{DoxyParamCaption})}
-
-
-
-Obtém um filme pelo código. 
-
-Retorna um ponteiro para um \doxylink{class_filme}{Filme} com base no código fornecido.
-
-
-\begin{DoxyParams}{Parameters}
-{\em codigo\+\_\+filme} & Código do filme. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Ponteiro para o filme encontrado, ou nullptr se não encontrado.
-\end{DoxyReturn}
-
-\begin{DoxyParams}{Parameters}
-{\em codigo\+\_\+filme} & Código do filme a ser encontrado. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Ponteiro para o \doxylink{class_filme}{Filme} encontrado ou nullptr se não for encontrado. 
+Vetor de filmes (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}). 
 \end{DoxyReturn}
 \Hypertarget{class_locacao_a38425f582cbac1aee685c2362b418271}\label{class_locacao_a38425f582cbac1aee685c2362b418271} 
 \index{Locacao@{Locacao}!listarClientesCodigo@{listarClientesCodigo}}
@@ -700,4 +382,3 @@ The documentation for this class was generated from the following files\+:\begin
 \item 
 include/\mbox{\hyperlink{locacao_8hpp}{locacao.\+hpp}}\item 
 src/\mbox{\hyperlink{locacao_8cpp}{locacao.\+cpp}}\end{DoxyCompactItemize}
->>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
