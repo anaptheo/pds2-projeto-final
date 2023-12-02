@@ -4,6 +4,13 @@
 #include "locacao.hpp"
 #include "filme.hpp"
 
+/**
+ * @file sistema.hpp
+ * @brief Arquivo de cabeçalho que contém os métodos e atributos da classe Sistema
+ * que utiliza as classes filme, dvd, fita e bluray.
+ * @details Define a classe com os métodos e atributos que serão utilizados no desenvolvimento do programa.
+*/
+
 class Sistema {
     private:
         Locacao _locacao;
