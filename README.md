@@ -51,7 +51,8 @@ pontos adquiridos o cliente ganha um desconto de R$10,00 na hora da devolução.
 Para conseguirmos trabalhar com nomes compostos para filmes, mudamos a ordem dos parâmetros
 nos inputs de Cadastrar Filme. A ordem é:
 - CF <tipo D|B|F> (dvd, bluray ou fita) <quantidade> <codigo> <categoria> (para dvd e bluray) <nome_do_filme>
-E quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR_APARELHO entre os parâmetros 
+
+Quando se aluga um filme do tipo bluray, pode se adicionar o parâmetro ALUGAR_APARELHO entre os parâmetros 
 de categoria e nome do filme para solicitar o aluguel de um aparelho (que custa R$20,00). O comando fica assim:
 - CF B <quantidade> <codigo> <categoria> <ALUGAR_APARELHO> <nome_do_filme>
 
