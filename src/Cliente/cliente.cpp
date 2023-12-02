@@ -18,8 +18,8 @@ void Cliente::adicionarPontos(int pontos){
      std::cout << "Total de pontos de fidelidade acumulados: " << getPontos() << std::endl; 
 }
 
-void Cliente::zerarPontos(){
-     this->_pontos_fidelidade = 0;
+void Cliente::usarPontos(){
+     _pontos_fidelidade -= 5;
 }
 
 int Cliente::getPontos(){
@@ -34,6 +34,10 @@ string Cliente::getCpf(){
      return this->_cpf;
 }
 
+bool Cliente::getAparelhoAlugado() {
+     return this->_alugou_aparelho;
+}
+
 vector<Filme*>& Cliente::getFilmesAlugados(){
      return this->_filmes_alugados;
 }
@@ -44,4 +48,12 @@ void Cliente::adicionarFilmeAlugado(Filme* filme) {
 
 void Cliente::devolverFilmesAlugados() {
      _filmes_alugados.clear();
+}
+
+void Cliente::devolverAparelhoBluray() {
+     _alugou_aparelho = false;
+}
+
+void Cliente::alugarAparelhoBluray() {
+     _alugou_aparelho = true;
 }

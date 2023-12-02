@@ -14,6 +14,7 @@ private:
      string _nome;
      string _cpf;
      int _pontos_fidelidade;
+     bool _alugou_aparelho = false;
      vector <Filme*> _filmes_alugados;
 public:
      Cliente(string nome, string cpf);
@@ -21,15 +22,18 @@ public:
 
      void mostrarInfo();
      void adicionarPontos(int pontos);
-     void zerarPontos();
+     void usarPontos();
 
      // Getters
      string getNome();
      string getCpf();
+     bool getAparelhoAlugado();
      vector<Filme*>& getFilmesAlugados();
      int getPontos();
      void adicionarFilmeAlugado(Filme* filme);
      void devolverFilmesAlugados();
+     void alugarAparelhoBluray();
+     void devolverAparelhoBluray();
 };
 
 #endif

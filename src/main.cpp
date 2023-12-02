@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <deque>
 #include <fstream>
 #include <algorithm>
 #include <cctype>
@@ -16,7 +17,8 @@ using namespace std;
 
 int main() {
     string input;
-    Sistema sistema;
+    Sistema* sistema = new Sistema();
+    bool encerra_sistema = false;
 
     cout << setw(50) << setfill('=') << "" << endl;
     cout << setw(10) << "        Bem-vindo a Locadora PDS!  " << endl;
@@ -34,47 +36,15 @@ int main() {
     cout << endl;
 
 
-    while (true) {
+    while (!encerra_sistema) {
         cout << "Digite um comando (digite 'ajuda' para os comandos): ";
-        cin >> input;
-        input = toUpperCase(input);
-        try {
-            if (input == "AJUDA") {
-                sistema.displayHelp();
-            } else if (input == "CF") {
-                sistema.cadastrarFilme();
-            } else if (input == "RF") {
-                sistema.removerFilme();
-            } else if (input == "LF") {
-                sistema.listarFilmes();
-            } else if (input == "CC") {
-                sistema.cadastrarCliente();
-            } else if (input == "RC") {
-                sistema.removerCliente();
-            } else if (input == "LC") {
-                sistema.listarClientes();
-            } else if (input == "AL") {
-                sistema.alugarFilmes();
-            } else if (input == "DV") {
-                sistema.devolverFilmes();
-            } else if (input == "FS") {
-                cout << "\n===================================" << endl;
-                cout << "   Obrigado por utilizar a Locadora PDS!" << endl;
-                cout << "    Esperamos te ver novamente em breve." << endl;
-                cout << "        Tenha um otimo dia!" << endl;
-                cout << "===================================\n" << endl;
+        std::getline(cin, input);
 
-                break;
-            } else if (input == "LA") {
-                sistema.lerArquivo();
-            } else {
-                //SERA Q precisa disso? acho q ganha pontos extras ne na defensividade
-                throw std::invalid_argument("ERRO: Comando invalido. Digite 'ajuda' para ver os comandos.");
-            }
-        } 
-        catch (std::exception& e) {
-            cerr << e.what() << endl;
-        }
+        std::deque<std::string> lista_input;
+        string comando;
+        tie(comando, lista_input) = sistema->processaInput(input);
+        comando = toUpperCase(comando);
+        encerra_sistema = sistema->controlaComando(comando, lista_input);
     }
 
     return 0;
