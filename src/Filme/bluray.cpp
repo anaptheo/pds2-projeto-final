@@ -31,7 +31,7 @@ void Bluray::devolverAparelho() {
 
 // Implementação do método virtual da classe base
 double Bluray::calcularValorLocacao(int dias) const {
+    // Valor fixo para locação de Blu-ray
     double valorLocacao = 25.0 * dias;
     return valorLocacao;
 }
-
