@@ -46,6 +46,7 @@ void Locacao::emiteReciboDevolucao(Cliente* cliente, int dias) {
     if (cliente->getAparelhoAlugado() == true) {
         valor_total += 20;
         cliente->devolverAparelhoBluray();
+        std::cout << "e um aparelho de bluray" << std::endl;
     }
     // novo metodo de cliente checaDescontoFidelidade
     if (cliente->getPontos() >= 5) {
