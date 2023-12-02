@@ -22,7 +22,6 @@ Cliente* Locacao::getCliente(const std::string& cpf) {
 
     return (it != _clientes_cadastrados.end()) ? *it : nullptr;
 }
-
 //impressao dos recibos
 
 void Locacao::emiteReciboAluguel(Cliente* cliente, std::vector<Filme*>& filmes) {
