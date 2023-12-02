@@ -1,3 +1,8 @@
+/**
+ * @file sistema.cpp
+ * @brief Implementação dos métodos da classe Sistema.
+ */
+
 #include <iostream>
 #include <tuple>
 #include <string>
@@ -16,6 +21,9 @@
 #include "formatacao.hpp"
 #include "sistema.hpp"
 
+/**
+ * @brief Exibe o menu de ajuda com os comandos disponíveis.
+ */
 
 void Sistema::displayHelp() {
     cout << "Comandos disponiveis:" << endl;
@@ -31,34 +39,44 @@ void Sistema::displayHelp() {
     cout << "ajuda - Exibir este menu de ajuda." << endl;
 }
 
-void Sistema::cadastrarCliente(std::deque<std::string> input_list) {
+/**
+ * @brief Solicita informações e cadastra um novo cliente na locadora.
+ * @throws std::invalid_argument se o CPF fornecido for inválido.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::cadastrarCliente(std::deque<std::string> lista_input) {
     string nome, cpf;
-    cpf = input_list[0];
-    input_list.pop_front();
+    cpf = lista_input[0];
+    lista_input.pop_front();
 
     if (!all_of(cpf.begin(), cpf.end(), ::isdigit) || cpf.length() != 11) {
         throw invalid_argument("ERRO: CPF invalido. O CPF deve conter exatamente 11 digitos numericos.");
     }
 
-    nome = retornaStringFormatada(input_list);
+    nome = retornaStringFormatada(lista_input);
     _locacao.cadastrarCliente(nome, cpf);
 }
 
-void Sistema::alugarFilmes(std::deque<std::string> input_list) {
+/**
+ * @brief Aluga filmes para um cliente.
+ * @throws std::invalid_argument se o cliente não for encontrado ou o código do filme for inexistente.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::alugarFilmes(std::deque<std::string> lista_input) {
     string cpf;
-    cpf = input_list[0];
-    input_list.pop_front();
+    cpf = lista_input[0];
+    lista_input.pop_front();
     
     bool quer_aparelho_bluray = false;
-    if (toUpperCase(input_list[0]) == "ALUGAR_APARELHO"){
+    if (toUpperCase(lista_input[0]) == "ALUGAR_APARELHO"){
         quer_aparelho_bluray = true;
-        input_list.pop_front();
+        lista_input.pop_front();
     }
 
     Cliente* cliente = _locacao.getCliente(cpf);
 
     if (cliente != nullptr) {
-        deque<string> codigos_filmes = input_list;
+        deque<string> codigos_filmes = lista_input;
         vector<Filme*> filmes_a_alugar;
         // Varre o vetor de códigos de filmes
         for (const auto& codigo : codigos_filmes) {
@@ -90,25 +108,30 @@ void Sistema::alugarFilmes(std::deque<std::string> input_list) {
     }
 }
 
-void Sistema::cadastrarFilme(std::deque<std::string> input_list){
+/**
+ * @brief Cadastra um novo filme na locadora.
+ * @throws std::invalid_argument se o tipo de filme for inválido.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::cadastrarFilme(std::deque<std::string> lista_input){
     string codigo, titulo, tipo;
     int quantidade;
     Categoria categoria;
 
-    tipo = toUpperCase(input_list[0]);
-    input_list.pop_front();
+    tipo = toUpperCase(lista_input[0]);
+    lista_input.pop_front();
 
-    quantidade = stoi(input_list[0]);
-    input_list.pop_front();
+    quantidade = stoi(lista_input[0]);
+    lista_input.pop_front();
 
-    codigo = toLowerCase(input_list[0]);
-    input_list.pop_front();
+    codigo = toLowerCase(lista_input[0]);
+    lista_input.pop_front();
 
     Filme* filme;
     if (tipo == "D") {
         string categoriaDVD;
-        categoriaDVD = toUpperCase(input_list[0]);
-        input_list.pop_front();
+        categoriaDVD = toUpperCase(lista_input[0]);
+        lista_input.pop_front();
 
         switch (char(categoriaDVD[0])) {
             case 'L':
@@ -123,15 +146,15 @@ void Sistema::cadastrarFilme(std::deque<std::string> input_list){
             default:
                 std::cout << "Categoria invalida." << endl;
         }
-        titulo = retornaStringFormatada(input_list);
+        titulo = retornaStringFormatada(lista_input);
         filme = new DVD(titulo, codigo, quantidade, categoria);
     } else if (tipo == "B") {
-        titulo = retornaStringFormatada(input_list);
+        titulo = retornaStringFormatada(lista_input);
         filme = new Bluray(titulo, codigo, quantidade);
     } else if (tipo == "F") {
         bool rebobinada = true;
 
-        titulo = retornaStringFormatada(input_list);
+        titulo = retornaStringFormatada(lista_input);
         filme = new Fita(titulo, codigo, quantidade, rebobinada);
     } else {
         throw std::invalid_argument("ERRO: Tipo de filme inválido");
@@ -141,18 +164,34 @@ void Sistema::cadastrarFilme(std::deque<std::string> input_list){
     cout << "Filme cadastrado com sucesso!" << endl;
 }
 
-void Sistema::removerCliente(std::deque<std::string> input_list) {
-    string cpf = input_list[0];
+/**
+ * @brief Remove um cliente da locadora com base no CPF.
+ * @throws std::out_of_range se nenhum filme estiver alugado para o cliente.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::removerCliente(std::deque<std::string> lista_input) {
+    string cpf = lista_input[0];
     _locacao.removerCliente(cpf);
 }
 
-void Sistema::removerFilme(std::deque<std::string> input_list) {
-    string codigo = input_list[0];
+/**
+ * @brief Remove um filme da locadora com base no código.
+ * @throws std::invalid_argument se nenhum filme com os códigos fornecidos for encontrado.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::removerFilme(std::deque<std::string> lista_input) {
+    string codigo = lista_input[0];
     _locacao.removerFilme(codigo);
 }
 
-void Sistema::devolverFilmes(std::deque<std::string> input_list) {
-    string cpf = input_list[0]; // adicionar verificacao de cpf aqui
+/**
+ * @brief Permite que um cliente devolva filmes alugados.
+ * @throws std::out_of_range se nenhum filme estiver alugado para o cliente.
+ * @throws std::invalid_argument se o cliente não for encontrado.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::devolverFilmes(std::deque<std::string> lista_input) {
+    string cpf = lista_input[0]; // adicionar verificacao de cpf aqui
     Cliente* cliente = _locacao.getCliente(cpf);
 
     if (cliente->getFilmesAlugados().empty()) {
@@ -160,7 +199,7 @@ void Sistema::devolverFilmes(std::deque<std::string> input_list) {
     }
 
     if (cliente != nullptr) {
-        int dias = stoi(input_list[1]); 
+        int dias = stoi(lista_input[1]); 
         _locacao.devolverFilmes(cliente, dias);
     } else {
         throw std::invalid_argument("ERRO: Cliente nao encontrado.");
@@ -168,8 +207,13 @@ void Sistema::devolverFilmes(std::deque<std::string> input_list) {
 
 }
 
-void Sistema::listarFilmes(std::deque<std::string> input_list) {
-    string escolha = input_list[0];
+/**
+ * @brief Lista os filmes disponíveis na locadora por código ou título.
+ * @throws std::invalid_argument se a opção de listagem for inválida.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::listarFilmes(std::deque<std::string> lista_input) {
+    string escolha = lista_input[0];
     escolha = toUpperCase(escolha);
 
     if (escolha == "C"){
@@ -183,8 +227,13 @@ void Sistema::listarFilmes(std::deque<std::string> input_list) {
     }
 }
 
-void Sistema::listarClientes(std::deque<std::string> input_list) {
-    string escolha = input_list[0];
+/**
+ * @brief Lista os clientes cadastrados na locadora por CPF ou nome.
+ * @throws std::invalid_argument se a opção de listagem for inválida.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
+void Sistema::listarClientes(std::deque<std::string> lista_input) {
+    string escolha = lista_input[0];
     escolha = toUpperCase(escolha);
 
     if (escolha == "C") {
@@ -198,6 +247,11 @@ void Sistema::listarClientes(std::deque<std::string> input_list) {
     }
 }
 
+/**
+ * @brief Lê informações de um arquivo e realiza operações no sistema da locadora.
+ * @throws std::invalid_argument se o arquivo não existir.
+ * @param nome_arquivo string com o nome do arquivo a ser aberto para leitura no sistema
+ */
 void Sistema::lerArquivo(string nome_arquivo) {
     std::ifstream arquivo(nome_arquivo);
     if (arquivo.is_open()) {
@@ -214,6 +268,10 @@ void Sistema::lerArquivo(string nome_arquivo) {
     }
 }
 
+/**
+ * @brief Lê uma lista de inputs em formato de string e os retorna, diferenciando o primeiro que é um comando.
+ * @param input string com o input inserido pelo usuário.
+ */
 std::tuple<std::string, std::deque<std::string>> Sistema::processaInput(std::string input) {
     std::string str(input);
     std::istringstream split(str);
@@ -228,6 +286,11 @@ std::tuple<std::string, std::deque<std::string>> Sistema::processaInput(std::str
     return std::make_tuple(comando, lista_input);
 }
 
+/**
+ * @brief Direciona para a função adequada dado o comando fornecido.
+ * @throws std::invalid_argument se o comando não existir.
+ * @param lista_input lista de inputs a serem utilizados pela função
+ */
 bool Sistema::controlaComando(string comando, std::deque<std::string> lista_input) {
     try {
         if (comando == "AJUDA") {

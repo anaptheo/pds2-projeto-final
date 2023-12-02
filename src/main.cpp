@@ -1,17 +1,11 @@
 #include <iostream>
 #include <string>
 #include <deque>
-#include <fstream>
-#include <algorithm>
-#include <cctype>
 #include <iomanip>
 
-#include "locacao.hpp"
-#include "dvd.hpp"
-#include "bluray.hpp"
-#include "fita.hpp"
 #include "formatacao.hpp"
 #include "sistema.hpp"
+
 
 using namespace std;
 
