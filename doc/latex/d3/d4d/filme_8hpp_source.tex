@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 \doxysection{filme.\+hpp}
 \hypertarget{filme_8hpp_source}{}\label{filme_8hpp_source}\index{include/filme.hpp@{include/filme.hpp}}
 \mbox{\hyperlink{filme_8hpp}{Go to the documentation of this file.}}
@@ -61,3 +62,68 @@
 \DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILME\_HPP}}
 
 \end{DoxyCode}
+=======
+\doxysection{filme.\+hpp}
+\hypertarget{filme_8hpp_source}{}\label{filme_8hpp_source}\index{include/filme.hpp@{include/filme.hpp}}
+\mbox{\hyperlink{filme_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ FILME\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ FILME\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_filme}{Filme}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}}\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}{DVD}},\ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67}{BluRay}},\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_fita}{Fita}}\ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ titulo;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ std::string\ codigo;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ unidadesDisponiveis;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}}\ tipo;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_filme}{Filme}}(\textcolor{keyword}{const}\ std::string\&\ titulo,\ std::string\ codigo,\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}}\ tipo,\ \textcolor{keywordtype}{int}\ unidadesDisponiveis);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_filme_a3d4bf28af3ba618785937af3744f0818}{\string~Filme}}();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ std::string\ \mbox{\hyperlink{class_filme_a6e2fd8a258dba3e1b3fc04c387aebc64}{getCodigo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ \mbox{\hyperlink{class_filme_ab8abab168df3150b4e447ac5b2c625c1}{getTitulo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_filme_a361da4d09a6eeb5fa9df900c5a9ed9b8}{getUnidadesDisponiveis}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}}\ \mbox{\hyperlink{class_filme_a2e172500f44186989aa8c95899a42568}{getTipo}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_filme_a241b8d8855a151f989cac02e321a7301}{adicionarUnidadesDisponiveis}}(\textcolor{keywordtype}{int}\ quantidade);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_filme_a2459675284dc1fd85622c7fc5367881b}{removerUnidadeDisponivel}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_filme_aa5a4d9cef444c6ebd5bb43a1654243be}{calcularValorLocacao}}(\textcolor{keywordtype}{int}\ dias)\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_filme_a7c9c4cfd7d4af7ad796894cf7f98b05f}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme::Tipo}}\&\ tipo);}
+\DoxyCodeLine{00103\ \};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{inline}\ std::ostream\&\ \mbox{\hyperlink{filme_8hpp_a7c9c4cfd7d4af7ad796894cf7f98b05f}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme::Tipo}}\&\ tipo)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{switch}\ (tipo)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}{Filme::Tipo::DVD}}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}DVD"{}};}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67}{Filme::Tipo::BluRay}}:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}BluRay"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea316e43b7f5c616eb112d8ed6c80ff403}{Filme::Tipo::Fita}}:}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}Fita"{}};}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ FILME\_HPP}}
+
+\end{DoxyCode}
+>>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
