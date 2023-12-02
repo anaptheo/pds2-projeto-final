@@ -10,14 +10,14 @@ class Sistema {
         vector<Filme*> filmes;
     public:
         void displayHelp();
-        void cadastrarFilme(std::deque<std::string> input_list);
-        void cadastrarCliente(std::deque<std::string> input_list);
-        void removerCliente(std::deque<std::string> input_list);
-        void removerFilme(std::deque<std::string> input_list);
-        void listarFilmes(std::deque<std::string> input_list);
-        void listarClientes(std::deque<std::string> input_list);
-        void devolverFilmes(std::deque<std::string> input_list);
-        void alugarFilmes(std::deque<std::string> input_list);
+        void cadastrarFilme(std::deque<std::string> lista_input);
+        void cadastrarCliente(std::deque<std::string> lista_input);
+        void removerCliente(std::deque<std::string> lista_input);
+        void removerFilme(std::deque<std::string> lista_input);
+        void listarFilmes(std::deque<std::string> lista_input);
+        void listarClientes(std::deque<std::string> lista_input);
+        void devolverFilmes(std::deque<std::string> lista_input);
+        void alugarFilmes(std::deque<std::string> lista_input);
         bool controlaComando(string comando, std::deque<std::string> lista_input);
         void lerArquivo(string nome_arquivo);
         std::tuple<std::string, std::deque<std::string>> processaInput(std::string input);
