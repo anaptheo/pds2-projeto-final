@@ -1,0 +1,211 @@
+\doxysection{Bluray Class Reference}
+\hypertarget{class_bluray}{}\label{class_bluray}\index{Bluray@{Bluray}}
+
+
+{\ttfamily \#include $<$bluray.\+hpp$>$}
+
+Inheritance diagram for Bluray\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d3/de1/class_bluray}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bluray_a5f76f8b2f873be7e06212a85f33820b6}{Bluray}} (const std\+::string \&titulo, std\+::string codigo, int unidades\+Disponiveis)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_bluray}{Bluray}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bluray_a42ca242c6992da7e5329d562292cabd1}{alugar\+Aparelho}} ()
+\begin{DoxyCompactList}\small\item\em Realiza o aluguel de um aparelho Blu-\/ray junto com o filme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_bluray_ae6806ecf01177a404459c1685164a932}{devolver\+Aparelho}} ()
+\begin{DoxyCompactList}\small\item\em Devolve o aparelho Blu-\/ray alugado. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_bluray_a372bb325307725ce5c2edb934b3f3446}{calcular\+Valor\+Locacao}} (int dias) const override
+\begin{DoxyCompactList}\small\item\em Calcula o valor total da locação do Blu-\/ray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_filme}{Filme}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_filme_a825e31ff6608c9ca33b9b0a283dbd454}{Filme}} (const std\+::string \&titulo, std\+::string codigo, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} tipo, int unidades\+Disponiveis)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_filme}{Filme}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_filme_a3d4bf28af3ba618785937af3744f0818}{\texorpdfstring{$\sim$}{\string~}\+Filme}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_filme}{Filme} (virtual para permitir polimorfismo). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_filme_a6e2fd8a258dba3e1b3fc04c387aebc64}{get\+Codigo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o código do filme. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_filme_ab8abab168df3150b4e447ac5b2c625c1}{get\+Titulo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o título do filme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_filme_a361da4d09a6eeb5fa9df900c5a9ed9b8}{get\+Unidades\+Disponiveis}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o número de unidades disponíveis. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} \mbox{\hyperlink{class_filme_a2e172500f44186989aa8c95899a42568}{get\+Tipo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o tipo do filme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_filme_a241b8d8855a151f989cac02e321a7301}{adicionar\+Unidades\+Disponiveis}} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Adiciona unidades disponíveis para locação. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_filme_a2459675284dc1fd85622c7fc5367881b}{remover\+Unidade\+Disponivel}} ()
+\begin{DoxyCompactList}\small\item\em Remove uma unidade disponível. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{class_bluray_a8354c2c610396db14b723d14681d41ac}{get\+Quantidade\+Aparelhos\+Disponiveis}} ()
+\begin{DoxyCompactList}\small\item\em Obtém a quantidade de aparelhos Blu-\/ray disponíveis para locação. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_bluray_ab21d16c0a6c3a7dd7c75b3c0864362ff}{set\+Quantidade\+Aparelhos}} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Define a quantidade de aparelhos Blu-\/ray disponíveis para locação. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_filme}{Filme}}}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} \{ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}{DVD}}
+, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67}{Blu\+Ray}}
+, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea316e43b7f5c616eb112d8ed6c80ff403}{Fita}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeração que representa os tipos de filme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \doxylink{class_bluray}{Bluray} contém atributos como título, código, quantidade de unidades disponíveis, quantidade de aparelhos Blu-\/ray e informações sobre o aluguel de aparelhos. 
+\begin{DoxyParams}{Parameters}
+{\em quantidade\+Aparelhos} & Quantidade de aparelhos Blu-\/ray disponíveis para aluguel. \\
+\hline
+{\em player\+Alugado} & Indica se um player Blu-\/ray foi alugado junto com o filme. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_bluray_a5f76f8b2f873be7e06212a85f33820b6}\label{class_bluray_a5f76f8b2f873be7e06212a85f33820b6} 
+\index{Bluray@{Bluray}!Bluray@{Bluray}}
+\index{Bluray@{Bluray}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{Bluray()}{Bluray()}}
+{\footnotesize\ttfamily Bluray\+::\+Bluray (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{\+\_\+titulo,  }\item[{std\+::string}]{\+\_\+codigo,  }\item[{int}]{\+\_\+unidades\+Disponiveis }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_bluray}{Bluray}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulo} & Título do filme. \\
+\hline
+{\em codigo} & Código único do filme. \\
+\hline
+{\em unidades\+Disponiveis} & Número de unidades disponíveis para locação.\\
+\hline
+{\em \+\_\+titulo} & Título do Blu-\/ray. \\
+\hline
+{\em \+\_\+codigo} & Código único do Blu-\/ray. \\
+\hline
+{\em \+\_\+unidades\+Disponiveis} & Quantidade de unidades disponíveis do Blu-\/ray. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_bluray_a42ca242c6992da7e5329d562292cabd1}\label{class_bluray_a42ca242c6992da7e5329d562292cabd1} 
+\index{Bluray@{Bluray}!alugarAparelho@{alugarAparelho}}
+\index{alugarAparelho@{alugarAparelho}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{alugarAparelho()}{alugarAparelho()}}
+{\footnotesize\ttfamily void Bluray\+::alugar\+Aparelho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza o aluguel de um aparelho Blu-\/ray junto com o filme. 
+
+Realiza o aluguel de um aparelho de Blu-\/ray, se disponível.
+
+\begin{DoxyNote}{Note}
+A quantidade de aparelhos disponíveis será reduzida. 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & Se não houver aparelhos disponíveis.\\
+\hline
+{\em std\+::invalid\+\_\+argument} & Se todos os aparelhos de Blu-\/ray estiverem alugados. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_bluray_a372bb325307725ce5c2edb934b3f3446}\label{class_bluray_a372bb325307725ce5c2edb934b3f3446} 
+\index{Bluray@{Bluray}!calcularValorLocacao@{calcularValorLocacao}}
+\index{calcularValorLocacao@{calcularValorLocacao}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{calcularValorLocacao()}{calcularValorLocacao()}}
+{\footnotesize\ttfamily double Bluray\+::calcular\+Valor\+Locacao (\begin{DoxyParamCaption}\item[{int}]{dias }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Calcula o valor total da locação do Blu-\/ray. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dias} & Número de dias pelos quais o filme será alugado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor total da locação. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Adiciona um custo fixo se um aparelho Blu-\/ray foi alugado.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dias} & Número de dias pelos quais o filme será alugado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor total da locação. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_filme_aa5a4d9cef444c6ebd5bb43a1654243be}{Filme}}.
+
+\Hypertarget{class_bluray_ae6806ecf01177a404459c1685164a932}\label{class_bluray_ae6806ecf01177a404459c1685164a932} 
+\index{Bluray@{Bluray}!devolverAparelho@{devolverAparelho}}
+\index{devolverAparelho@{devolverAparelho}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{devolverAparelho()}{devolverAparelho()}}
+{\footnotesize\ttfamily void Bluray\+::devolver\+Aparelho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Devolve o aparelho Blu-\/ray alugado. 
+
+Devolve um aparelho de Blu-\/ray.
+
+\begin{DoxyNote}{Note}
+A quantidade de aparelhos disponíveis será incrementada. 
+\end{DoxyNote}
+\Hypertarget{class_bluray_a8354c2c610396db14b723d14681d41ac}\label{class_bluray_a8354c2c610396db14b723d14681d41ac} 
+\index{Bluray@{Bluray}!getQuantidadeAparelhosDisponiveis@{getQuantidadeAparelhosDisponiveis}}
+\index{getQuantidadeAparelhosDisponiveis@{getQuantidadeAparelhosDisponiveis}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{getQuantidadeAparelhosDisponiveis()}{getQuantidadeAparelhosDisponiveis()}}
+{\footnotesize\ttfamily int Bluray\+::get\+Quantidade\+Aparelhos\+Disponiveis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obtém a quantidade de aparelhos Blu-\/ray disponíveis para locação. 
+
+Obtém a quantidade de aparelhos de Blu-\/ray disponíveis.
+
+\begin{DoxyReturn}{Returns}
+A quantidade de aparelhos disponíveis.
+
+A quantidade de aparelhos de Blu-\/ray disponíveis. 
+\end{DoxyReturn}
+\Hypertarget{class_bluray_ab21d16c0a6c3a7dd7c75b3c0864362ff}\label{class_bluray_ab21d16c0a6c3a7dd7c75b3c0864362ff} 
+\index{Bluray@{Bluray}!setQuantidadeAparelhos@{setQuantidadeAparelhos}}
+\index{setQuantidadeAparelhos@{setQuantidadeAparelhos}!Bluray@{Bluray}}
+\doxysubsubsection{\texorpdfstring{setQuantidadeAparelhos()}{setQuantidadeAparelhos()}}
+{\footnotesize\ttfamily void Bluray\+::set\+Quantidade\+Aparelhos (\begin{DoxyParamCaption}\item[{int}]{quantidade }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Define a quantidade de aparelhos Blu-\/ray disponíveis para locação. 
+
+Define a quantidade total de aparelhos de Blu-\/ray.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quantidade} & Nova quantidade de aparelhos disponíveis.\\
+\hline
+{\em quantidade} & A nova quantidade total de aparelhos de Blu-\/ray. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{bluray_8hpp}{bluray.\+hpp}}\item 
+src/\+Filme/\mbox{\hyperlink{blueray_8cpp}{blueray.\+cpp}}\end{DoxyCompactItemize}

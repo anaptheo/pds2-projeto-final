@@ -1,0 +1,287 @@
+\doxysection{Filme Class Reference}
+\hypertarget{class_filme}{}\label{class_filme}\index{Filme@{Filme}}
+
+
+{\ttfamily \#include $<$filme.\+hpp$>$}
+
+Inheritance diagram for Filme\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/dc5/class_filme}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} \{ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}{DVD}}
+, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67}{Blu\+Ray}}
+, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea316e43b7f5c616eb112d8ed6c80ff403}{Fita}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeração que representa os tipos de filme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_filme_a825e31ff6608c9ca33b9b0a283dbd454}{Filme}} (const std\+::string \&titulo, std\+::string codigo, \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} tipo, int unidades\+Disponiveis)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_filme}{Filme}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_filme_a3d4bf28af3ba618785937af3744f0818}{\texorpdfstring{$\sim$}{\string~}\+Filme}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_filme}{Filme} (virtual para permitir polimorfismo). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_filme_a6e2fd8a258dba3e1b3fc04c387aebc64}{get\+Codigo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o código do filme. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_filme_ab8abab168df3150b4e447ac5b2c625c1}{get\+Titulo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o título do filme. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_filme_a361da4d09a6eeb5fa9df900c5a9ed9b8}{get\+Unidades\+Disponiveis}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o número de unidades disponíveis. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Tipo}} \mbox{\hyperlink{class_filme_a2e172500f44186989aa8c95899a42568}{get\+Tipo}} () const
+\begin{DoxyCompactList}\small\item\em Getter para o tipo do filme. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_filme_a241b8d8855a151f989cac02e321a7301}{adicionar\+Unidades\+Disponiveis}} (int quantidade)
+\begin{DoxyCompactList}\small\item\em Adiciona unidades disponíveis para locação. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_filme_a2459675284dc1fd85622c7fc5367881b}{remover\+Unidade\+Disponivel}} ()
+\begin{DoxyCompactList}\small\item\em Remove uma unidade disponível. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{class_filme_aa5a4d9cef444c6ebd5bb43a1654243be}{calcular\+Valor\+Locacao}} (int dias) const =0
+\begin{DoxyCompactList}\small\item\em Calcula o valor total da locação do filme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_filme_a7c9c4cfd7d4af7ad796894cf7f98b05f}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme\+::\+Tipo}} \&tipo)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de saída para imprimir o tipo do filme. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A classe \doxylink{class_filme}{Filme} contém atributos como título, código, quantidade de unidades disponíveis, tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}) e métodos para manipulação desses atributos. 
+\begin{DoxyParams}{Parameters}
+{\em titulo} & Título do filme. \\
+\hline
+{\em codigo} & Código único do filme. \\
+\hline
+{\em unidades\+Disponiveis} & Número de unidades disponíveis para locação. \\
+\hline
+{\em tipo} & Tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_filme_a79ce8af1d6cb3c319d5af749af76279e}\label{class_filme_a79ce8af1d6cb3c319d5af749af76279e} 
+\index{Filme@{Filme}!Tipo@{Tipo}}
+\index{Tipo@{Tipo}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{Tipo}{Tipo}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme\+::\+Tipo}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enumeração que representa os tipos de filme. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DVD@{DVD}!Filme@{Filme}}\index{Filme@{Filme}!DVD@{DVD}}}\Hypertarget{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}\label{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677} 
+DVD&Tipo de filme\+: \doxylink{class_d_v_d}{DVD}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BluRay@{BluRay}!Filme@{Filme}}\index{Filme@{Filme}!BluRay@{BluRay}}}\Hypertarget{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67}\label{class_filme_a79ce8af1d6cb3c319d5af749af76279ea778a4c81efde67a04fa5d2fd3fc0ff67} 
+Blu\+Ray&Tipo de filme\+: Blu\+Ray. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fita@{Fita}!Filme@{Filme}}\index{Filme@{Filme}!Fita@{Fita}}}\Hypertarget{class_filme_a79ce8af1d6cb3c319d5af749af76279ea316e43b7f5c616eb112d8ed6c80ff403}\label{class_filme_a79ce8af1d6cb3c319d5af749af76279ea316e43b7f5c616eb112d8ed6c80ff403} 
+Fita&Tipo de filme\+: \doxylink{class_fita}{Fita}. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_filme_a825e31ff6608c9ca33b9b0a283dbd454}\label{class_filme_a825e31ff6608c9ca33b9b0a283dbd454} 
+\index{Filme@{Filme}!Filme@{Filme}}
+\index{Filme@{Filme}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{Filme()}{Filme()}}
+{\footnotesize\ttfamily Filme\+::\+Filme (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{titulo,  }\item[{std\+::string}]{codigo,  }\item[{\mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme\+::\+Tipo}}}]{tipo,  }\item[{int}]{unidades\+Disponiveis }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_filme}{Filme}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em titulo} & Título do filme. \\
+\hline
+{\em codigo} & Código único do filme. \\
+\hline
+{\em tipo} & Tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}). \\
+\hline
+{\em unidades\+Disponiveis} & Número de unidades disponíveis para locação.\\
+\hline
+{\em titulo} & Título do filme. \\
+\hline
+{\em codigo} & Código único do filme. \\
+\hline
+{\em tipo} & Tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, etc.). \\
+\hline
+{\em unidades\+Disponiveis} & Quantidade de unidades disponíveis do filme. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_filme_a3d4bf28af3ba618785937af3744f0818}\label{class_filme_a3d4bf28af3ba618785937af3744f0818} 
+\index{Filme@{Filme}!````~Filme@{\texorpdfstring{$\sim$}{\string~}Filme}}
+\index{````~Filme@{\texorpdfstring{$\sim$}{\string~}Filme}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Filme()}{\string~Filme()}}
+{\footnotesize\ttfamily Filme\+::\texorpdfstring{$\sim$}{\string~}\+Filme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destrutor da classe \doxylink{class_filme}{Filme} (virtual para permitir polimorfismo). 
+
+Destrutor da classe \doxylink{class_filme}{Filme}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_filme_a241b8d8855a151f989cac02e321a7301}\label{class_filme_a241b8d8855a151f989cac02e321a7301} 
+\index{Filme@{Filme}!adicionarUnidadesDisponiveis@{adicionarUnidadesDisponiveis}}
+\index{adicionarUnidadesDisponiveis@{adicionarUnidadesDisponiveis}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{adicionarUnidadesDisponiveis()}{adicionarUnidadesDisponiveis()}}
+{\footnotesize\ttfamily void Filme\+::adicionar\+Unidades\+Disponiveis (\begin{DoxyParamCaption}\item[{int}]{quantidade }\end{DoxyParamCaption})}
+
+
+
+Adiciona unidades disponíveis para locação. 
+
+Adiciona unidades disponíveis ao filme.
+
+
+\begin{DoxyParams}{Parameters}
+{\em quantidade} & A quantidade de unidades a serem adicionadas. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_filme_aa5a4d9cef444c6ebd5bb43a1654243be}\label{class_filme_aa5a4d9cef444c6ebd5bb43a1654243be} 
+\index{Filme@{Filme}!calcularValorLocacao@{calcularValorLocacao}}
+\index{calcularValorLocacao@{calcularValorLocacao}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{calcularValorLocacao()}{calcularValorLocacao()}}
+{\footnotesize\ttfamily double Filme\+::calcular\+Valor\+Locacao (\begin{DoxyParamCaption}\item[{int}]{dias }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Calcula o valor total da locação do filme. 
+
+Calcula o valor de locação do filme, considerando a quantidade de dias.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dias} & Número de dias pelos quais o filme será alugado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O valor total da locação. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Este método é virtual puro para permitir polimorfismo nas classes derivadas.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em dias} & Número de dias para locação. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Valor total da locação do filme. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_bluray_a372bb325307725ce5c2edb934b3f3446}{Bluray}}, \mbox{\hyperlink{class_d_v_d_a7175d389a63b260df9b18e1025944420}{DVD}}, and \mbox{\hyperlink{class_fita_a2bcf5f4e67689cba7404245c0722d66b}{Fita}}.
+
+\Hypertarget{class_filme_a6e2fd8a258dba3e1b3fc04c387aebc64}\label{class_filme_a6e2fd8a258dba3e1b3fc04c387aebc64} 
+\index{Filme@{Filme}!getCodigo@{getCodigo}}
+\index{getCodigo@{getCodigo}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{getCodigo()}{getCodigo()}}
+{\footnotesize\ttfamily std\+::string Filme\+::get\+Codigo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter para o código do filme. 
+
+Obtém o código único do filme.
+
+\begin{DoxyReturn}{Returns}
+O código único do filme. 
+\end{DoxyReturn}
+\Hypertarget{class_filme_a2e172500f44186989aa8c95899a42568}\label{class_filme_a2e172500f44186989aa8c95899a42568} 
+\index{Filme@{Filme}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme\+::\+Tipo}} Filme\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter para o tipo do filme. 
+
+Obtém o tipo do filme.
+
+\begin{DoxyReturn}{Returns}
+O tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}).
+
+O tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, etc.). 
+\end{DoxyReturn}
+\Hypertarget{class_filme_ab8abab168df3150b4e447ac5b2c625c1}\label{class_filme_ab8abab168df3150b4e447ac5b2c625c1} 
+\index{Filme@{Filme}!getTitulo@{getTitulo}}
+\index{getTitulo@{getTitulo}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{getTitulo()}{getTitulo()}}
+{\footnotesize\ttfamily const std\+::string \& Filme\+::get\+Titulo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter para o título do filme. 
+
+Obtém o título do filme.
+
+\begin{DoxyReturn}{Returns}
+O título do filme. 
+\end{DoxyReturn}
+\Hypertarget{class_filme_a361da4d09a6eeb5fa9df900c5a9ed9b8}\label{class_filme_a361da4d09a6eeb5fa9df900c5a9ed9b8} 
+\index{Filme@{Filme}!getUnidadesDisponiveis@{getUnidadesDisponiveis}}
+\index{getUnidadesDisponiveis@{getUnidadesDisponiveis}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{getUnidadesDisponiveis()}{getUnidadesDisponiveis()}}
+{\footnotesize\ttfamily int Filme\+::get\+Unidades\+Disponiveis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter para o número de unidades disponíveis. 
+
+Obtém a quantidade de unidades disponíveis do filme.
+
+\begin{DoxyReturn}{Returns}
+O número de unidades disponíveis para locação.
+
+A quantidade de unidades disponíveis do filme. 
+\end{DoxyReturn}
+\Hypertarget{class_filme_a2459675284dc1fd85622c7fc5367881b}\label{class_filme_a2459675284dc1fd85622c7fc5367881b} 
+\index{Filme@{Filme}!removerUnidadeDisponivel@{removerUnidadeDisponivel}}
+\index{removerUnidadeDisponivel@{removerUnidadeDisponivel}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{removerUnidadeDisponivel()}{removerUnidadeDisponivel()}}
+{\footnotesize\ttfamily void Filme\+::remover\+Unidade\+Disponivel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Remove uma unidade disponível. 
+
+Remove uma unidade disponível do filme. 
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_filme_a7c9c4cfd7d4af7ad796894cf7f98b05f}\label{class_filme_a7c9c4cfd7d4af7ad796894cf7f98b05f} 
+\index{Filme@{Filme}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Filme@{Filme}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279e}{Filme\+::\+Tipo}} \&}]{tipo }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Sobrecarga do operador de saída para imprimir o tipo do filme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Objeto de fluxo de saída. \\
+\hline
+{\em tipo} & Tipo do filme (\doxylink{class_d_v_d}{DVD}, Blu\+Ray, \doxylink{class_fita}{Fita}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+O objeto de fluxo de saída. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{filme_8hpp}{filme.\+hpp}}\item 
+src/\+Filme/\mbox{\hyperlink{filme_8cpp}{filme.\+cpp}}\end{DoxyCompactItemize}

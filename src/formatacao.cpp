@@ -1,24 +1,42 @@
+/**
+ * @file formatacao.cpp
+ * @brief Implementação das funções de formatação de strings.
+ */
+
 #include "formatacao.hpp"
-#include <iostream>
-#include <string>
 #include <algorithm>
 #include <cctype>
-#include <iomanip>
 
-
-
+/**
+ * @brief Converte uma string para minúsculas.
+ * 
+ * @param input A string a ser convertida.
+ * @return A string convertida para minúsculas.
+ */
 std::string toLowerCase(const std::string& input) {
     std::string result = input;
     std::transform(result.begin(), result.end(), result.begin(), [](unsigned char c){ return std::tolower(c); });
     return result;
 }
 
+/**
+ * @brief Converte uma string para maiúsculas.
+ * 
+ * @param input A string a ser convertida.
+ * @return A string convertida para maiúsculas.
+ */
 std::string toUpperCase(const std::string& input) {
     std::string result = input;
     std::transform(result.begin(), result.end(), result.begin(), [](unsigned char c){ return std::toupper(c); });
     return result;
 }
 
+/**
+ * @brief Converte a primeira letra de cada palavra para maiúscula.
+ * 
+ * @param input A string a ser convertida.
+ * @return A string com a primeira letra de cada palavra em maiúscula.
+ */
 std::string firstUpper(const std::string& input) {
     std::string result = input;
     bool capitalizeNext = true;
