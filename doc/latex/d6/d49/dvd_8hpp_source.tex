@@ -1,0 +1,27 @@
+\doxysection{dvd.\+hpp}
+\hypertarget{dvd_8hpp_source}{}\label{dvd_8hpp_source}\index{include/dvd.hpp@{include/dvd.hpp}}
+\mbox{\hyperlink{dvd_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DVD\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DVD\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{filme_8hpp}{filme.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85}{Categoria}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85a893b0130a0900196ec311b7b1c19db0e}{Lancamento}},\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85a17f137da98c4b049aa898269cb5abb50}{Estoque}},\ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85a41137b0ea2b8c025bf7e71e680d146a2}{Promocao}}\ \ \ \ }
+\DoxyCodeLine{00022\ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_d_v_d}{DVD}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_filme}{Filme}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85}{Categoria}}\ \mbox{\hyperlink{class_d_v_d_a2aabcc14033e18fed516f9504c99e4c9}{categoria}};\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_filme_a79ce8af1d6cb3c319d5af749af76279ea199193ea8b079acaff9a4f9608a4b677}{DVD}}(\textcolor{keyword}{const}\ std::string\&\ titulo,\ std::string\ codigo,\ \textcolor{keywordtype}{int}\ unidadesDisponiveis,\ \mbox{\hyperlink{dvd_8hpp_acaa0814a33d4074ea089f95d4bf9aa85}{Categoria}}\ \_categoria);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_d_v_d_a7175d389a63b260df9b18e1025944420}{calcularValorLocacao}}(\textcolor{keywordtype}{int}\ dias)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DVD\_HPP}}
+
+\end{DoxyCode}

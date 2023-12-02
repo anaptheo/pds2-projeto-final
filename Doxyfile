@@ -1,0 +1,42 @@
+
+
+# Configuração geral
+PROJECT_NAME           = "TP - Sistema da Locadora"
+PROJECT_NUMBER         = 1.0
+OUTPUT_DIRECTORY       = ./doc
+CREATE_SUBDIRS         = YES
+
+# Configuração de entrada
+INPUT                  = ./
+
+# Exclusões
+EXCLUDE                = ./build
+
+# Arquivos para processar (extensões)
+FILE_PATTERNS          =  *.cpp *.hpp *.md
+
+RECURSIVE              = YES
+
+EXTRACT_ALL            = YES
+
+USE_MDFILE_AS_MAINPAGE = D:\USUARIO\Desktop\FACULDADE\PDS2\trabalho final\README.md
+
+# Arquivos ou diretórios específicos para excluir
+# EXCLUDE_PATTERNS      = 
+
+# Arquivos ou diretórios específicos para incluir
+# INCLUDE_PATTERNS      =
+
+# Configurações do PDF
+GENERATE_LATEX         = YES
+USE_PDFLATEX           = YES
+
+# Configurações específicas do LaTeX
+LATEX_BATCHMODE        = YES
+LATEX_SOURCE_CODE      = YES
+LATEX_OUTPUT           = latex
+
+# Configurações específicas do PDF
+GENERATE_PDF           = YES
+PDF_HYPERLINKS         = YES
+USE_PDFLATEX           = YES

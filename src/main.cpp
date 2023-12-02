@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @brief Arquivo principal para o programa Locadora PDS.
+ */
+
 #include <iostream>
 #include <string>
 #include <deque>
@@ -9,11 +14,16 @@
 
 using namespace std;
 
+/**
+ * @brief Função principal para o programa Locadora PDS.
+ * @return 0 em execução bem-sucedida.
+ */
 int main() {
     string input;
     Sistema* sistema = new Sistema();
     bool encerra_sistema = false;
 
+    // Apresentação do programa
     cout << setw(50) << setfill('=') << "" << endl;
     cout << setw(10) << "        Bem-vindo a Locadora PDS!  " << endl;
     cout << setw(50) << "" << endl;
@@ -29,7 +39,7 @@ int main() {
     cout << setw(50) << setfill('=') << "" << endl;
     cout << endl;
 
-
+    // Loop principal do programa
     while (!encerra_sistema) {
         cout << "Digite um comando (digite 'ajuda' para os comandos): ";
         std::getline(cin, input);
@@ -38,7 +48,7 @@ int main() {
         string comando;
         tie(comando, lista_input) = sistema->processaInput(input);
         comando = toUpperCase(comando);
-        encerra_sistema = sistema->controlaComando(comando, lista_input);
+        encerra_sistema = sistema->gerenciaOpcoes(comando, lista_input);
     }
 
     return 0;

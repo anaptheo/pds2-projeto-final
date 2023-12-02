@@ -7,7 +7,15 @@ BUILD_DIR = ./build
 INCLUDE_DIR = ./include
 EXECUTABLE = main
 
-all: $(EXECUTABLE)
+# Outras regras do Makefile...
+
+# Regra para gerar a documentação com o Doxygen
+doc:
+	doxygen Doxyfile
+
+# Regra para abrir o arquivo index.html após a geração da documentação
+open-doc: doc
+	@start cmd /c start "" doc\html\index.html
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) $(OBJECTS) -o $(EXECUTABLE)
