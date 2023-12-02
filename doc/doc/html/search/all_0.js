@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+var searchData=
+[
+  ['_5fcatalogo_5ffilmes_0',['_catalogo_filmes',['../d6/d5f/class_locacao.html#aba26a081842b671c46aa76f87fed7b43',1,'Locacao']]],
+  ['_5fclientes_5fcadastrados_1',['_clientes_cadastrados',['../d6/d5f/class_locacao.html#a85afca21d4616f16aa133f996a188f11',1,'Locacao']]]
+];
+=======
+var searchData=
+[
+  ['_5fcatalogo_5ffilmes_0',['_catalogo_filmes',['../d6/d5f/class_locacao.html#aba26a081842b671c46aa76f87fed7b43',1,'Locacao']]],
+  ['_5fclientes_5fcadastrados_1',['_clientes_cadastrados',['../d6/d5f/class_locacao.html#a85afca21d4616f16aa133f996a188f11',1,'Locacao']]]
+];
+>>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
