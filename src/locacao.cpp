@@ -234,9 +234,8 @@ void Locacao::listarFilmesTitulo() {
             return true;
         } else if (a->getTitulo().compare(b->getTitulo()) > 0 ){
             return false;
-        } else if (a->getTitulo().compare(b->getTitulo()) == 0 ){
-            return true;
-        }
+        } 
+        return true;
     });
 
     // Exibe os filmes
@@ -270,9 +269,8 @@ void Locacao::listarClientesNome(){
             return true;
         } else if (a->getNome().compare(b->getNome()) > 0 ){
             return false;
-        } else if (a->getNome().compare(b->getNome()) == 0 ){
-            return true;
         }
+        return true;
     });
     for (Cliente* cliente : _clientes_cadastrados) {
         cliente->mostrarInfo();

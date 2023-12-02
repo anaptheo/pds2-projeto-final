@@ -45,7 +45,9 @@ void Fita::rebobinar() {
 
 double Fita::calcularValorLocacao(int dias) const {
     double valorLocacao = 5.0 * dias; // Preço fixo para Fitas
-    if (!rebobinada) {
+
+    int num_rebobinada = rand() % 100; // Gera número aleatório entre 0 e 99
+    if (num_rebobinada >= 50) {
         valorLocacao += 2.0; // Adiciona a multa por não rebobinar
     }
     return valorLocacao;
