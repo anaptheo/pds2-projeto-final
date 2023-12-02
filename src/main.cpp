@@ -20,7 +20,7 @@ using namespace std;
  */
 int main() {
     string input;
-    Sistema* sistema = new Sistema();
+    Sistema sistema;
     bool encerra_sistema = false;
 
     // Apresentação do programa
@@ -46,9 +46,9 @@ int main() {
 
         std::deque<std::string> lista_input;
         string comando;
-        tie(comando, lista_input) = sistema->processaInput(input);
+        tie(comando, lista_input) = sistema.processaInput(input);
         comando = toUpperCase(comando);
-        encerra_sistema = sistema->gerenciaOpcoes(comando, lista_input);
+        encerra_sistema = sistema.gerenciaOpcoes(comando, lista_input);
     }
 
     return 0;

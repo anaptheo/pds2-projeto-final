@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var searchData=
 [
   ['test_5fcase_0',['TEST_CASE',['../de/dec/doctest_8h.html#a8bc255ff55721571e878568d2b5dcb35',1,'doctest.h']]],
@@ -45,3 +46,52 @@ var searchData=
   ['type_5fto_5fstring_42',['TYPE_TO_STRING',['../de/dec/doctest_8h.html#a8245b61f7381307d76a1472436d35ebe',1,'doctest.h']]],
   ['type_5fto_5fstring_5fas_43',['TYPE_TO_STRING_AS',['../de/dec/doctest_8h.html#aa771c8cbf9b94916a2307c77676cd9ff',1,'doctest.h']]]
 ];
+=======
+var searchData=
+[
+  ['test_5fcase_0',['TEST_CASE',['../de/dec/doctest_8h.html#a8bc255ff55721571e878568d2b5dcb35',1,'doctest.h']]],
+  ['test_5fcase_5fclass_1',['TEST_CASE_CLASS',['../de/dec/doctest_8h.html#afbb012c604e265d1e1e7b5279180d691',1,'doctest.h']]],
+  ['test_5fcase_5fend_2',['test_case_end',['../dc/d8f/structdoctest_1_1_i_reporter.html#a43f8f19681dd5d42218ecb4fd935cda7',1,'doctest::IReporter']]],
+  ['test_5fcase_5fexception_3',['test_case_exception',['../dc/d8f/structdoctest_1_1_i_reporter.html#a40b0cdf1ad59dabc736e35fde63d516f',1,'doctest::IReporter']]],
+  ['test_5fcase_5ffixture_4',['TEST_CASE_FIXTURE',['../de/dec/doctest_8h.html#a2225e7c2d9587e1e3cfc5f7ab5f0b27d',1,'doctest.h']]],
+  ['test_5fcase_5freenter_5',['test_case_reenter',['../dc/d8f/structdoctest_1_1_i_reporter.html#a46c2fe41e5fa3d6930a3cb26d81ed764',1,'doctest::IReporter']]],
+  ['test_5fcase_5fskipped_6',['test_case_skipped',['../dc/d8f/structdoctest_1_1_i_reporter.html#ab4ecfea9cd9582aad4a5e90e0c8ba45d',1,'doctest::IReporter']]],
+  ['test_5fcase_5fstart_7',['test_case_start',['../dc/d8f/structdoctest_1_1_i_reporter.html#afa107df2d0230607e2f86f1876f48526',1,'doctest::IReporter']]],
+  ['test_5fcase_5ftemplate_8',['TEST_CASE_TEMPLATE',['../de/dec/doctest_8h.html#a8ab7703bbaae3e25e7e5f5eb9fbe3642',1,'doctest.h']]],
+  ['test_5fcase_5ftemplate_5fapply_9',['TEST_CASE_TEMPLATE_APPLY',['../de/dec/doctest_8h.html#a19d32dc25683908b43c4503dc6698a87',1,'doctest.h']]],
+  ['test_5fcase_5ftemplate_5fdefine_10',['TEST_CASE_TEMPLATE_DEFINE',['../de/dec/doctest_8h.html#a39cb44ec5ab4ae7457e06cc734b57286',1,'doctest.h']]],
+  ['test_5fcase_5ftemplate_5finstantiate_11',['TEST_CASE_TEMPLATE_INSTANTIATE',['../de/dec/doctest_8h.html#a1588bbb4c9c4f222f4edbb3422e0c430',1,'doctest.h']]],
+  ['test_5fcase_5ftemplate_5finvoke_12',['TEST_CASE_TEMPLATE_INVOKE',['../de/dec/doctest_8h.html#a6d6b09ad857bf02d03049faf3235ed55',1,'doctest.h']]],
+  ['test_5frun_5fend_13',['test_run_end',['../dc/d8f/structdoctest_1_1_i_reporter.html#a610495b7caa29e36b5ea62bff62952ed',1,'doctest::IReporter']]],
+  ['test_5frun_5fstart_14',['test_run_start',['../dc/d8f/structdoctest_1_1_i_reporter.html#a7f4a4b654726d4b266c91cc0e1569f96',1,'doctest::IReporter']]],
+  ['test_5fsuite_15',['TEST_SUITE',['../de/dec/doctest_8h.html#af640e6ea35d0c6511986d40ce36e2afc',1,'doctest.h']]],
+  ['test_5fsuite_5fbegin_16',['TEST_SUITE_BEGIN',['../de/dec/doctest_8h.html#a771cd576e69a29d09b6695c9b8631b33',1,'doctest.h']]],
+  ['test_5fsuite_5fend_17',['TEST_SUITE_END',['../de/dec/doctest_8h.html#a3b41014a9f6a32210a8eecbe8fea3c76',1,'doctest.h']]],
+  ['testcase_18',['testcase',['../d2/d5f/structdoctest_1_1detail_1_1_test_case.html',1,'doctest::detail::TestCase'],['../d2/d34/namespacedoctest_1_1detail.html#ade1619b532a3d3e6f19ee1187ff3c514',1,'doctest::detail::TestCase'],['../d2/d5f/structdoctest_1_1detail_1_1_test_case.html#a0c18ba2713bb9db7dc3e7b35854c4840',1,'doctest::detail::TestCase::TestCase(funcType test, const char *file, unsigned line, const TestSuite &amp;test_suite, const String &amp;type=String(), int template_id=-1)'],['../d2/d5f/structdoctest_1_1detail_1_1_test_case.html#a0d8aa1f3d0cbd31f3bc4a74d9c6add23',1,'doctest::detail::TestCase::TestCase(const TestCase &amp;other)'],['../d2/d5f/structdoctest_1_1detail_1_1_test_case.html#a64af5df2fca574ebd242ab756dc7064d',1,'doctest::detail::TestCase::TestCase(TestCase &amp;&amp;)=delete']]],
+  ['testcasedata_19',['TestCaseData',['../d4/d5a/structdoctest_1_1_test_case_data.html',1,'doctest']]],
+  ['testcaseexception_20',['TestCaseException',['../d9/de2/structdoctest_1_1_test_case_exception.html',1,'doctest']]],
+  ['testcasesuccess_21',['testCaseSuccess',['../d3/d60/structdoctest_1_1_current_test_case_stats.html#a2c77d43c1fbab06710da7b5bbba4f3ab',1,'doctest::CurrentTestCaseStats']]],
+  ['testfailureexception_22',['TestFailureException',['../da/d39/structdoctest_1_1detail_1_1_test_failure_exception.html',1,'doctest::detail']]],
+  ['testrunstats_23',['TestRunStats',['../d2/d12/structdoctest_1_1_test_run_stats.html',1,'doctest']]],
+  ['testsuite_24',['TestSuite',['../d6/d14/structdoctest_1_1detail_1_1_test_suite.html',1,'doctest::detail']]],
+  ['then_25',['THEN',['../de/dec/doctest_8h.html#a34adb14b9194a16ac5ef135dc57169d4',1,'doctest.h']]],
+  ['throwexception_26',['throwException',['../d2/d34/namespacedoctest_1_1detail.html#a60ffd50b9ee7adfcafc078f333aac8b6',1,'doctest::detail']]],
+  ['timeout_27',['Timeout',['../d7/d37/namespacedoctest_1_1_test_case_failure_reason.html#aecb2ca1f80416d60f0d6b96f65859d3ca90b6713d67ca5273d0b7aa2d2ac60ab1',1,'doctest::TestCaseFailureReason']]],
+  ['tipo_28',['Tipo',['../dc/dc5/class_filme.html#a79ce8af1d6cb3c319d5af749af76279e',1,'Filme']]],
+  ['tlsspop_29',['tlssPop',['../d2/d34/namespacedoctest_1_1detail.html#a8304147da6105e3359ba7ec124837669',1,'doctest::detail']]],
+  ['tlsspush_30',['tlssPush',['../d2/d34/namespacedoctest_1_1detail.html#a064d4f06f82441946b5093bc4553b6aa',1,'doctest::detail']]],
+  ['to_5flvalue_31',['TO_LVALUE',['../de/dec/doctest_8h.html#a70211d4e9a6027791aae1d1c1a3de87b',1,'doctest.h']]],
+  ['tolowercase_32',['tolowercase',['../de/dd3/formatacao_8hpp.html#a535a00c23ca62f09b70df3d111875989',1,'toLowerCase(const std::string &amp;input):&#160;formatacao.cpp'],['../de/d79/formatacao_8cpp.html#a535a00c23ca62f09b70df3d111875989',1,'toLowerCase(const std::string &amp;input):&#160;formatacao.cpp']]],
+  ['toomanyfailedasserts_33',['TooManyFailedAsserts',['../d7/d37/namespacedoctest_1_1_test_case_failure_reason.html#aecb2ca1f80416d60f0d6b96f65859d3cab87a56a01139c003c5f90678c37a0cb3',1,'doctest::TestCaseFailureReason']]],
+  ['tostream_34',['toStream',['../d2/d34/namespacedoctest_1_1detail.html#a9b45a266999f027a4f3f96aabf31e06b',1,'doctest::detail']]],
+  ['tostring_35',['tostring',['../d0/d4c/namespacedoctest.html#ae4e12dd9865bb31f417f9df0c41813cf',1,'doctest::toString(double long in)'],['../d0/d4c/namespacedoctest.html#a042e53409374cba1ba423c57d3a58a6f',1,'doctest::toString(long in)'],['../d0/d4c/namespacedoctest.html#ad2e7368b576fc0ca420b92c0042498e8',1,'doctest::toString(unsigned in)'],['../d0/d4c/namespacedoctest.html#abd1337b597e5968eb9be5b585a16ea8f',1,'doctest::toString(signed in)'],['../d0/d4c/namespacedoctest.html#a952f661f63e4c76d8025da928632e98c',1,'doctest::toString(short unsigned in)'],['../d0/d4c/namespacedoctest.html#a03688f50a1c6c85c68d24d1280f66626',1,'doctest::toString(short in)'],['../d0/d4c/namespacedoctest.html#ae2c3e60e3ee32da5d8fc4f778b7a225a',1,'doctest::toString(char unsigned in)'],['../d0/d4c/namespacedoctest.html#a1f910fdc13d84a538090b959a97a6fa5',1,'doctest::toString(char signed in)'],['../d0/d4c/namespacedoctest.html#af106dff2a0c068d301349b754c466378',1,'doctest::toString(char in)'],['../d0/d4c/namespacedoctest.html#af8d23a352e257456ffed49cb3ac11b4e',1,'doctest::toString(const Contains &amp;in)'],['../d0/d4c/namespacedoctest.html#ad4b29418fb58bb6c7cfdbefe2d8f7714',1,'doctest::toString()'],['../d0/d4c/namespacedoctest.html#a468ff6c2b0a692bcf88a7a97a5de0a53',1,'doctest::toString(const DOCTEST_REF_WRAP(T) value)'],['../d0/d4c/namespacedoctest.html#ab501200c3c97a66dd592acafcc6f1a95',1,'doctest::toString(String in)'],['../d0/d4c/namespacedoctest.html#a6bb27d33f7b25b3ff5fc6872f47f329b',1,'doctest::toString(std::nullptr_t)'],['../d0/d4c/namespacedoctest.html#a70fd23e88074d38b9d61476005305df5',1,'doctest::toString(bool in)'],['../d0/d4c/namespacedoctest.html#a68660ce630bd88a551ab3108709e6592',1,'doctest::toString(float in)'],['../d0/d4c/namespacedoctest.html#a43b51978c9505f682cbff9462a02f8af',1,'doctest::toString(double in)'],['../d0/d4c/namespacedoctest.html#a6ebcd3a7a6807c5bd2b960736851225c',1,'doctest::toString(long unsigned in)'],['../d0/d4c/namespacedoctest.html#a0a5486a03f9ff2a7c311df0dc6c1b149',1,'doctest::toString(long long in)'],['../d0/d4c/namespacedoctest.html#a13e028fb8470e4f87fe8e41f5300364e',1,'doctest::toString(long long unsigned in)'],['../d0/d4c/namespacedoctest.html#a63aa06a8555c5aa34a7a6e76e87a3bca',1,'doctest::toString(const Approx &amp;in)'],['../d0/d4c/namespacedoctest.html#a542bab2e5cb29a07cf5939362d2e6bdc',1,'doctest::toString(IsNaN&lt; float &gt; in)'],['../d0/d4c/namespacedoctest.html#a5e0bd449e6b10c53aab4af2957a1f45f',1,'doctest::toString(IsNaN&lt; double &gt; in)'],['../d0/d4c/namespacedoctest.html#afa7161751ef3e45340183ada2b8b11bc',1,'doctest::toString(IsNaN&lt; double long &gt; in)']]],
+  ['touppercase_36',['touppercase',['../de/dd3/formatacao_8hpp.html#a59f13cad7453907171b28586729577e5',1,'toUpperCase(const std::string &amp;input):&#160;formatacao.cpp'],['../de/d79/formatacao_8cpp.html#a59f13cad7453907171b28586729577e5',1,'toUpperCase(const std::string &amp;input):&#160;formatacao.cpp']]],
+  ['translate_37',['translate',['../dd/d98/structdoctest_1_1detail_1_1_i_exception_translator.html#a9c56005e4c83c13b859cc2e31102bfbc',1,'doctest::detail::IExceptionTranslator::translate()'],['../dd/d39/classdoctest_1_1detail_1_1_exception_translator.html#a56484c4218a06bbbd1548335a8b64110',1,'doctest::detail::ExceptionTranslator::translate()']]],
+  ['translateexception_38',['translateException',['../d2/da6/structdoctest_1_1detail_1_1_result_builder.html#a5eece6aa3b1a2cb366cf5a0cc6c854a3',1,'doctest::detail::ResultBuilder']]],
+  ['true_5ftype_39',['true_type',['../d8/de8/structdoctest_1_1detail_1_1types_1_1true__type.html',1,'doctest::detail::types']]],
+  ['tuple_40',['tuple',['../d5/d0c/classstd_1_1tuple.html',1,'std']]],
+  ['type_41',['type',['../de/da7/structdoctest_1_1detail_1_1types_1_1remove__const_3_01const_01_t_01_4.html#a9c98e32af5d08f3ba1a534c56616fb11',1,'doctest::detail::types::remove_const&lt; const T &gt;::type'],['../db/dd3/structdoctest_1_1detail_1_1types_1_1remove__const.html#acd10d1a47d144d55b5709a0cf4746209',1,'doctest::detail::types::remove_const::type'],['../d3/dfe/structdoctest_1_1detail_1_1types_1_1remove__reference_3_01_t_01_6_6_01_4.html#abd4e5fbe432a89edef24e155a4d83651',1,'doctest::detail::types::remove_reference&lt; T &amp;&amp; &gt;::type'],['../df/de3/structdoctest_1_1detail_1_1types_1_1remove__reference_3_01_t_01_6_01_4.html#aa23b58065f450a2d9674e9964d017434',1,'doctest::detail::types::remove_reference&lt; T &amp; &gt;::type'],['../da/d3e/structdoctest_1_1detail_1_1types_1_1remove__reference.html#a3221a0a08e877bda376a3744ceb94656',1,'doctest::detail::types::remove_reference::type'],['../de/dea/structdoctest_1_1detail_1_1types_1_1enable__if_3_01true_00_01_t_01_4.html#a37e544722a1ede5533999b1b0cee7cbf',1,'doctest::detail::types::enable_if&lt; true, T &gt;::type'],['../db/dab/structdoctest_1_1detail_1_1types_1_1underlying__type.html#a9ea68d093bdea7536fcd732fd361c71f',1,'doctest::detail::types::underlying_type::type']]],
+  ['type_5fto_5fstring_42',['TYPE_TO_STRING',['../de/dec/doctest_8h.html#a8245b61f7381307d76a1472436d35ebe',1,'doctest.h']]],
+  ['type_5fto_5fstring_5fas_43',['TYPE_TO_STRING_AS',['../de/dec/doctest_8h.html#aa771c8cbf9b94916a2307c77676cd9ff',1,'doctest.h']]]
+];
+>>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
