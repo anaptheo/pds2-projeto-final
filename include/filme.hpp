@@ -32,8 +32,8 @@ public:
 private:
     std::string titulo;            /**< Título do filme. */
     std::string codigo;            /**< Código único do filme. */
-    int unidadesDisponiveis;       /**< Número de unidades disponíveis para locação. */
     Tipo tipo;                     /**< Tipo do filme (DVD, BluRay, Fita). */
+    int unidadesDisponiveis;       /**< Número de unidades disponíveis para locação. */
 
 public:
     /**

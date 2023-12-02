@@ -21,13 +21,6 @@ private:
 
 public:
     /**
-     * @brief Construtor da classe Sistema.
-     * 
-     * Inicializa uma instância da classe Sistema.
-     */
-    Sistema();
-
-    /**
      * @brief Exibe informações de ajuda sobre os comandos disponíveis no sistema.
      */
     void displayHelp();
