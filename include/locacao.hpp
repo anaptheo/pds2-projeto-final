@@ -121,6 +121,18 @@ public:
      * @return Ponteiro para o filme encontrado, ou nullptr se não encontrado.
      */
     Filme* getFilme(std::string codigo_filme);
+
+    /**
+     * @brief Getter para o atributo _catalogo_filmes.
+     * @return Vetor de filmes (DVD, BluRay, Fita).
+     */
+    vector<Filme*> getvectorFilmes();
+    
+    /**
+     * @brief Getter para o atributo _clientes_cadastrados.
+     * @return Vetor de clientes.
+     */
+    vector<Cliente*> getvectorClientes(); 
 };
 
 #endif // LOCACAO_HPP
