@@ -13,6 +13,13 @@
 
 using namespace std;
 
+/**
+ * @brief Exibe os comandos disponíveis na interface da locadora.
+ *
+ * Esta função imprime no console os comandos disponíveis para interação
+ * com o sistema da locadora.
+ */
+
 void displayHelp() {
     cout << "Comandos disponiveis:" << endl;
     cout << "CF - Cadastrar Filme: Adiciona um filme ao catalogo da locadora." << endl;
@@ -27,9 +34,20 @@ void displayHelp() {
     cout << "ajuda - Exibir este menu de ajuda." << endl;
 }
 
+/**
+ * @brief Função principal que inicia o programa da locadora.
+ * @return Retorna 0 ao encerrar o programa.
+ *
+ * A função main é o ponto de entrada do programa. Nela, são declaradas variáveis
+ * necessárias para a execução e exibida uma mensagem de boas-vindas ao usuário.
+ * Em seguida, inicia um loop principal que aguarda comandos do usuário para
+ * interagir com o sistema da locadora.
+ */
 
 
 int main() {
+
+    // Declaração de variáveis
     string input;
     Locacao locacao;
     Categoria categoria;
@@ -37,6 +55,7 @@ int main() {
     int dias, quantidade;
     vector<Filme*> filmes;
 
+    // Exibição de boas-vindas
     cout << setw(50) << setfill('=') << "" << endl;
     cout << setw(10) << "        Bem-vindo a Locadora PDS!  " << endl;
     cout << setw(50) << "" << endl;
@@ -52,15 +71,44 @@ int main() {
     cout << setw(50) << setfill('=') << "" << endl;
     cout << endl;
 
-
+    // Loop principal
     while (true) {
+
+        /** @brief Solicita ao usuário que digite um comando.
+         *
+         * Este loop aguarda a entrada do usuário para interagir com o sistema da locadora.
+         * Caso o usuário digite 'ajuda', exibe o menu de ajuda. Caso contrário, realiza
+         * operações correspondentes ao comando inserido.
+         */
+
         cout << "Digite um comando (digite 'ajuda' para os comandos): ";
         cin >> input;
         input = toUpperCase(input);
         try {
+            
+            /** @brief Processa os comandos do usuário.
+             *
+             * Este bloco de código dentro do try-catch processa os comandos inseridos pelo usuário.
+             * Cada comando tem uma seção correspondente onde a ação apropriada é tomada.
+             * Se o comando não for reconhecido, uma exceção é lançada.
+             */
+
             if (input == "AJUDA") {
+                /**
+                 * @brief Exibe o menu de ajuda.
+                 *
+                 * Esta condição verifica se o comando inserido pelo usuário é 'AJUDA'
+                 * e, se verdadeiro, chama a função displayHelp() para exibir o menu de ajuda.
+                 */
                 displayHelp();
             } else if (input == "CF") {
+                /**
+                 * @brief Cadastra um filme.
+                 *
+                 * Solicita informações ao usuário para cadastrar um filme. O usuário deve
+                 * informar o tipo do filme (DVD, Bluray ou Fita) e fornece os detalhes específicos
+                 * para cada tipo.
+                 */
                 string tipo;
                 cout << "Digite o tipo do filme (D para DVD, B para Bluray, F para Fita): ";
                 cin >> tipo;
@@ -69,7 +117,16 @@ int main() {
                 Filme* filme;
                 if (tipo == "D") {
 
-                   cout << "Digite o codigo do DVD: ";
+                    /**
+                     * @brief Cadastra um DVD.
+                     *
+                     * Se o tipo do filme for DVD, este bloco de código solicita informações
+                     * específicas para DVDs, como código, título, quantidade e categoria.
+                     * Após a coleta das informações, um objeto DVD é criado e cadastrado
+                     * na locação.
+                     */
+
+                    cout << "Digite o codigo do DVD: ";
                     cin >> codigo;
                     cout << "Digite o titulo do DVD: ";
                     cin.ignore();
@@ -101,11 +158,23 @@ int main() {
                     codigo = toLowerCase(codigo);
                     titulo = firstUpper(titulo);
 
+                    // Cria um objeto DVD e cadastra na locação
+
                     filme = new DVD(titulo, codigo, quantidade, categoria);
 
                     locacao.cadastrarFilme(filme);
 
                 } else if (tipo == "B") {
+
+                     /**
+                     * @brief Cadastra um Bluray.
+                     *
+                     * Se o tipo do filme for Bluray, este bloco de código solicita informações
+                     * específicas para Blurays, como código, título e quantidade.
+                     * Após a coleta das informações, um objeto Bluray é criado e cadastrado
+                     * na locação.
+                     */
+
                     cout << "Digite o codigo do Bluray: ";
                     cin >> codigo;
 
@@ -119,12 +188,24 @@ int main() {
                     codigo = toLowerCase(codigo);
                     titulo = firstUpper(titulo);
 
+
+                    // Cria um objeto Bluray e cadastra na locação
                     filme = new Bluray(titulo, codigo, quantidade);
 
                     locacao.cadastrarFilme(filme);
 
 
                 } else if (tipo == "F") {
+
+                    /**
+                     * @brief Cadastra uma Fita.
+                     *
+                     * Se o tipo do filme for Fita, este bloco de código solicita informações
+                     * específicas para Fitas, como código, título, quantidade e se a fita está rebobinada.
+                     * Após a coleta das informações, um objeto Fita é criado e cadastrado
+                     * na locação.
+                     */
+
                     bool rebobinada;
 
                     cout << "Digite o codigo da Fita: ";
@@ -140,23 +221,79 @@ int main() {
                     codigo = toLowerCase(codigo);
                     titulo = firstUpper(titulo);
 
+                    // Cria um objeto Fita e cadastra na locação
+
                     filme = new Fita(titulo, codigo, quantidade, rebobinada);
 
                     locacao.cadastrarFilme(filme);
                     
                 } else {
+                /**
+                 * @brief Lança uma exceção para tipo de filme inválido.
+                 *
+                 * Se o tipo do filme não for DVD, Bluray ou Fita, uma exceção é lançada
+                 * informando que o tipo de filme é inválido.
+                 */
+
                     throw std::invalid_argument("ERRO: Tipo de filme inválido");
                 }
 
                 cout << "Filme cadastrado com sucesso!" << endl;
 
             } else if (input == "RF") {
+
+                /**
+                 * @brief Remove um filme do catálogo da locadora.
+                 *
+                 * Neste bloco de código, verifica-se se o comando inserido pelo usuário é 'RF'
+                 * para remoção de filme. Se verdadeiro, solicita o código do filme a ser removido
+                 * e chama o método `removerFilme` da instância `locacao` para realizar a remoção.
+                 *
+                 * @note A remoção é baseada no código do filme.
+                 *
+                 * @warning Caso o código fornecido não corresponda a nenhum filme no catálogo,
+                 *          a função `removerFilme` pode lançar uma exceção.
+                 *
+                 * Exemplo de uso:
+                 * @code
+                 * // Digite 'RF' para remover um filme
+                 * // O programa solicitará o código do filme a ser removido.
+                 * @endcode
+                 */
+
                 string codigo;
                 cout << "Digite o codigo do filme a ser removido: ";
                 cin >> codigo; 
+
+                // Chama o método para remover o filme com o código fornecido
                 locacao.removerFilme(codigo);
 
             } else if (input == "LF") {
+
+                /**
+                 * @brief Lista os filmes disponíveis na locadora.
+                 *
+                 * Neste bloco de código, verifica-se se o comando inserido pelo usuário é 'LF'
+                 * para listar os filmes disponíveis. Solicita ao usuário a preferência de ordenação
+                 * dos filmes, seja por código ou por título, e chama o método apropriado na instância
+                 * `locacao` para realizar a listagem.
+                 *
+                 * O usuário pode escolher a ordenação por código (C) ou por título (T).
+                 *
+                 * @note A ordenação é realizada internamente nos métodos `listarFilmesCodigo` e
+                 *       `listarFilmesTitulo` da classe `Locacao`.
+                 *
+                 * @warning Caso o usuário forneça uma opção inválida, uma exceção é lançada,
+                 *          indicando que a opção é inválida.
+                 *
+                 * Exemplo de uso:
+                 * @code
+                 * // Digite 'LF' para listar os filmes disponíveis.
+                 * // O programa solicitará a preferência de ordenação (C para código, T para título).
+                 * // Em seguida, exibirá a lista de filmes ordenada conforme a escolha.
+                 * @endcode
+                 */
+
                 string escolha;
                 cout << "Deseja listar os filmes por codigo ou por titulo? (C para codigo, T para titulo): ";
                 cin >> escolha;
@@ -312,6 +449,13 @@ int main() {
             }
         } 
         catch (std::exception& e) {
+
+            /** @brief Tratamento de exceção.
+             *
+             * Se ocorrer uma exceção durante o processamento dos comandos,
+             * esta seção imprime a mensagem de erro no console.
+             */
+
             cerr << e.what() << endl;
         }
     }
