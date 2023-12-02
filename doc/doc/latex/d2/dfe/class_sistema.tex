@@ -1,0 +1,594 @@
+<<<<<<< HEAD
+\doxysection{Sistema Class Reference}
+\hypertarget{class_sistema}{}\label{class_sistema}\index{Sistema@{Sistema}}
+
+
+Classe que representa o sistema de locação de filmes.  
+
+
+
+
+{\ttfamily \#include $<$sistema.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sistema_a815b07845ef6b03247b239333fe75e28}{Sistema}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_sistema}{Sistema}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1}{display\+Help}} ()
+\begin{DoxyCompactList}\small\item\em Exibe informações de ajuda sobre os comandos disponíveis no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a15469d174399cee018c57d19e7cca4f6}{cadastrar\+Filme}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de cadastrar um novo filme no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_acbb55017e9bcd71381cfee1a1e4e7a09}{cadastrar\+Cliente}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de cadastrar um novo cliente no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a339b6158c9279e91035d93fbcf4158bf}{remover\+Cliente}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de remover um cliente do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ae94df6c69a2d09200299d933f747f0b4}{remover\+Filme}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de remover um filme do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a1ffd67e201cf50f3d232b763829aedca}{listar\+Filmes}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Lista os filmes cadastrados no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ac9f0e7e5fcc83020b7c3880ea9912300}{listar\+Clientes}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Lista os clientes cadastrados no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a6c34f9bfd83d08c4ffbbb9845d2761b1}{devolver\+Filmes}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de devolução de filmes por parte do cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a6b84f61dbb4f168e0a50029000b21853}{alugar\+Filmes}} (std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Realiza a operação de aluguel de filmes para um cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a325fb96b8c50248806208a750e6c3999}{ler\+Arquivo}} (string nome\+\_\+arquivo)
+\begin{DoxyCompactList}\small\item\em Realiza a leitura de informações de arquivo para inicializar o sistema. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_sistema_aa966d092a6c3361b63d7a5f52bff826f}{gerencia\+Opcoes}} (string comando, std\+::deque$<$ std\+::string $>$ lista\+\_\+input)
+\begin{DoxyCompactList}\small\item\em Gerencia o sistema com base no input do usuário. \end{DoxyCompactList}\item 
+std\+::tuple$<$ std\+::string, std\+::deque$<$ std\+::string $>$ $>$ \mbox{\hyperlink{class_sistema_a7932112be427a13523d2fa5e9ad53d6f}{processa\+Input}} (std\+::string input)
+\begin{DoxyCompactList}\small\item\em Recebe o input em linha e retorna uma tupla contendo uma string com a operação a ser realizada e um deque com os comandos restantes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa o sistema de locação de filmes. 
+
+A classe \doxylink{class_sistema}{Sistema} gerencia as operações do sistema de locação, interagindo com a classe \doxylink{class_locacao}{Locacao}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sistema_a815b07845ef6b03247b239333fe75e28}\label{class_sistema_a815b07845ef6b03247b239333fe75e28} 
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{Sistema()}{Sistema()}}
+{\footnotesize\ttfamily Sistema\+::\+Sistema (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_sistema}{Sistema}. 
+
+Inicializa uma instância da classe \doxylink{class_sistema}{Sistema}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sistema_a6b84f61dbb4f168e0a50029000b21853}\label{class_sistema_a6b84f61dbb4f168e0a50029000b21853} 
+\index{Sistema@{Sistema}!alugarFilmes@{alugarFilmes}}
+\index{alugarFilmes@{alugarFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{alugarFilmes()}{alugarFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::alugar\+Filmes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de aluguel de filmes para um cliente. 
+
+Aluga filmes para um cliente.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o cliente não for encontrado ou o código do filme for inexistente. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_acbb55017e9bcd71381cfee1a1e4e7a09}\label{class_sistema_acbb55017e9bcd71381cfee1a1e4e7a09} 
+\index{Sistema@{Sistema}!cadastrarCliente@{cadastrarCliente}}
+\index{cadastrarCliente@{cadastrarCliente}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarCliente()}{cadastrarCliente()}}
+{\footnotesize\ttfamily void Sistema\+::cadastrar\+Cliente (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de cadastrar um novo cliente no sistema. 
+
+Solicita informações e cadastra um novo cliente na locadora.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o CPF fornecido for inválido. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a15469d174399cee018c57d19e7cca4f6}\label{class_sistema_a15469d174399cee018c57d19e7cca4f6} 
+\index{Sistema@{Sistema}!cadastrarFilme@{cadastrarFilme}}
+\index{cadastrarFilme@{cadastrarFilme}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarFilme()}{cadastrarFilme()}}
+{\footnotesize\ttfamily void Sistema\+::cadastrar\+Filme (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de cadastrar um novo filme no sistema. 
+
+Cadastra um novo filme na locadora.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o tipo de filme for inválido. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a6c34f9bfd83d08c4ffbbb9845d2761b1}\label{class_sistema_a6c34f9bfd83d08c4ffbbb9845d2761b1} 
+\index{Sistema@{Sistema}!devolverFilmes@{devolverFilmes}}
+\index{devolverFilmes@{devolverFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{devolverFilmes()}{devolverFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::devolver\+Filmes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de devolução de filmes por parte do cliente. 
+
+Permite que um cliente devolva filmes alugados.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & se nenhum filme estiver alugado para o cliente. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & se o cliente não for encontrado. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1}\label{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1} 
+\index{Sistema@{Sistema}!displayHelp@{displayHelp}}
+\index{displayHelp@{displayHelp}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{displayHelp()}{displayHelp()}}
+{\footnotesize\ttfamily void Sistema\+::display\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe informações de ajuda sobre os comandos disponíveis no sistema. 
+
+Exibe o menu de ajuda com os comandos disponíveis. \Hypertarget{class_sistema_aa966d092a6c3361b63d7a5f52bff826f}\label{class_sistema_aa966d092a6c3361b63d7a5f52bff826f} 
+\index{Sistema@{Sistema}!gerenciaOpcoes@{gerenciaOpcoes}}
+\index{gerenciaOpcoes@{gerenciaOpcoes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{gerenciaOpcoes()}{gerenciaOpcoes()}}
+{\footnotesize\ttfamily bool Sistema\+::gerencia\+Opcoes (\begin{DoxyParamCaption}\item[{string}]{comando,  }\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Gerencia o sistema com base no input do usuário. 
+
+Direciona para a função adequada dado o comando fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o comando não existir. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a325fb96b8c50248806208a750e6c3999}\label{class_sistema_a325fb96b8c50248806208a750e6c3999} 
+\index{Sistema@{Sistema}!lerArquivo@{lerArquivo}}
+\index{lerArquivo@{lerArquivo}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{lerArquivo()}{lerArquivo()}}
+{\footnotesize\ttfamily void Sistema\+::ler\+Arquivo (\begin{DoxyParamCaption}\item[{string}]{nome\+\_\+arquivo }\end{DoxyParamCaption})}
+
+
+
+Realiza a leitura de informações de arquivo para inicializar o sistema. 
+
+Lê informações de um arquivo e realiza operações no sistema da locadora.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+arquivo} & Nome do arquivo a ser lido.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o arquivo não existir. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em nome\+\_\+arquivo} & string com o nome do arquivo a ser aberto para leitura no sistema \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_ac9f0e7e5fcc83020b7c3880ea9912300}\label{class_sistema_ac9f0e7e5fcc83020b7c3880ea9912300} 
+\index{Sistema@{Sistema}!listarClientes@{listarClientes}}
+\index{listarClientes@{listarClientes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarClientes()}{listarClientes()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Clientes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Lista os clientes cadastrados no sistema. 
+
+Lista os clientes cadastrados na locadora por CPF ou nome.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se a opção de listagem for inválida. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a1ffd67e201cf50f3d232b763829aedca}\label{class_sistema_a1ffd67e201cf50f3d232b763829aedca} 
+\index{Sistema@{Sistema}!listarFilmes@{listarFilmes}}
+\index{listarFilmes@{listarFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarFilmes()}{listarFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Filmes (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Lista os filmes cadastrados no sistema. 
+
+Lista os filmes disponíveis na locadora por código ou título.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se a opção de listagem for inválida. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a7932112be427a13523d2fa5e9ad53d6f}\label{class_sistema_a7932112be427a13523d2fa5e9ad53d6f} 
+\index{Sistema@{Sistema}!processaInput@{processaInput}}
+\index{processaInput@{processaInput}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{processaInput()}{processaInput()}}
+{\footnotesize\ttfamily std\+::tuple$<$ std\+::string, std\+::deque$<$ std\+::string $>$ $>$ Sistema\+::processa\+Input (\begin{DoxyParamCaption}\item[{std\+::string}]{input }\end{DoxyParamCaption})}
+
+
+
+Recebe o input em linha e retorna uma tupla contendo uma string com a operação a ser realizada e um deque com os comandos restantes. 
+
+Lê uma lista de inputs em formato de string e os retorna, diferenciando o primeiro que é um comando.
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & String contendo o input do usuario.\\
+\hline
+{\em input} & string com o input inserido pelo usuário. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_a339b6158c9279e91035d93fbcf4158bf}\label{class_sistema_a339b6158c9279e91035d93fbcf4158bf} 
+\index{Sistema@{Sistema}!removerCliente@{removerCliente}}
+\index{removerCliente@{removerCliente}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{removerCliente()}{removerCliente()}}
+{\footnotesize\ttfamily void Sistema\+::remover\+Cliente (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de remover um cliente do sistema. 
+
+Remove um cliente da locadora com base no CPF.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & se nenhum filme estiver alugado para o cliente. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_sistema_ae94df6c69a2d09200299d933f747f0b4}\label{class_sistema_ae94df6c69a2d09200299d933f747f0b4} 
+\index{Sistema@{Sistema}!removerFilme@{removerFilme}}
+\index{removerFilme@{removerFilme}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{removerFilme()}{removerFilme()}}
+{\footnotesize\ttfamily void Sistema\+::remover\+Filme (\begin{DoxyParamCaption}\item[{std\+::deque$<$ std\+::string $>$}]{lista\+\_\+input }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de remover um filme do sistema. 
+
+Remove um filme da locadora com base no código.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & Lista contendo os inputs da operação selecionada.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se nenhum filme com os códigos fornecidos for encontrado. \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Parameters}
+{\em lista\+\_\+input} & lista de inputs a serem utilizados pela função \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{sistema_8hpp}{sistema.\+hpp}}\item 
+src/\mbox{\hyperlink{sistema_8cpp}{sistema.\+cpp}}\end{DoxyCompactItemize}
+=======
+\doxysection{Sistema Class Reference}
+\hypertarget{class_sistema}{}\label{class_sistema}\index{Sistema@{Sistema}}
+
+
+Classe que representa o sistema de locação de filmes.  
+
+
+
+
+{\ttfamily \#include $<$sistema.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sistema_a815b07845ef6b03247b239333fe75e28}{Sistema}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_sistema}{Sistema}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1}{display\+Help}} ()
+\begin{DoxyCompactList}\small\item\em Exibe informações de ajuda sobre os comandos disponíveis no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a962d328f8bfe69979eb5f285de5d5fce}{cadastrar\+Filme}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de cadastrar um novo filme no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ac071a263e7b7ce22740a1800959bdea6}{cadastrar\+Cliente}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de cadastrar um novo cliente no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_ad4f3f554a42a9de933fa1d7dc7b6a5e7}{remover\+Cliente}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de remover um cliente do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_aafd9516cb4d96fb4b8dde70dff4fd9da}{remover\+Filme}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de remover um filme do sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a5876e13f39f619ccae85349237995162}{listar\+Filmes}} ()
+\begin{DoxyCompactList}\small\item\em Lista os filmes cadastrados no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a5da8a003d93ab90b11377afaf4e9c44c}{listar\+Clientes}} ()
+\begin{DoxyCompactList}\small\item\em Lista os clientes cadastrados no sistema. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a3b7d045640c1a0d68a2b12e75a7b8a50}{devolver\+Filmes}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de devolução de filmes por parte do cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_af92e4542875f0ee11a198cf0987f7e8e}{alugar\+Filmes}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a operação de aluguel de filmes para um cliente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_sistema_a8bbc41204dc96fe3dc8cac80c2f8e2aa}{ler\+Arquivo}} ()
+\begin{DoxyCompactList}\small\item\em Realiza a leitura de informações de arquivo para inicializar o sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que representa o sistema de locação de filmes. 
+
+A classe \doxylink{class_sistema}{Sistema} gerencia as operações do sistema de locação, interagindo com a classe \doxylink{class_locacao}{Locacao}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_sistema_a815b07845ef6b03247b239333fe75e28}\label{class_sistema_a815b07845ef6b03247b239333fe75e28} 
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\index{Sistema@{Sistema}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{Sistema()}{Sistema()}}
+{\footnotesize\ttfamily Sistema\+::\+Sistema (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe \doxylink{class_sistema}{Sistema}. 
+
+Construtor da classe \doxylink{class_sistema}{Sistema}. Inicializa o objeto de \doxylink{class_locacao}{Locacao} no construtor do \doxylink{class_sistema}{Sistema}.
+
+Inicializa uma instância da classe \doxylink{class_sistema}{Sistema}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_sistema_af92e4542875f0ee11a198cf0987f7e8e}\label{class_sistema_af92e4542875f0ee11a198cf0987f7e8e} 
+\index{Sistema@{Sistema}!alugarFilmes@{alugarFilmes}}
+\index{alugarFilmes@{alugarFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{alugarFilmes()}{alugarFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::alugar\+Filmes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de aluguel de filmes para um cliente. 
+
+Solicita informações e aluga filmes para um cliente.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o cliente não for encontrado ou o código do filme for inexistente. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_ac071a263e7b7ce22740a1800959bdea6}\label{class_sistema_ac071a263e7b7ce22740a1800959bdea6} 
+\index{Sistema@{Sistema}!cadastrarCliente@{cadastrarCliente}}
+\index{cadastrarCliente@{cadastrarCliente}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarCliente()}{cadastrarCliente()}}
+{\footnotesize\ttfamily void Sistema\+::cadastrar\+Cliente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de cadastrar um novo cliente no sistema. 
+
+Solicita informações e cadastra um novo cliente na locadora.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o CPF fornecido for inválido. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_a962d328f8bfe69979eb5f285de5d5fce}\label{class_sistema_a962d328f8bfe69979eb5f285de5d5fce} 
+\index{Sistema@{Sistema}!cadastrarFilme@{cadastrarFilme}}
+\index{cadastrarFilme@{cadastrarFilme}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{cadastrarFilme()}{cadastrarFilme()}}
+{\footnotesize\ttfamily void Sistema\+::cadastrar\+Filme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de cadastrar um novo filme no sistema. 
+
+Solicita informações e cadastra um novo filme na locadora.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o tipo de filme for inválido. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_a3b7d045640c1a0d68a2b12e75a7b8a50}\label{class_sistema_a3b7d045640c1a0d68a2b12e75a7b8a50} 
+\index{Sistema@{Sistema}!devolverFilmes@{devolverFilmes}}
+\index{devolverFilmes@{devolverFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{devolverFilmes()}{devolverFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::devolver\+Filmes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de devolução de filmes por parte do cliente. 
+
+Permite que um cliente devolva filmes alugados.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & se nenhum filme estiver alugado para o cliente. \\
+\hline
+{\em std\+::invalid\+\_\+argument} & se o cliente não for encontrado. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1}\label{class_sistema_ad76bda957ea1b1da9506e3f14ec45bf1} 
+\index{Sistema@{Sistema}!displayHelp@{displayHelp}}
+\index{displayHelp@{displayHelp}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{displayHelp()}{displayHelp()}}
+{\footnotesize\ttfamily void Sistema\+::display\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Exibe informações de ajuda sobre os comandos disponíveis no sistema. 
+
+Exibe o menu de ajuda com os comandos disponíveis. \Hypertarget{class_sistema_a8bbc41204dc96fe3dc8cac80c2f8e2aa}\label{class_sistema_a8bbc41204dc96fe3dc8cac80c2f8e2aa} 
+\index{Sistema@{Sistema}!lerArquivo@{lerArquivo}}
+\index{lerArquivo@{lerArquivo}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{lerArquivo()}{lerArquivo()}}
+{\footnotesize\ttfamily void Sistema\+::ler\+Arquivo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a leitura de informações de arquivo para inicializar o sistema. 
+
+Lê informações de um arquivo e cadastra os filmes na locadora.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se o arquivo não existir. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_a5da8a003d93ab90b11377afaf4e9c44c}\label{class_sistema_a5da8a003d93ab90b11377afaf4e9c44c} 
+\index{Sistema@{Sistema}!listarClientes@{listarClientes}}
+\index{listarClientes@{listarClientes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarClientes()}{listarClientes()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Clientes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lista os clientes cadastrados no sistema. 
+
+Lista os clientes cadastrados na locadora por CPF ou nome.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se a opção de listagem for inválida. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_a5876e13f39f619ccae85349237995162}\label{class_sistema_a5876e13f39f619ccae85349237995162} 
+\index{Sistema@{Sistema}!listarFilmes@{listarFilmes}}
+\index{listarFilmes@{listarFilmes}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{listarFilmes()}{listarFilmes()}}
+{\footnotesize\ttfamily void Sistema\+::listar\+Filmes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Lista os filmes cadastrados no sistema. 
+
+Lista os filmes disponíveis na locadora por código ou título.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & se a opção de listagem for inválida. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_ad4f3f554a42a9de933fa1d7dc7b6a5e7}\label{class_sistema_ad4f3f554a42a9de933fa1d7dc7b6a5e7} 
+\index{Sistema@{Sistema}!removerCliente@{removerCliente}}
+\index{removerCliente@{removerCliente}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{removerCliente()}{removerCliente()}}
+{\footnotesize\ttfamily void Sistema\+::remover\+Cliente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de remover um cliente do sistema. 
+
+Remove um cliente da locadora com base no CPF.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & se nenhum filme estiver alugado para o cliente. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{class_sistema_aafd9516cb4d96fb4b8dde70dff4fd9da}\label{class_sistema_aafd9516cb4d96fb4b8dde70dff4fd9da} 
+\index{Sistema@{Sistema}!removerFilme@{removerFilme}}
+\index{removerFilme@{removerFilme}!Sistema@{Sistema}}
+\doxysubsubsection{\texorpdfstring{removerFilme()}{removerFilme()}}
+{\footnotesize\ttfamily void Sistema\+::remover\+Filme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Realiza a operação de remover um filme do sistema. 
+
+Remove um filme da locadora com base no código. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{sistema_8hpp}{sistema.\+hpp}}\item 
+src/\mbox{\hyperlink{sistema_8cpp}{sistema.\+cpp}}\end{DoxyCompactItemize}
+>>>>>>> 7a5d314748e3a13273b3b5d8c8131819ee0ae436
